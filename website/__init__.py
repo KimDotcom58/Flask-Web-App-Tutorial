@@ -2,9 +2,10 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
+from sqlalchemy import func
 
 db = SQLAlchemy()
-DB_NAME = "database.db"
+DB_NAME = "app.db"
 
 
 def create_app():
@@ -38,3 +39,168 @@ def create_database(app):
     if not path.exists('website/' + DB_NAME):
         db.create_all(app=app)
         print('Created Database!')
+        app.app_context().push()
+        populate_database()
+
+
+def populate_database():
+    populate_strategies()
+    populate_filters()
+    populate_markets()
+    populate_stocks()
+    populate_stock_prices()
+
+    print("Populated Database!")
+
+def populate_strategies():
+
+    from .models import Strategy
+
+    strategies = ['opening_range_breakout', 'opening_range_breakdown', 'bollinger_bands']
+    parameters = ['param_stock_strategy_breakout', 'param_stock_strategy_breakdown', 'param_stock_strategy_bollinger']
+    urls = ['https://preview.redd.it/5hr25h8tf3n61.png?width=1800&format=png&auto=webp&s=0bd3665b1caf5e1907833734830efc515d25d1c8', 'https://preview.redd.it/ayr4fmcuf3n61.png?width=1794&format=png&auto=webp&s=6f5a9e5edb052c87d16d74e6113e45d0a6b18b5b', 'https://i0.wp.com/www.dolphintrader.com/wp-content/uploads/2013/03/bollingerbands-Awesome1.gif?resize=620%2C550']
+
+    for strat in strategies:
+        new_strategy = Strategy(name=strat, params=parameters[strategies.index(strat)], url_pic=urls[strategies.index(strat)])
+        db.session.add(new_strategy)
+        db.session.commit()
+    print("...populated strategies...")
+
+def populate_filters():
+
+    from .models import Filter
+
+    filters = ['new_closing_highs', 'new_closing_lows', 'rsi_overbought', 'rsi_oversold']
+
+    for filter in filters:
+        new_filter = Filter(name=filter)
+        db.session.add(new_filter)
+        db.session.commit()
+    print("...populated filters...")
+
+def populate_markets():
+    from .models import Market
+
+    markets=Market.query.limit(100).all()
+    market_list = [market.name for market in markets]
+
+    import csv
+    # Read markets.csv to add new markets
+    new_markets = []
+    with open('website/markets.csv') as f:
+        reader = csv.reader(f)
+        for line in reader:
+            new_markets.append(line)
+
+    # For all new markets:
+    for new_market in new_markets:
+        if new_market[1] not in market_list:                    # If name of new market not in database yet, add it
+            try:
+                print(f"Add a new market: {new_market[0]}, {new_market[1]}")
+                new_market = Market(exchange=new_market[0], name=new_market[1], market_open_local=new_market[2], market_close_local=new_market[3], timezone=new_market[4], pause_start=new_market[5], pause_stop=new_market[6])
+                print(new_market.name)
+                db.session.add(new_market)
+                db.session.commit()           
+            except Exception as e:
+                print(new_market[0])
+                print(e)
+        else:
+            print(f"Already existing, skipped {new_market[0]}")
+
+    print("...populated markets...")
+
+
+def populate_stocks():
+
+    from website import config, helpers
+    import alpaca_trade_api as tradeapi
+    from .models import Stock, Market
+
+    stocks=Stock.query.all()
+    symbols = [stock.symbol for stock in stocks]
+
+    api = tradeapi.REST(config.API_KEY_ALPACA,
+                        config.API_SECRET_ALPACA,
+                        base_url=config.API_URL)
+
+    assets = api.list_assets()
+
+    for asset in assets:
+        print(asset.symbol)
+        try:
+            if asset.status == 'active' and asset.tradable and asset.symbol not in symbols:
+                market_id = Market.query.filter_by(exchange=asset.exchange).first().id
+                # print(market_id)
+                # print(f"Added a new stock: {asset.exchange} {asset.symbol} {asset.name}")
+                new_stock = Stock(symbol=asset.symbol, name=asset.name, market_id=market_id, shortable=asset.shortable)
+                db.session.add(new_stock)
+                db.session.commit()
+        except Exception as e:
+            print(asset.symbol)
+            print(e)
+
+    print("...populated stocks...")
+
+
+def populate_stock_prices():
+
+    from website import config
+    import alpaca_trade_api as tradeapi
+    import tulipy, numpy
+    from datetime import date, datetime
+    from .models import Stock, Stock_price
+    # https://www.youtube.com/watch?v=Ni8mqdUXH3g
+
+    stocks=Stock.query.all()
+
+    symbols = []
+    stock_dict = {}
+    for stock in stocks:
+        symbol = stock.symbol
+        symbols.append(symbol)
+        stock_dict[symbol] = stock.id
+
+    api = tradeapi.REST(config.API_KEY_ALPACA, config.API_SECRET_ALPACA, base_url=config.API_URL)
+
+    current_date = date.today().isoformat()
+
+    chunk_size = 200
+    for i in range(0, len(symbols), chunk_size):
+        symbol_chunk = symbols[i:i+chunk_size]
+        barsets = api.get_barset(symbol_chunk, 'day', start=current_date, end=current_date)
+
+        for symbol in barsets:
+            recent_closes = [bar.c for bar in barsets[symbol]]
+            stock_id = stock_dict[symbol]
+            print(symbol)
+            date = db.session.query(func.max(Stock_price.date)).filter(Stock_price.stock_id==stock_id).scalar()
+
+            try:
+                max_date = datetime.strptime(date, '%Y-%m-%d').date().isoformat()
+            except Exception as e:
+                # print(f"No data {e}")
+                max_date = datetime.strptime('2000-01-01', '%Y-%m-%d').date().isoformat()
+
+            for bar in barsets[symbol]:
+                bar_date = bar.t.date().isoformat()
+
+                if bar_date > max_date and bar_date < current_date:
+
+                    if len(recent_closes) >= 50:
+                        sma_20 = tulipy.sma(numpy.array(recent_closes), period=20)[-1]
+                        sma_50 = tulipy.sma(numpy.array(recent_closes), period=50)[-1]
+                        rsi_14 = tulipy.rsi(numpy.array(recent_closes), period=14)[-1]
+                    else:
+                        sma_20, sma_50, rsi_14 = None, None, None
+                        
+                    try:
+                        new_stock_price = Stock_price(stock_id=stock_id, date=bar.t.date(), open=bar.o, high=bar.h, low=bar.l, close=bar.c, volume=bar.v, sma_20=sma_20, sma_50=sma_50, rsi_14=rsi_14)
+                        db.session.add(new_stock_price)
+                        # print(f"added price to {symbol}")
+
+                    except Exception as e:
+                        print(f"No stock-price added {e}")
+
+        db.session.commit()
+    print("...populated prices...")
+

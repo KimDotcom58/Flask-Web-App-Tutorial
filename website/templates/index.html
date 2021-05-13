@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script>
+    var Stock_detail_var = {
+
+        actual_document: document,
+
+        show_placed_div: "divX",
+        disable_apply_button: "submitting",
+
+        toggle_class: "toggle-divs"
+    };
+
+    var toggle_div = {
+        toggle_class: "toggle-divs",
+        toggled_class_prefix: "div",
+
+        case: "index",
+
+        actual_document: document,
+        disable_apply_button: NaN
+    }
+
+</script>
+
+<link href="{{ url_for('static', filename='stock_detail.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ url_for('static', filename='toggle_div.js') }}"></script>
+
+<h1>
+    Stock Filter
+</h1>
+
+<form method="get">
+    <div class="aside">
+        <select name="filter" class="toggle-divs">
+            <option value="">All Stocks</option>
+            {% for filter in filters %}
+            <option {% if true %}selected="selected" {% endif %}
+                value="{{filter.name}}">{{filter.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="aside">
+        <div class="divnew_closing_highs" style="display:none;">
+
+        </div>
+
+        <div class="divnew_closing_lows" style="display:none;">
+
+        </div>
+
+        <div class="divrsi_overbought" style="display:none;">
+            <label for="rsi">rsi</label>
+            <input type="number" id="number" name="rsi_ob" value=70 min=1 max=100>
+            <span class="validity"></span>
+        </div>
+
+        <div class="divrsi_oversold" style="display:none;">
+            <label for="rsi">rsi</label>
+            <input type="number" id="number" name="rsi_os" value=30 min=1 max=100>
+            <span class="validity"></span>
+        </div>
+        <input type="submit" value="Apply filter" />
+    </div>
+</form>
+
+<h1>
+    Stock List
+</h1>
+
+<table class="ui striped table">
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Close</th>
+            <th>RSI 14</th>
+            <th>SMA 20</th>
+            <th>SMA 50</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks %}
+        <tr>
+            <td>{{ stock.symbol }}</td>
+            <td><a href="/stock/{{stock.symbol}}">{{ stock.name }}</a> </td>
+            {% if stock.date %}
+            {% if stock.close %}
+            <td>{{ stock.close|float|round(2) }}</td>
+            {% else %}
+            <td>N/A</td>
+            {% endif %}
+            {% if stock.rsi_14 %}
+            <td>{{ stock.rsi_14|float|round(2) }}</td>
+            {% else %}
+            <td>N/A</td>
+            {% endif %}
+            {% if stock.sma_20 %}
+            <td>{{ stock.sma_20|float|round(3) }}</td>
+            {% else %}
+            <td>N/A</td>
+            {% endif %}
+            {% if stock.sma_50 %}
+            <td>{{ stock.sma_50|float|round(3)}}</td>
+            {% else %}
+            <td>N/A</td>
+            {% endif %}
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

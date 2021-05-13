@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script>
+    // variables for the js-file to handle strategy-submit
+    var handle_submit_strategy_var = {
+
+        stocks_bollinger: "{{stocks_bollinger}}",
+        stocks_breakdown: "{{stocks_breakdown}}",
+        stocks_breakout: "{{stocks_breakout}}",
+
+        disable_apply_button: "submitting",
+
+        stock_id: "{{ stock.id }}",
+
+        actual_document: document,
+        show_placed_div: "divX"
+    };
+
+    var toggle_div = {
+
+        toggle_class: "toggle-divs",
+        toggled_class_prefix: "div",
+
+        case: "detail",
+
+        actual_document: document,
+        disable_apply_button: "submitting"
+    }
+    $(document).ready(function () {
+
+        // On begin disable the apply button and ...
+        handle_submit_strategy_var.actual_document.getElementById(handle_submit_strategy_var.disable_apply_button).disabled = true;
+
+        // ... if the stock is traded in a strategy, a (!) will be added
+        if (handle_submit_strategy_var.stocks_breakout.includes(handle_submit_strategy_var.stock_id) || handle_submit_strategy_var.stocks_breakdown.includes(handle_submit_strategy_var.stock_id) || handle_submit_strategy_var.stocks_bollinger.includes(handle_submit_strategy_var.stock_id)) {
+            handle_submit_strategy_var.actual_document.getElementById(handle_submit_strategy_var.disable_apply_button).value = "Apply Strategy (!)";
+        }
+    })
+</script>
+
+<link href="{{ url_for('static', filename='css/stock_detail.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/toggle_div.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/handle_submit_strategy.js') }}"></script>
+
+<h1><a href="/stocks">Stocks</a>
+    <i class="angle double right icon"></i>
+    {{ stock.name }} ({{ stock.symbol }})
+</h1>
+
+<h2>Market: {{stock.market_name}}</h2>
+
+<!-- TradingView Widget BEGIN
+<div class="tradingview-widget-container">
+    <div id="tradingview_a8dd1"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+        new TradingView.widget(
+            {
+                "width": "100%",
+                "height": 610,
+                "symbol": "{% if stock.exchange == 'ARCA' %}AMEX{% else %}{{ stock.exchange }}{% endif %}:{{stock.symbol}}",
+                "interval": "D",
+                "timezone": "Europe/London",
+                "theme": "dark",
+                "style": "1",
+                "locale": "de_DE",
+                "toolbar_bg": "#f1f3f6",
+                "enable_publishing": false,
+                "allow_symbol_change": true,
+                "container_id": "tradingview_a8dd1"
+            }
+        );
+    </script>
+</div>
+TradingView Widget END -->
+
+<!-- Toggle-Strategy-Div BEGIN -->
+
+<!--
+    1. function changes visibility of div
+    2. function asks user to replace applied strategy on stock or apply anyways
+-->
+
+<h3>Opens at {{stock.market_open_local}} and closes at {{stock.market_close_local}}</h3>
+
+<h2>Apply Strategy</h2>
+
+<form id="form_apply_strategy" name="form_apply_strategy" method="post" action="/apply_strategy">
+
+    <div class="aside">
+        <select name="strategy_id" class="toggle-divs">
+            <option selected="selected" value="">Select item...</option>
+            {% for strategy in strategies %}
+            <option value="{{ strategy.id }}">{{strategy.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="aside">
+
+        <!-- div to show BREAKOUT strategy -->
+        <div class="div1" style="display:none;" id="div1">
+
+            <!-- OBSERVE FROM -->
+            <label for="observe_from_breakout">observe_from</label>
+            <input type="time" name="observe_from_breakout" id="observe_from_breakout"
+                value="{{stock.market_open_local}}" readonly>
+            <span class="validity"></span>
+            <br>
+            <!-- OBSERVE UNTIL -->
+            <label for="observe_until_breakout">observe_until</label>
+            <input type="time" name="observe_until_breakout" id="observe_until_breakout"
+                value="{{stock.market_close_local}}" min={{stock.market_open_local}}
+                max="{{stock.market_close_local}}">
+            <span class="validity"></span>
+            <br>
+            <!-- TRADING PRICE -->
+            <label for="trade_price_breakout">trade_price</label>
+            <input type="number" name="trade_price_breakout" id="trade_price_breakout" value=15 min=1 max=10000>
+            <span class="validity"></span>
+        </div>
+
+        <!-- div to show BREAKDOWN strategy -->
+        <div class="div2" style="display:none;" id="div2">
+            <!-- OBSERVE FROM -->
+            <label for="observe_from_breakdown">observe_from</label>
+            <input type="time" name="observe_from_breakdown" id="observe_from_breakdown"
+                value="{{stock.market_open_local}}" readonly>
+            <span class="validity"></span>
+            <br>
+            <!-- OBSERVE UNTIL -->
+            <label for="observe_until_breakdown">observe_until</label>
+            <input type="time" name="observe_until_breakdown" id="observe_until_breakdown"
+                value="{{stock.market_close_local}}" min={{stock.market_open_local}}
+                max="{{stock.market_close_local}}">
+            <span class="validity"></span>
+            <br>
+            <!-- TRADING PRICE -->
+            <label for="trade_price_breakdown">trade_price</label>
+            <input type="number" name="trade_price_breakdown" id="trade_price_breakdown" value=15 min=1 max=10000>
+            <span class="validity"></span>
+        </div>
+
+        <!-- div to show BOLLINGER strategy -->
+        <div class="div3" style="display:none;" id="div3">
+            <!-- PERIOD -->
+            <label for="period_bollinger">period</label>
+            <input type="number" name="period_bollinger" id="period_bollinger" value=15 min=1 max=50>
+            <span class="validity"></span>
+            <br>
+            <!-- PERIOD -->
+            <label for="stddev_bollinger">stddev</label>
+            <input type="number" name="stddev_bollinger" id="stddev_bollinger" value=2 min=1 max=5>
+            <span class="validity"></span>
+            <br>
+            <!-- TRADING PRICE -->
+            <label for="trade_price">trade_price</label>
+            <input type="number" name="trade_price" id="trade_price" value=15 min=1 max=10000>
+            <span class="validity"></span>
+        </div>
+
+        <!-- div to show that strategy is applied -->
+        <div class="divX" style="display:none;" id="divX">
+            The stock "{{stock.name}}" has already been placed on a strategy.<br>
+            See following section "Applied Strategies" to figure out which parameters already are applied.<br>
+            Please choose option:<br>
+            <ul>
+                <!-- <li><a href="/" onclick="this.closest('form').submit();return false;">Go to stock's parameter settings:</a><br>
+                    <OL>
+                        <LI>Add an additional entry for "{{stock.name}}".
+                        <LI>Decide at parameter settings, which stocks will be traded.
+                    </OL>
+                </li> -->
+                <li><a href="/stock/{{stock.symbol}}" onclick="this.closest('form').submit();return false;">Place anyway:</a><br>
+                    <OL>
+                        <LI>Continue tracking existing entrys for "{{ stock.name }}".
+                        <LI>Add an additional entry.
+                    </OL>
+                </li>
+                <li><a href="/stock/{{stock.symbol}}" onclick="return myfunctionhandler('none')">Cancel</a><br>
+                    <OL>
+                        <LI>Do nothing.
+                    </OL>
+                </li>
+            </ul>
+
+        </div>
+
+        <input type="hidden" value=15 name="period" id="period">
+        <input type="hidden" value=15 name="stddev" id="stddev">
+        <input type="hidden" value=15 name="trade_price" id="trade_price">
+        <input type="hidden" value="{{stock.market_open_local}}" name="observe_from" id="observe_from">
+        <input type="hidden" value="{{stock.market_close_local}}" name="observe_until" id="observe_until">
+        <input type="hidden" name="stock_id" value="{{ stock.id }}" />
+        <input type="submit" value="Apply Strategy" class="testform" onclick="return myfunctionhandler('block')"
+            id="submitting" />
+</form>
+<!-- Toggle-Strategy-Div END -->
+
+
+<!-- Show all applied strategies on stock Begin-->
+{% if parameters_breakout or parameters_breakdown or parameters_bollinger %}
+<h2>Applied Strategies</h2>
+{% endif %}
+
+{% for strategy in strategies %}
+{% if strategy.name == "opening_range_breakout" and parameters_breakout %}
+<h3>{{strategy.name}}</h3>
+<table class="ui striped table">
+    <thead>
+        <tr>
+            <th>observe_from</th>
+            <th>observe_until</th>
+            <th>trade_price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for parameter in parameters_breakout %}
+        <tr>
+            <td>{{ parameter.observe_from }}</td>
+            <td>{{ parameter.observe_until }}</td>
+            <td>{{ parameter.trade_price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% elif strategy.name == "opening_range_breakdown" and parameters_breakdown%}
+<h3>{{strategy.name}}</h3>
+<table class="ui striped table">
+    <thead>
+        <tr>
+            <th>observe_from</th>
+            <th>observe_until</th>
+            <th>trade_price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for parameter in parameters_breakdown %}
+        <tr>
+            <td>{{ parameter.observe_from }}</td>
+            <td>{{ parameter.observe_until }}</td>
+            <td>{{ parameter.trade_price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% elif strategy.name == "bollinger_bands" and parameters_bollinger%}
+<h3>{{strategy.name}}</h3>
+<table class="ui striped table">
+    <thead>
+        <tr>
+            <th>period</th>
+            <th>stddev</th>
+            <th>trade_price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for parameter in parameters_bollinger %}
+        <tr>
+            <td>{{ parameter.period }}</td>
+            <td>{{ parameter.stddev }}</td>
+            <td>{{ parameter.trade_price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{%endfor%}
+
+<!-- Show all applied strategies on stock END-->
+
+<h2>Prices</h2>
+<table class="ui striped table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+            <th>Volume</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bar in bars %}
+        <tr>
+            <td>{{ bar.date }}</td>
+            <td>{{ bar.open }}</td>
+            <td>{{ bar.high }}</td>
+            <td>{{ bar.low }}</td>
+            <td>{{ bar.close }}</td>
+            <td>{{ bar.volume }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

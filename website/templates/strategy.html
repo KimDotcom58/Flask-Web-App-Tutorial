@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1><a href="/strategies">Strategies</a>
+    <i class="angle double right icon"></i>
+    {{ strategy.name }}
+</h1>
+{% if stocks: %}
+<h2>Stocks traded by {{strategy.name}}</h2>
+
+<script>
+    var favorites = {
+        
+    };
+</script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/get_row_data.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/get_table_data.js') }}"></script>
+
+<script tyoe = "text/javascript">
+    function get_row_data() {
+    var rowId = event.target.parentNode.parentNode.id;
+    console.log(rowId)
+    //this gives id of tr whose button was clicked
+    var data = document.getElementById(rowId).querySelectorAll(".row-data");
+    /*returns array of all elements with 
+    "row-data" class within the row with given id*/
+    var len = data.length
+    var text = ""
+    var symbol = data[0].innerHTML;
+    var name = data[1].innerHTML;
+    var stock_id = data[2].innerHTML;
+    var parameter_id = data[3].innerHTML;
+    text += "Do you really want to delete \"" + name + "\"?\n\t- Symbol: \t\t" + symbol + "\n\t- Stock ID: \t\t" + stock_id + "\n\t- Parameter ID: \t" + parameter_id+ "\n\t- ";
+    for (i = 4; i < len ; i++){
+        text += "Parameter"+String(i-3)+": \t\t"+ data[i].innerHTML;
+        if(i < len-1)
+        {
+            text += "\n\t- ";
+        }
+    }
+    text += "\nAll parameters will be saved and can be re-applied in the settings."
+
+    document.getElementById("parameter_id").value = parameter_id;
+    document.getElementById("stock_id").value = stock_id;
+
+    return confirm(text);
+}
+    function get_row_checkboxes() {
+    try {
+        //gets table
+        var oTable = document.getElementById('myTable');
+
+        //gets rows of table
+        var rowLength = oTable.rows.length;
+        
+        //loops through rows    
+        var has_checked = false;
+        for (i = 1; i < rowLength; i++) {
+            console.log(i)
+            //gets cells of current row  
+            var oCells = oTable.rows.item(i).cells;
+
+            var parameter_id = oCells.item(3).innerHTML;
+            console.log(parameter_id)
+            var stock_id = oCells.item(2).innerHTML;
+            
+            const cb = document.getElementById('checkbox'+parameter_id);
+            console.log(cb.checked);
+
+            if (cb.checked) {
+                console.log('checkbox'+parameter_id)
+                has_checked = true;
+                favorites[parameter_id] = {'stock_id':stock_id}
+            }
+        }
+
+        array = JSON.stringify( favorites );
+        document.getElementById("parameters_to_apply").value = array
+
+        if(!has_checked)
+        {
+            alert("Nothing happens, no checkboxex checked!")
+        }
+        return has_checked;
+    }
+    catch (e) {
+        alert(e);
+    }
+}
+
+</script>
+
+
+<form id="form_delete_traded_strategy" name="form_delete_traded_strategy" {% if mode == 'applied' %}method="post" action="/delete_traded_strategy"{% else %}method="get" action="/apply_saved_strategies/{{strategy.name}}"{% endif %}>
+
+    <input type="hidden" id="strategy_id" name="strategy_id" value="{{strategy.id}}">
+
+    <table class="ui striped table" id="myTable">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Stock ID</th>
+                <th>Parameter ID</th>
+
+                {% if strategy.name == "opening_range_breakout" or strategy.name == "opening_range_breakdown" %}
+                <th>observe_from</th>
+                <th>observe_until</th>
+
+                {% elif strategy.name == "bollinger_bands"%}
+                <th>period</th>
+                <th>stddev</th>
+
+                {% endif %}
+
+                <th>trade_price</th>
+
+                <th>{% if mode == 'applied' %}Not trade anymore{% else %}Check/Uncheck to trade{% endif %}</th>
+
+                {% if mode == 'saved' %}<th>is traded</th>{%endif%}
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr id="{{stock.parameter_id}}">
+                <td class="row-data">{{ stock.symbol }}</td>
+                <td class="row-data">{{ stock.name }}</td>
+                <td class="row-data">{{ stock.stock_id }}</td>
+                <td class="row-data">{{ stock.parameter_id }}</td>
+                {% if strategy.name == "opening_range_breakout" or strategy.name == "opening_range_breakdown" %}
+                <td class="row-data">{{ stock.observe_from }}</td>
+                <td class="row-data">{{ stock.observe_until }}</td>
+                {% elif strategy.name == "bollinger_bands"%}
+                <td class="row-data">{{ stock.period }}</td>
+                <td class="row-data">{{ stock.stddev }}</td>
+                {% endif %}
+                <td class="row-data">{{ stock.trade_price }}</td>
+
+                <td>{% if mode == 'applied' %}<input type="submit" {% if mode == 'applied' %}value="delete" onclick="return get_row_data()"{% endif %}>{% else %}<input type="checkbox" name="checkbox{{stock.parameter_id}}" id="checkbox{{stock.parameter_id}}" {% if is_traded[stock.parameter_id] == True %}checked{% endif %}>{% endif %}</td>
+
+                {% if mode == 'saved' %}<th>{% if is_traded[stock.parameter_id] == True %}Yes{% else %}No{% endif %}</th>{%endif%}
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <input type="hidden" value = "0" name="parameters_to_apply" id="parameters_to_apply">
+    <input type="hidden" value = "0" name="parameter_id" id="parameter_id">
+    <input type="hidden" value = "0" name="stock_id" id="stock_id">
+    <input type="hidden" value = "{{strategy.id}}" name="strategy_id" id="strategy_id">
+    <input type="hidden" value = "{{strategy.name}}" name="strategy_name" id="strategy_name">
+    <button type="submit" value="Apply settings" name="apply_settings" id="apply_settings" onclick="return get_row_checkboxes()">lol</button>
+</form>
+
+{% else %}
+no stocks
+{% endif %}
+
+{% endblock %}

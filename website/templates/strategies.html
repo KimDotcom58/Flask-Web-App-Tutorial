@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script>
+    var number_strategies = "{{strategies|length}}"
+    console.log("{{strategies|length}}")
+</script>
+<link href="{{ url_for('static', filename='css/modal.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/modal.js') }}"></script>
+
+<h1>
+    Strategies
+</h1>
+<table class="ui striped table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Picture</th>
+            <th>Applied</th>
+            <th>Saved</th>
+        </tr>
+    </thead>
+    {% for strategy in strategies %}
+    <tr>
+        <td>
+            {{ strategy.name }}
+        </td>
+        <td>
+            <img id="myImg{{strategy.id}}" src="{{ strategy.url_pic }}" alt="img{{ strategy.name }}" width="10%">
+
+            <!-- The Modal -->
+            <div id="myModal{{strategy.id}}" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close" id="close{{strategy.id}}">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img{{strategy.id}}">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption{{strategy.id}}"></div>
+            </div>
+        </td>
+        <td>
+            <a href="strategy/{{ strategy.name }}/applied">List</a>
+        </td>
+        <td>
+            <a href="strategy/{{ strategy.name }}/saved">List</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
