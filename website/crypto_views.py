@@ -1,0 +1,463 @@
+from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
+from flask_login import login_required, current_user
+from .models import Note
+from . import db
+import json
+from sqlalchemy import desc, asc, func
+
+crypto_views = Blueprint('crypto_views', __name__)
+
+@crypto_views.route('/cryptos', methods=['GET', 'POST'])
+@login_required
+def index():
+    # read data from request
+    crypto_filter = request.args.get('filter')
+    rsi_ob = request.args.get('rsi_ob')
+    rsi_os = request.args.get('rsi_os')
+
+    from .models import Crypto_price
+    max_date = db.session.query(func.max(Crypto_price.date)).first()[0]
+
+    # grab latest stock-data according filter
+    if crypto_filter == 'new_closing_highs':
+
+        from .models import Crypto, Crypto_price
+
+        last_orders = db.session.query(
+            Crypto_price.crypto_id, db.func.max(Crypto_price.close).label('max_close_Crypto')
+        ).group_by(Crypto_price.crypto_id).subquery()
+
+        Cryptos = db.session.query(
+                Crypto_price
+            ).join(
+                Crypto, 
+                Crypto.id == Crypto_price.crypto_id
+            ).join(
+                last_orders,
+                last_orders.c.crypto_id == Crypto_price.crypto_id
+            ).with_entities(
+                Crypto.name, 
+                Crypto.symbol, 
+                Crypto.id, 
+
+                Crypto_price.date, 
+                last_orders.c.max_close_Crypto,
+                Crypto_price.close, 
+                Crypto_price.sma_20, 
+                Crypto_price.sma_50, 
+                Crypto_price.rsi_14
+            ).filter(
+                Crypto_price.close == last_orders.c.max_close_Crypto,
+                Crypto_price.date == max_date
+            ).order_by(
+                asc(
+                    Crypto.symbol
+                )
+            ).all()
+
+    elif crypto_filter == 'new_closing_lows':
+
+        last_orders = db.session.query(
+            Crypto_price.crypto_id, db.func.min(Crypto_price.close).label('min_close_Crypto')
+        ).group_by(Crypto_price.crypto_id).subquery()
+
+        from .models import Crypto, Crypto_price
+
+        Cryptos = db.session.query(
+                Crypto_price
+            ).join(
+                Crypto, 
+                Crypto.id == Crypto_price.crypto_id
+            ).join(
+                last_orders,
+                last_orders.c.crypto_id == Crypto_price.crypto_id
+            ).with_entities(
+                Crypto.name, 
+                Crypto.symbol, 
+                Crypto.id, 
+
+                Crypto_price.date, 
+                last_orders.c.min_close_Crypto,
+                Crypto_price.close, 
+                Crypto_price.sma_20, 
+                Crypto_price.sma_50, 
+                Crypto_price.rsi_14
+            ).filter(
+                Crypto_price.close == last_orders.c.min_close_Crypto,
+                Crypto_price.date == max_date
+            ).order_by(
+                asc(
+                    Crypto.symbol
+                )
+            ).all()
+
+    elif crypto_filter == 'rsi_overbought':
+
+        from .models import Crypto, Crypto_price
+        Cryptos = db.session.query(
+                Crypto_price
+            ).join(
+                Crypto, 
+                Crypto_price.crypto_id == Crypto.id
+            ).with_entities(
+                Crypto.name, 
+                Crypto.symbol, 
+                Crypto.id, 
+
+                Crypto_price.date, 
+                Crypto_price.close, 
+                Crypto_price.sma_20, 
+                Crypto_price.sma_50, 
+                Crypto_price.rsi_14
+            ).filter(
+                Crypto_price.rsi_14 > str(rsi_ob),
+                Crypto_price.date == max_date
+            ).order_by(
+                asc(
+                    Crypto.symbol
+                )
+            ).all()
+
+    elif crypto_filter == 'rsi_oversold':
+        from .models import Crypto, Crypto_price
+        Cryptos = db.session.query(
+                Crypto_price
+            ).join(
+                Crypto, 
+                Crypto_price.crypto_id == Crypto.id
+            ).with_entities(
+                Crypto.name, 
+                Crypto.symbol, 
+                Crypto.id, 
+
+                Crypto_price.date, 
+                Crypto_price.close, 
+                Crypto_price.sma_20, 
+                Crypto_price.sma_50, 
+                Crypto_price.rsi_14
+            ).filter(
+                Crypto_price.rsi_14 < str(rsi_os),
+                Crypto_price.date == max_date
+            ).order_by(
+                asc(
+                    Crypto.symbol
+                )
+            ).all()
+
+    else:
+        from .models import Crypto, Crypto_price
+
+        Cryptos = db.session.query(
+                Crypto
+            ).join(
+                Crypto_price, 
+                Crypto_price.crypto_id == Crypto.id
+            ).with_entities(
+                Crypto.name, 
+                Crypto.symbol, 
+                Crypto.id, 
+
+                Crypto_price.date, 
+                Crypto_price.close, 
+                Crypto_price.sma_20, 
+                Crypto_price.sma_50, 
+                Crypto_price.rsi_14
+            ).filter(
+                Crypto_price.date == max_date
+            ).order_by(
+                asc(Crypto.symbol)
+            ).all()
+
+    from .models import Filter
+    filters = Filter.query.all()
+
+    return render_template(
+        "index.html",
+        request=request,
+        title = 'Crypto',
+        trading=Cryptos,
+        user=current_user,
+        filters=filters
+    )
+
+@crypto_views.route("/crypto/<symbol>", methods=['GET', 'POST'])
+@login_required
+def crypto_detail(symbol):
+
+    print(symbol)
+
+    # # init database
+    # [cursor, connection] = helpers.init_database()
+    from .models import Crypto, Strategy_crypto, Crypto_strategy, Crypto_price
+    stock = db.session.query(
+            Crypto
+        ).with_entities(
+            Crypto.name, 
+            Crypto.symbol, 
+            Crypto.id, 
+        ).filter(
+            Crypto.symbol == symbol
+        ).order_by(
+            asc(Crypto.symbol)
+        ).one()
+
+    strategies = db.session.query(
+            Strategy_crypto
+        ).with_entities(
+            Strategy_crypto.name, 
+            Strategy_crypto.id, 
+            Strategy_crypto.params
+        ).order_by(
+            asc(Strategy_crypto.id)
+        ).all()
+
+    # loop through the strategies and create:
+    #   - List SQL:         active parameters on stock
+    #   - List Array:       active stock-id's on strategy
+    #   - List SQL:
+
+    # List {'strategy-name':[strategy-parameters of stock-specific]}
+    parameters = {}
+
+    # List {'strategy-name':[strategy-id's (actively) applied]}
+    stocks = {}
+
+    for strategy in strategies:
+        temp = db.session.execute("SELECT * from crypto_strategy\
+            join " + strategy.params + " on " + strategy.params + ".parameter_id = crypto_strategy.parameter_id and " + strategy.params + ".crypto_id = crypto_strategy.crypto_id\
+            where crypto_strategy.crypto_id = "+str(stock.id)+" and crypto_strategy.strategy_id = "+ str(strategy.id))
+
+        stats = []
+        for x in temp:
+            stats.append(x)
+        parameters[strategy.name] = stats
+                            
+        temp_crypto_ids = db.session.query(
+            Crypto_strategy
+        ).with_entities(
+            Crypto_strategy.crypto_id
+        ).filter(
+            Crypto_strategy.strategy_id == strategy.id
+        ).order_by(
+            asc(Crypto_strategy.id)
+        ).all()
+
+        # convert stock-id's in an array and write array in List
+        crypto_id = []
+        for temp_crypto_id in temp_crypto_ids:
+            crypto_id.append(temp_crypto_id.crypto_id)
+        stocks[strategy.name] = crypto_id
+
+    bars = db.session.query(
+            Crypto_price
+        ).filter(
+            Crypto_price.crypto_id == stock.id
+        ).order_by(
+            desc(Crypto_price.date)
+        ).all()
+        
+    return render_template(
+        "crypto_detail.html",
+        user = current_user,
+        request = request, 
+        stock = stock, 
+        bars = bars,  # recent data of stock
+        strategies = strategies,  # possible strategies which can be applied
+        parameters_bollinger= parameters['bollinger_bands'],
+        stocks_bollinger= stocks['bollinger_bands']
+        )
+
+@crypto_views.route("/apply_crypto_strategy", methods=['GET', 'POST'])
+@login_required
+def apply_strategy():
+
+    strategy_id = request.form.get('strategy_id')
+    stock_id = request.form.get('stock_id')
+    trade_price = request.form.get('trade_price')
+    observe_from = request.form.get('observe_from')
+    observe_until = request.form.get('observe_until')
+    period = request.form.get('period')
+    stddev = request.form.get('stddev')
+
+
+
+    from .models import Strategy_crypto, Crypto_strategy, Param_crypto_strategy_bollinger
+
+    strategy = db.session.query(
+            Strategy_crypto
+        ).with_entities(
+            Strategy_crypto.params,
+            Strategy_crypto.name
+        ).filter(
+            Strategy_crypto.id == strategy_id
+        ).first()
+
+    # insert parameters into database
+
+    if strategy.params == "param_crypto_strategy_bollinger":
+
+        new_param_bollinger = Param_crypto_strategy_bollinger(crypto_id = stock_id, period = period, stddev = stddev, trade_price = trade_price)
+        db.session.add(new_param_bollinger)
+        db.session.commit()
+
+    parameter_id = db.session.execute("select * from " + strategy.params + " where parameter_id = (select max(parameter_id) from " + strategy.params + ")").first().parameter_id
+
+    # insert stock_strategy into database
+    new_stock_strategy = Crypto_strategy(crypto_id = stock_id, strategy_id = strategy_id, parameter_id = parameter_id)
+    db.session.add(new_stock_strategy)
+    db.session.commit()
+
+    return redirect(url_for('crypto_views.crypto_strategy', strategy_name = strategy.name, mode = 'applied'))
+
+@crypto_views.route("/strategies_crypto", methods = ['GET', 'POST'])
+@login_required
+def strategies():
+
+    from .models import Strategy_crypto
+
+    strategies = db.session.query(
+            Strategy_crypto
+        ).with_entities(
+            Strategy_crypto.name, 
+            Strategy_crypto.id, 
+            Strategy_crypto.params,
+            Strategy_crypto.url_pic
+        ).order_by(
+            asc(Strategy_crypto.id)
+        ).all()
+
+    return render_template(
+        "strategies.html",
+        title = "Crypto",
+        user = current_user,
+        request = request,
+        strategies = strategies
+    )
+
+@crypto_views.route("/crypto_strategy/<strategy_name>/<mode>")
+@login_required
+def crypto_strategy(strategy_name, mode):
+
+    from .models import Strategy_crypto
+
+    strategy = db.session.query(
+        Strategy_crypto
+    ).filter(
+        Strategy_crypto.name == strategy_name
+    ).first()
+
+    print(f"Strategy: {strategy}")
+
+    applied_cryptos = db.session.execute("SELECT * from " + strategy.params + "\
+    join crypto_strategy on " + strategy.params + ".parameter_id = crypto_strategy.parameter_id and " + strategy.params + ".crypto_id = crypto_strategy.crypto_id\
+    join crypto on crypto.id = crypto_strategy.crypto_id\
+    where crypto_strategy.strategy_id = " + str(strategy.id) + "\
+    GROUP BY crypto_strategy.parameter_id\
+    ORDER BY symbol")
+
+    saved_cryptos = db.session.execute("SELECT * from " + strategy.params + "\
+        join crypto on crypto.id = " + strategy.params + ".crypto_id\
+        ORDER BY id")
+
+    list_applied_cryptos = []
+    list_cryptos_applied = []
+    for crypto in applied_cryptos:
+        list_applied_cryptos.append(crypto.parameter_id) # parameter ids of the stocks
+        list_cryptos_applied.append(crypto) # 
+        print(f"Applied: {crypto}")
+
+    list_saved_cryptos = []
+    list_cryptos_saved = []
+    is_traded = {}
+    for crypto in saved_cryptos:
+        list_saved_cryptos.append(crypto.parameter_id) # parameter ids of the stocks
+        list_cryptos_saved.append(crypto) # 
+        if crypto.parameter_id in list_applied_cryptos:
+            is_traded[crypto.parameter_id] = True
+        else:
+            is_traded[crypto.parameter_id] = False
+        print(f"saved: {crypto}")
+
+    if mode == 'applied':
+        cryptos = list_cryptos_applied
+
+    if mode == 'saved':
+        cryptos = list_cryptos_saved
+
+    for crypto in cryptos:
+            print(f"last: {crypto}")
+
+
+    print(f"is traded: {is_traded}")
+
+    return render_template(
+        "strategy.html",
+        title = 'Crypto',
+        user = current_user,
+        request = request,
+        trading = cryptos,
+        strategy = strategy,
+        mode = mode,
+        is_traded = is_traded
+    )
+
+@crypto_views.route("/delete_traded_crypto_strategy", methods=['GET', 'POST'])
+@login_required
+def delete_traded_strategy():
+
+    crypto_id = request.form.get('trading_id')
+    strategy_name = request.form.get('strategy_name')
+    strategy_id = request.form.get('strategy_id')
+    parameter_id = request.form.get('parameter_id')
+
+    from .models import Crypto_strategy
+
+    crypto = db.session.query(Crypto_strategy).filter_by(strategy_id = strategy_id, parameter_id = parameter_id, crypto_id = crypto_id)
+    crypto.delete()
+    db.session.commit()
+
+    return redirect(url_for('crypto_views.crypto_strategy', strategy_name = strategy_name, mode = 'applied'))
+
+@crypto_views.route("/apply_saved_crypto_strategies/<strategy_name>", methods=['GET', 'POST'])
+@login_required
+def apply_traded_strategy(strategy_name):
+
+    from .models import Crypto_strategy
+
+    array = request.args.get('parameters_to_apply')
+    strategy_id = request.args.get('strategy_id')
+
+    # # parse array:
+    array_parsed = json.loads(array)
+    print(f"array_parsed: {array_parsed}")
+
+    saved_cryptos = db.session.query(Crypto_strategy).filter_by(strategy_id = strategy_id).all()
+
+    print(f"Saved Cryptos 1: {saved_cryptos}")
+
+    applied_parameters_on_strategy = []
+    for crypto in saved_cryptos:
+        applied_parameters_on_strategy.append(crypto.parameter_id)
+
+    # look to insert
+    for parsed in array_parsed:
+        crypto_id = array_parsed[parsed]['trading_id']
+        parameter_id = parsed
+        print(parameter_id)
+
+        try:
+            b=applied_parameters_on_strategy.index(int(parameter_id))
+        except ValueError:
+            new_crypto_strategy = Crypto_strategy(crypto_id=crypto_id, strategy_id=strategy_id, parameter_id = parameter_id)
+            db.session.add(new_crypto_strategy)
+            db.session.commit()
+
+    # look to remove
+    for saved in saved_cryptos:
+        if str(saved.parameter_id) not in array_parsed:
+            print(f"Hallo: ")
+            crypto = db.session.query(Crypto_strategy).filter_by(strategy_id = saved.strategy_id, parameter_id = saved.parameter_id, crypto_id = saved.crypto_id)
+            crypto.delete()
+            db.session.commit()
+
+    return redirect(url_for('crypto_views.crypto_strategy', strategy_name = strategy_name, mode = 'saved'))

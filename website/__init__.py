@@ -7,7 +7,6 @@ from sqlalchemy import func
 db = SQLAlchemy()
 DB_NAME = "app.db"
 
-
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'hjshjhdjah kjshkjdhjs'
@@ -15,12 +14,16 @@ def create_app():
     db.init_app(app)
 
     from .views import views
+    from .stock_views import stock_views
+    from .crypto_views import crypto_views
     from .auth import auth
 
     app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(stock_views, url_prefix='/')
+    app.register_blueprint(crypto_views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
-    from .models import User, Note
+    from .models import User
 
     create_database(app)
 
@@ -43,18 +46,28 @@ def create_database(app):
         populate_database()
 
 
+
 def populate_database():
     populate_strategies()
     populate_filters()
     populate_markets()
     populate_stocks()
     populate_stock_prices()
+    populate_cryptos()
+    populate_crypto_prices()
+    populate_user()
 
     print("Populated Database!")
 
+def populate_user():
+    from .models import User
+    new_user = User(email = "kim.schenk@hotmail.com", password = "sha256$EN5U9Q8G$46e100accf6ba8832e22753ba6e04034cfca0e7dde604f2bc71f41c428ab52bc", first_name = "kim")
+    db.session.add(new_user)
+    db.session.commit()
+
 def populate_strategies():
 
-    from .models import Strategy
+    from .models import Strategy, Strategy_crypto
 
     strategies = ['opening_range_breakout', 'opening_range_breakdown', 'bollinger_bands']
     parameters = ['param_stock_strategy_breakout', 'param_stock_strategy_breakdown', 'param_stock_strategy_bollinger']
@@ -64,6 +77,11 @@ def populate_strategies():
         new_strategy = Strategy(name=strat, params=parameters[strategies.index(strat)], url_pic=urls[strategies.index(strat)])
         db.session.add(new_strategy)
         db.session.commit()
+
+    new_crypto_strategy = Strategy_crypto(name=strategies[2], params="param_crypto_strategy_bollinger", url_pic=urls[2])
+    db.session.add(new_crypto_strategy)
+    db.session.commit()
+
     print("...populated strategies...")
 
 def populate_filters():
@@ -112,7 +130,7 @@ def populate_markets():
 
 def populate_stocks():
 
-    from website import config, helpers
+    from website import config
     import alpaca_trade_api as tradeapi
     from .models import Stock, Market
 
@@ -121,7 +139,7 @@ def populate_stocks():
 
     api = tradeapi.REST(config.API_KEY_ALPACA,
                         config.API_SECRET_ALPACA,
-                        base_url=config.API_URL)
+                        base_url=config.API_URL_ALPACA)
 
     assets = api.list_assets()
 
@@ -160,7 +178,7 @@ def populate_stock_prices():
         symbols.append(symbol)
         stock_dict[symbol] = stock.id
 
-    api = tradeapi.REST(config.API_KEY_ALPACA, config.API_SECRET_ALPACA, base_url=config.API_URL)
+    api = tradeapi.REST(config.API_KEY_ALPACA, config.API_SECRET_ALPACA, base_url=config.API_URL_ALPACA)
 
     current_date = date.today().isoformat()
 
@@ -202,5 +220,132 @@ def populate_stock_prices():
                         print(f"No stock-price added {e}")
 
         db.session.commit()
-    print("...populated prices...")
+    print("...populated stock prices...")
 
+def populate_cryptos():
+
+    from website import config
+    from binance.client import Client
+    from .models import Crypto
+
+    cryptos = Crypto.query.all()
+    symbols = [crypto.symbol for crypto in cryptos]
+
+    # Login to Client
+    client = Client(api_key=config.api_key, api_secret=config.api_secret)
+    client2 = Client(api_key=config.api_key2, api_secret=config.api_secret2)
+
+    # Set Test-URL in case of testnet.binance
+    if config.test_mode:
+        client.API_URL = config.API_URL_BINANCE
+    else:
+        client2.API_URL = config.API_URL_BINANCE
+
+    exchange_info = client.get_exchange_info()
+    # print(exchange_info)
+    
+    symbols=exchange_info['symbols']
+    for symbol in symbols:
+        print(symbol)
+        print(symbol['symbol'])
+
+
+        try:
+            if symbol['status'] == 'TRADING' and symbol['symbol'] not in symbols:
+                print(f"Added a new crypto: {symbol['symbol']}")
+                new_crypto = Crypto(symbol=symbol['symbol'], name=symbol['baseAsset'])
+                db.session.add(new_crypto)
+                db.session.commit()
+        except Exception as e:
+            print(symbol['symbol'])
+            print(e)
+    print("...populated cryptos...")
+
+
+def populate_crypto_prices():
+
+    from website import config
+    from binance.client import Client
+    import tulipy, numpy
+    from datetime import date, datetime
+    from .models import Crypto, Crypto_price
+    # https://www.youtube.com/watch?v=Ni8mqdUXH3g
+
+    cryptos=Crypto.query.all()
+
+    symbols = []
+    crypto_dict = {}
+    for crypto in cryptos:
+        symbol = crypto.symbol
+        symbols.append(symbol)
+        crypto_dict[symbol] = crypto.id
+    
+
+    # Login to Client
+    client = Client(api_key=config.api_key, api_secret=config.api_secret)
+    client2 = Client(api_key=config.api_key2, api_secret=config.api_secret2)
+
+    # Set Test-URL in case of testnet.binance
+    if config.test_mode:
+        client.API_URL = config.API_URL_BINANCE
+    else:
+        client2.API_URL = config.API_URL_BINANCE
+
+    current_date = date.today().isoformat()
+
+    for symbol in symbols:
+        candlesticks = client2.get_historical_klines(symbol, Client.KLINE_INTERVAL_1DAY, "1 Jan, 2012", "12 Jul, 2020")
+
+        recent_closes = []
+        print(recent_closes)
+        crypto_id = crypto_dict[symbol]
+
+        date = db.session.query(func.max(Crypto_price.date)).filter(Crypto_price.crypto_id==crypto_id).scalar()
+        print(f"Date_max 1: {date}")
+
+        try:
+            max_date = datetime.strptime(date, '%Y-%m-%d').date().isoformat()
+        except Exception as e:
+            # print(f"No data {e}")
+            max_date = datetime.strptime('2000-01-01', '%Y-%m-%d').date().isoformat()
+        print(f"Date_max 2: {max_date}") 
+
+        for candlestick in candlesticks:
+            close = candlestick[4] # close
+            recent_closes.append(float(close))
+
+            close_time = candlestick[6] # timestamp unix
+            bar_date = datetime.fromtimestamp(int(close_time/1000)).strftime('%Y-%m-%d')
+
+            if bar_date > max_date and bar_date < current_date:
+
+                if len(recent_closes) >= 50:
+                    sma_20 = tulipy.sma(numpy.array(recent_closes), period=20)[-1]
+                    sma_50 = tulipy.sma(numpy.array(recent_closes), period=50)[-1]
+                    rsi_14 = tulipy.rsi(numpy.array(recent_closes), period=14)[-1]
+                else:
+                    sma_20, sma_50, rsi_14 = None, None, None
+                    
+                try:
+
+                    # open_time = candlestick[0] # timestamp unix
+                    open = candlestick[1] # open
+                    high = candlestick[2] # high
+                    low = candlestick[3] # low
+                    # close = candlestick[4] # close
+                    volume = candlestick[5] # volume
+                    # close_time = candlestick[6] # timestamp unix
+                    # quote_asset_volume = candlestick[7] # timestamp unix
+                    # number_of_trades = candlestick[8] # timestamp unix
+                    # taker_buy_base_asset_volume = candlestick[9] # timestamp unix
+                    # taker_buy_quote_asset_volume = candlestick[10] # timestamp unix
+
+                    new_crypto_price = Crypto_price(crypto_id=crypto_id, date=bar_date, open=open, high=high, low=low, close=close, volume=volume, sma_20=sma_20, sma_50=sma_50, rsi_14=rsi_14)
+                    db.session.add(new_crypto_price)
+                    print(f"added price to {symbol}")
+
+                except Exception as e:
+                    print(f"No stock-price added {e}")
+
+        db.session.commit()
+    print("...populated crypto prices...")

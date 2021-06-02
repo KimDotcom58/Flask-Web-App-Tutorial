@@ -9,7 +9,7 @@
 <script type="text/javascript" src="{{ url_for('static', filename='scripts/modal.js') }}"></script>
 
 <h1>
-    Strategies
+    {{title}} Strategies
 </h1>
 <table class="ui striped table">
     <thead>
@@ -41,12 +41,21 @@
                 <div id="caption{{strategy.id}}"></div>
             </div>
         </td>
+        {% if title == "Stock" %}
         <td>
             <a href="strategy/{{ strategy.name }}/applied">List</a>
         </td>
         <td>
             <a href="strategy/{{ strategy.name }}/saved">List</a>
         </td>
+        {% else %}
+        <td>
+            <a href="crypto_strategy/{{ strategy.name }}/applied">List</a>
+        </td>
+        <td>
+            <a href="crypto_strategy/{{ strategy.name }}/saved">List</a>
+        </td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>

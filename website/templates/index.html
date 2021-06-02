@@ -24,11 +24,11 @@
 
 </script>
 
-<link href="{{ url_for('static', filename='stock_detail.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/trading_detail.css') }}" rel="stylesheet">
 <script type="text/javascript" src="{{ url_for('static', filename='toggle_div.js') }}"></script>
 
 <h1>
-    Stock Filter
+    {{ title }} Filter
 </h1>
 
 <form method="get">
@@ -67,7 +67,7 @@
 </form>
 
 <h1>
-    Stock List
+    {{ title }} List
 </h1>
 
 <table class="ui striped table">
@@ -83,28 +83,28 @@
         </tr>
     </thead>
     <tbody>
-        {% for stock in stocks %}
+        {% for show in trading %}
         <tr>
-            <td>{{ stock.symbol }}</td>
-            <td><a href="/stock/{{stock.symbol}}">{{ stock.name }}</a> </td>
-            {% if stock.date %}
-            {% if stock.close %}
-            <td>{{ stock.close|float|round(2) }}</td>
+            <td>{{ show.symbol }}</td>
+            <td>{% if title == 'Stock' %}<a href="/stock/{{show.symbol}}">{% else %}<a href="/crypto/{{show.symbol}}">{% endif %}{{ show.name }}</a> </td>
+            {% if show.date %}
+            {% if show.close %}
+            <td>{{ show.close|float|round(2) }}</td>
             {% else %}
             <td>N/A</td>
             {% endif %}
-            {% if stock.rsi_14 %}
-            <td>{{ stock.rsi_14|float|round(2) }}</td>
+            {% if show.rsi_14 %}
+            <td>{{ show.rsi_14|float|round(2) }}</td>
             {% else %}
             <td>N/A</td>
             {% endif %}
-            {% if stock.sma_20 %}
-            <td>{{ stock.sma_20|float|round(3) }}</td>
+            {% if show.sma_20 %}
+            <td>{{ show.sma_20|float|round(3) }}</td>
             {% else %}
             <td>N/A</td>
             {% endif %}
-            {% if stock.sma_50 %}
-            <td>{{ stock.sma_50|float|round(3)}}</td>
+            {% if show.sma_50 %}
+            <td>{{ show.sma_50|float|round(3)}}</td>
             {% else %}
             <td>N/A</td>
             {% endif %}

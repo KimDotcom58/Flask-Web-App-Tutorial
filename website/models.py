@@ -89,16 +89,56 @@ class Stock_price_minute(db.Model):
     close = db.Column(db.Text, nullable=False)
     volume = db.Column(db.Text, nullable=False)
 
-
 class Stock_strategy(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     stock_id = db.Column(db.Integer, nullable=False)
     strategy_id = db.Column(db.Integer, nullable=False)
     parameter_id = db.Column(db.Integer, nullable=False)
 
-
 class Strategy(db.Model): 
     id = db.Column(db.Integer, primary_key=True, nullable = True)
     name = db.Column(db.Text, nullable=False)
     params = db.Column(db.Text, nullable=False)
     url_pic = db.Column(db.Text, nullable=False)
+
+class Crypto(db.Model):
+    __tablename__ = 'crypto'
+    crypto_prices = db.relationship("Crypto_price", back_populates="crypto")
+    id = db.Column(db.Integer, primary_key=True, nullable=True)
+    symbol = db.Column(db.Text, nullable=False, unique=True)
+    name = db.Column(db.Text, nullable=False)
+
+class Crypto_price(db.Model):
+    __tablename__ = 'crypto_price'
+    id = db.Column(db.Integer, primary_key=True)
+    crypto_id = db.Column(db.Integer, db.ForeignKey('crypto.id'))
+    crypto = db.relationship('Crypto', back_populates="crypto_prices")
+    date = db.Column(db.Text, nullable=False)
+    open = db.Column(db.Text, nullable=False)
+    high = db.Column(db.Text, nullable=False)
+    low = db.Column(db.Text, nullable=False)
+    close = db.Column(db.Text, nullable=False)
+    volume = db.Column(db.Text, nullable=False)
+    sma_20 = db.Column(db.Text)
+    sma_50 = db.Column(db.Text)
+    rsi_14 = db.Column(db.Text)
+ 
+class Crypto_strategy(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    crypto_id = db.Column(db.Integer, nullable=False)
+    strategy_id = db.Column(db.Integer, nullable=False)
+    parameter_id = db.Column(db.Integer, nullable=False)
+
+class Param_crypto_strategy_bollinger(db.Model):
+    parameter_id = db.Column(db.Integer, primary_key=True)
+    crypto_id = db.Column(db.Integer, nullable=False)
+    period = db.Column(db.Integer, nullable=False)
+    stddev = db.Column(db.Integer, nullable=False)
+    trade_price = db.Column(db.Integer, nullable=False)
+
+class Strategy_crypto(db.Model):
+    id = db.Column(db.Integer, primary_key=True, nullable = True)
+    name = db.Column(db.Text, nullable=False)
+    params = db.Column(db.Text, nullable=False)
+    url_pic = db.Column(db.Text, nullable=False)
+
