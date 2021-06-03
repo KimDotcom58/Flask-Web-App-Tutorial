@@ -6,6 +6,18 @@ Needs Variables:
     - Stock_detail_var.stock_id                 stock-id of traded
     - Stock_detail_var.stocks_breakout
 */
+var toggle_div = {
+
+    toggle_class: "toggle-divs",
+    toggled_class_prefix: "div",
+
+    case: "detail",
+
+    actual_document: document,
+    disable_apply_button: "submitting"
+}
+
+
 $(document).ready(function () {
 
     $('.' + toggle_div.toggle_class).on('change', function () {
@@ -14,6 +26,7 @@ $(document).ready(function () {
         var nextAside = $(this).parent('.aside').next('.aside');
         nextAside.find(toggle_div.toggled_class_prefix).hide();
         nextAside.find("." + toggle_div.toggled_class_prefix + this.value).show();
+        console.log("Toggle_Div_Script")
 
         if (toggle_div.case == "detail") {
             // Disable apply_button if "Apply Strategy"-dropdown is on the first value

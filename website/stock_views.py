@@ -231,7 +231,7 @@ def stock_detail(symbol):
 
     for strategy in strategies:
         temp = db.session.execute("SELECT * from stock_strategy\
-            join " + strategy.params + " on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".stock_id = stock_strategy.stock_id\
+            join " + strategy.params + " on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
             where stock_strategy.stock_id = "+str(stock.id)+" and stock_strategy.strategy_id = "+ str(strategy.id))
 
         stats = []
@@ -264,9 +264,10 @@ def stock_detail(symbol):
         ).all()
         
     return render_template(
-        "stock_detail.html",
+        "trading_detail.html",
         user = current_user,
         request = request, 
+        title = "Stock",
         stock = stock, 
         bars = bars,  # recent data of stock
         strategies = strategies,  # possible strategies which can be applied
@@ -282,7 +283,7 @@ def stock_detail(symbol):
 @login_required
 def apply_strategy():
 
-    strategy_id = request.form.get('strategy_id')
+    strategy_name = request.form.get('strategy_name')
     stock_id = request.form.get('stock_id')
     trade_price = request.form.get('trade_price')
     observe_from = request.form.get('observe_from')
@@ -295,14 +296,14 @@ def apply_strategy():
     strategy = db.session.query(
             Strategy
         ).with_entities(
+            Strategy.id,
             Strategy.params,
             Strategy.name
         ).filter(
-            Strategy.id == strategy_id
+            Strategy.name == strategy_name
         ).first()
 
     # For Raw-SQL cibbect to database
-    from sqlalchemy.sql import text
     from sqlalchemy import create_engine
     engine = create_engine('sqlite:///website/app.db')
 
@@ -310,26 +311,30 @@ def apply_strategy():
     
     if strategy.params == "param_stock_strategy_breakdown":
 
-        new_param_breakdown = Param_stock_strategy_breakdown(stock_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
+        new_param_breakdown = Param_stock_strategy_breakdown(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
         db.session.add(new_param_breakdown)
         db.session.commit()
     
     elif strategy.params == "param_stock_strategy_breakout":
 
-        new_param_breakout = Param_stock_strategy_breakout(stock_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
+        new_param_breakout = Param_stock_strategy_breakout(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
         db.session.add(new_param_breakout)
         db.session.commit()
 
     elif strategy.params == "param_stock_strategy_bollinger":
 
-        new_param_bollinger = Param_stock_strategy_bollinger(stock_id = stock_id, period = period, stddev = stddev, trade_price = trade_price)
+        new_param_bollinger = Param_stock_strategy_bollinger(trading_id = stock_id, period = period, stddev = stddev, trade_price = trade_price)
         db.session.add(new_param_bollinger)
         db.session.commit()
 
-    parameter_id = db.session.execute("select * from " + strategy.params + " where parameter_id = (select max(parameter_id) from " + strategy.params + ")").first().parameter_id
+    try:
+        parameter_id = db.session.execute("select * from " + strategy.params + " where parameter_id = (select max(parameter_id) from " + strategy.params + ")").first().parameter_id
+    except Exception as e:
+        parameter_id = 0
+        print(e)
 
     # insert stock_strategy into database
-    new_stock_strategy = Stock_strategy(stock_id = stock_id, strategy_id = strategy_id, parameter_id = parameter_id)
+    new_stock_strategy = Stock_strategy(stock_id = stock_id, strategy_id = strategy.id, parameter_id = parameter_id)
     db.session.add(new_stock_strategy)
     db.session.commit()
 
@@ -373,14 +378,14 @@ def strategy(strategy_name, mode):
     ).first()
 
     applied_stocks = db.session.execute("SELECT * from " + strategy.params + "\
-    join stock_strategy on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".stock_id = stock_strategy.stock_id\
+    join stock_strategy on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
     join stock on stock.id = stock_strategy.stock_id\
     where stock_strategy.strategy_id = " + str(strategy.id) + "\
     GROUP BY stock_strategy.parameter_id\
     ORDER BY symbol")
 
     saved_stocks = db.session.execute("SELECT * from " + strategy.params + "\
-        join stock on stock.id = " + strategy.params + ".stock_id\
+        join stock on stock.id = " + strategy.params + ".trading_id\
         ORDER BY id")
 
     list_applied_stocks = []

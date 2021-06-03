@@ -60,21 +60,21 @@ class Stock_price(db.Model):
 
 class Param_stock_strategy_bollinger(db.Model):
     parameter_id = db.Column(db.Integer, primary_key=True)
-    stock_id = db.Column(db.Integer, nullable=False)
+    trading_id = db.Column(db.Integer, nullable=False)
     period = db.Column(db.Integer, nullable=False)
     stddev = db.Column(db.Integer, nullable=False)
     trade_price = db.Column(db.Integer, nullable=False)
 
 class Param_stock_strategy_breakout(db.Model):
     parameter_id = db.Column(db.Integer, primary_key=True)
-    stock_id = db.Column(db.Integer, nullable=False)
+    trading_id = db.Column(db.Integer, nullable=False)
     observe_from = db.Column(db.Text, nullable=False)
     observe_until = db.Column(db.Text, nullable=False)
     trade_price = db.Column(db.Integer, nullable=False)
 
 class Param_stock_strategy_breakdown(db.Model):
     parameter_id = db.Column(db.Integer, primary_key=True)
-    stock_id = db.Column(db.Integer, nullable=False)
+    trading_id = db.Column(db.Integer, nullable=False)
     observe_from = db.Column(db.Text, nullable=False)
     observe_until = db.Column(db.Text, nullable=False)
     trade_price = db.Column(db.Integer, nullable=False)
@@ -135,10 +135,3 @@ class Param_crypto_strategy_bollinger(db.Model):
     period = db.Column(db.Integer, nullable=False)
     stddev = db.Column(db.Integer, nullable=False)
     trade_price = db.Column(db.Integer, nullable=False)
-
-class Strategy_crypto(db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable = True)
-    name = db.Column(db.Text, nullable=False)
-    params = db.Column(db.Text, nullable=False)
-    url_pic = db.Column(db.Text, nullable=False)
-

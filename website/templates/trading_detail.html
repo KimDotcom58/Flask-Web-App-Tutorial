@@ -2,53 +2,80 @@
 
 {% block content %}
 
-<script>
-    // variables for the js-file to handle strategy-submit
-    var handle_submit_strategy_var = {
-
-        stocks_bollinger: "{{stocks_bollinger}}",
-        stocks_breakdown: "{{stocks_breakdown}}",
-        stocks_breakout: "{{stocks_breakout}}",
-
-        disable_apply_button: "submitting",
-
-        stock_id: "{{ stock.id }}",
-
-        actual_document: document,
-        show_placed_div: "divX"
-    };
-
-    var toggle_div = {
-
-        toggle_class: "toggle-divs",
-        toggled_class_prefix: "div",
-
-        case: "detail",
-
-        actual_document: document,
-        disable_apply_button: "submitting"
-    }
-    $(document).ready(function () {
-
-        // On begin disable the apply button and ...
-        handle_submit_strategy_var.actual_document.getElementById(handle_submit_strategy_var.disable_apply_button).disabled = true;
-
-        // ... if the stock is traded in a strategy, a (!) will be added
-        if (handle_submit_strategy_var.stocks_breakout.includes(handle_submit_strategy_var.stock_id) || handle_submit_strategy_var.stocks_breakdown.includes(handle_submit_strategy_var.stock_id) || handle_submit_strategy_var.stocks_bollinger.includes(handle_submit_strategy_var.stock_id)) {
-            handle_submit_strategy_var.actual_document.getElementById(handle_submit_strategy_var.disable_apply_button).value = "Apply Strategy (!)";
-        }
-    })
-</script>
-
-<link href="{{ url_for('static', filename='css/trading_detail.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='/css/trading_detail.css') }}" rel="stylesheet">
 <script type="text/javascript" src="{{ url_for('static', filename='scripts/toggle_div.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='scripts/handle_submit_strategy.js') }}"></script>
 
-<h1><a href="/stocks">Stocks</a>
+<script>
+
+// variables for the js-file to handle strategy-submit
+var handle_submit_strategy_var = {
+
+stocks_bollinger: "{{stocks_bollinger}}",
+stocks_breakdown: "{{stocks_breakdown}}",
+stocks_breakout: "{{stocks_breakout}}",
+
+disable_apply_button: "submitting",
+
+stock_id: "{{ stock.id }}",
+
+actual_document: document,
+show_placed_div: "divX",
+
+strategy_name : "0"
+};
+
+// Actualizes the values according to applied strategy and checks whether the stock/crypto is already traded (for red box interaction with user)
+function myfunctionhandler(display) {
+
+    if(handle_submit_strategy_var.strategy_name == "bollinger_bands"){
+        document.getElementById('stddev').value = document.getElementById('stddev_bollinger').value
+        document.getElementById('period').value = document.getElementById('period_bollinger').value
+        document.getElementById('trade_price').value = document.getElementById('trade_price_bollinger').value
+    }
+
+    if(handle_submit_strategy_var.strategy_name == "opening_range_breakout"){
+        document.getElementById('observe_from').value = document.getElementById('observe_from_breakout').value
+        document.getElementById('observe_until').value = document.getElementById('observe_until_breakout').value
+        document.getElementById('trade_price').value = document.getElementById('trade_price_breakout').value
+    }
+
+    if(handle_submit_strategy_var.strategy_name == "opening_range_breakdown"){
+        document.getElementById('observe_from').value = document.getElementById('observe_from_breakdown').value
+        document.getElementById('observe_until').value = document.getElementById('observe_until_breakdown').value
+        document.getElementById('trade_price').value = document.getElementById('trade_price_breakdown').value
+    }
+
+    if (handle_submit_strategy_var.stocks_breakout.includes(handle_submit_strategy_var.stock_id) || handle_submit_strategy_var.stocks_breakdown.includes(handle_submit_strategy_var.stock_id) || handle_submit_strategy_var.stocks_bollinger.includes(handle_submit_strategy_var.stock_id) ){
+        handle_submit_strategy_var.actual_document.getElementById(handle_submit_strategy_var.show_placed_div).style.display = display;
+        var disabled = true
+        if(display == 'none'){
+            disabled = false
+        }
+        else if (display == 'block'){
+            disabled = true
+        }
+        handle_submit_strategy_var.actual_document.getElementById(handle_submit_strategy_var.disable_apply_button).disabled = disabled;
+
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+</script>
+
+<h1>{% if title == 'Stock' %}<a  href="/stocks"> {% elif title == 'Crypto' %}<a  href="/cryptos">{% endif %}{{title}}s</a>
     <i class="angle double right icon"></i>
     {{ stock.name }} ({{ stock.symbol }})
 </h1>
 
+{% if trading: %}
+<h2>{{title}}s traded by {{strategy.name}}</h2>
+{%endif%}
+
+{% if title == 'Stock' %}
 <h2>Market: {{stock.market_name}}</h2>
 
 <!-- TradingView Widget BEGIN
@@ -84,16 +111,18 @@ TradingView Widget END -->
 -->
 
 <h3>Opens at {{stock.market_open_local}} and closes at {{stock.market_close_local}}</h3>
+{% endif %}
 
 <h2>Apply Strategy</h2>
 
-<form id="form_apply_strategy" name="form_apply_strategy" method="post" action="/apply_strategy">
+<form id="form_apply_strategy" name="form_apply_strategy" method="post" {% if title == "Stock" %}action="/apply_strategy"{% elif title == "Crypto" %}action="/apply_crypto_strategy"{% endif %}>
 
     <div class="aside">
-        <select name="strategy_id" class="toggle-divs">
+        <select name="strategy_name", id="strategy_name" class="toggle-divs">
             <option selected="selected" value="">Select item...</option>
             {% for strategy in strategies %}
-            <option value="{{ strategy.id }}">{{strategy.name}}</option>
+            <option value="{{ strategy.name }}" {% if title == "Crypto" %}{% if strategy.name != 'bollinger_bands' %}disabled="disabled"{% endif %}{% endif %}>{{strategy.name}}</option>
+
             {% endfor %}
         </select>
     </div>
@@ -101,7 +130,7 @@ TradingView Widget END -->
     <div class="aside">
 
         <!-- div to show BREAKOUT strategy -->
-        <div class="div1" style="display:none;" id="div1">
+        <div class="divopening_range_breakout" style="display:none;" id="div1">
 
             <!-- OBSERVE FROM -->
             <label for="observe_from_breakout">observe_from</label>
@@ -123,7 +152,7 @@ TradingView Widget END -->
         </div>
 
         <!-- div to show BREAKDOWN strategy -->
-        <div class="div2" style="display:none;" id="div2">
+        <div class="divopening_range_breakdown" style="display:none;" id="div2">
             <!-- OBSERVE FROM -->
             <label for="observe_from_breakdown">observe_from</label>
             <input type="time" name="observe_from_breakdown" id="observe_from_breakdown"
@@ -144,7 +173,7 @@ TradingView Widget END -->
         </div>
 
         <!-- div to show BOLLINGER strategy -->
-        <div class="div3" style="display:none;" id="div3">
+        <div class="divbollinger_bands" style="display:none;" id="div3">
             <!-- PERIOD -->
             <label for="period_bollinger">period</label>
             <input type="number" name="period_bollinger" id="period_bollinger" value=15 min=1 max=50>
@@ -157,22 +186,17 @@ TradingView Widget END -->
             <br>
             <!-- TRADING PRICE -->
             <label for="trade_price">trade_price</label>
-            <input type="number" name="trade_price" id="trade_price" value=15 min=1 max=10000>
+            <input type="number" name="trade_price" id="trade_price_bollinger" value=15 min=1 max=10000>
             <span class="validity"></span>
         </div>
 
         <!-- div to show that strategy is applied -->
         <div class="divX" style="display:none;" id="divX">
-            The stock "{{stock.name}}" has already been placed on a strategy.<br>
+            The {% if title == "Stock" %}stock{% elif title == "Crypto" %}cryptocurrency{% endif %} "{{stock.name}}" has already been placed on a strategy.<br>
             See following section "Applied Strategies" to figure out which parameters already are applied.<br>
             Please choose option:<br>
             <ul>
-                <!-- <li><a href="/" onclick="this.closest('form').submit();return false;">Go to stock's parameter settings:</a><br>
-                    <OL>
-                        <LI>Add an additional entry for "{{stock.name}}".
-                        <LI>Decide at parameter settings, which stocks will be traded.
-                    </OL>
-                </li> -->
+                {% if title == "Stock" %}
                 <li><a href="/stock/{{stock.symbol}}" onclick="this.closest('form').submit();return false;">Place anyway:</a><br>
                     <OL>
                         <LI>Continue tracking existing entrys for "{{ stock.name }}".
@@ -184,6 +208,19 @@ TradingView Widget END -->
                         <LI>Do nothing.
                     </OL>
                 </li>
+                {% elif title == "Crypto" %}
+                <li><a href="/crypto/{{stock.symbol}}" onclick="this.closest('form').submit();return false;">Place anyway:</a><br>
+                    <OL>
+                        <LI>Continue tracking existing entrys for "{{ stock.name }}".
+                        <LI>Add an additional entry.
+                    </OL>
+                </li>
+                <li><a href="/crypto/{{stock.symbol}}" onclick="return myfunctionhandler('none')">Cancel</a><br>
+                    <OL>
+                        <LI>Do nothing.
+                    </OL>
+                </li>
+                {% endif %}
             </ul>
 
         </div>

@@ -93,7 +93,7 @@ TradingView Widget END -->
         <select name="strategy_id" class="toggle-divs">
             <option selected="selected" value="">Select item...</option>
             {% for strategy in strategies %}
-            <option value="{{ strategy.id }}">{{strategy.name}}</option>
+            <option value="{{ strategy.id }}" {% if strategy.name != 'bollinger_bands' %}disabled="disabled"{% endif %}>{{strategy.name}}</option>
             {% endfor %}
         </select>
     </div>

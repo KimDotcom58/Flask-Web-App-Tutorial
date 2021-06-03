@@ -188,8 +188,8 @@ def crypto_detail(symbol):
 
     # # init database
     # [cursor, connection] = helpers.init_database()
-    from .models import Crypto, Strategy_crypto, Crypto_strategy, Crypto_price
-    stock = db.session.query(
+    from .models import Crypto, Strategy, Crypto_strategy, Crypto_price
+    crypto = db.session.query(
             Crypto
         ).with_entities(
             Crypto.name, 
@@ -202,13 +202,13 @@ def crypto_detail(symbol):
         ).one()
 
     strategies = db.session.query(
-            Strategy_crypto
+            Strategy
         ).with_entities(
-            Strategy_crypto.name, 
-            Strategy_crypto.id, 
-            Strategy_crypto.params
+            Strategy.name, 
+            Strategy.id, 
+            Strategy.params
         ).order_by(
-            asc(Strategy_crypto.id)
+            asc(Strategy.id)
         ).all()
 
     # loop through the strategies and create:
@@ -220,12 +220,12 @@ def crypto_detail(symbol):
     parameters = {}
 
     # List {'strategy-name':[strategy-id's (actively) applied]}
-    stocks = {}
+    cryptos = {}
 
     for strategy in strategies:
         temp = db.session.execute("SELECT * from crypto_strategy\
-            join " + strategy.params + " on " + strategy.params + ".parameter_id = crypto_strategy.parameter_id and " + strategy.params + ".crypto_id = crypto_strategy.crypto_id\
-            where crypto_strategy.crypto_id = "+str(stock.id)+" and crypto_strategy.strategy_id = "+ str(strategy.id))
+            join " + strategy.params + " on " + strategy.params + ".parameter_id = crypto_strategy.parameter_id and " + strategy.params + ".trading_id = crypto_strategy.crypto_id\
+            where crypto_strategy.crypto_id = "+str(crypto.id)+" and crypto_strategy.strategy_id = "+ str(strategy.id))
 
         stats = []
         for x in temp:
@@ -246,32 +246,33 @@ def crypto_detail(symbol):
         crypto_id = []
         for temp_crypto_id in temp_crypto_ids:
             crypto_id.append(temp_crypto_id.crypto_id)
-        stocks[strategy.name] = crypto_id
+        cryptos[strategy.name] = crypto_id
 
     bars = db.session.query(
             Crypto_price
         ).filter(
-            Crypto_price.crypto_id == stock.id
+            Crypto_price.crypto_id == crypto.id
         ).order_by(
             desc(Crypto_price.date)
         ).all()
         
     return render_template(
-        "crypto_detail.html",
+        "trading_detail.html",
         user = current_user,
         request = request, 
-        stock = stock, 
+        title = "Crypto",
+        stock = crypto, 
         bars = bars,  # recent data of stock
         strategies = strategies,  # possible strategies which can be applied
         parameters_bollinger= parameters['bollinger_bands'],
-        stocks_bollinger= stocks['bollinger_bands']
+        stocks_bollinger= cryptos['bollinger_bands']
         )
 
 @crypto_views.route("/apply_crypto_strategy", methods=['GET', 'POST'])
 @login_required
 def apply_strategy():
 
-    strategy_id = request.form.get('strategy_id')
+    strategy_name = request.form.get('strategy_name')
     stock_id = request.form.get('stock_id')
     trade_price = request.form.get('trade_price')
     observe_from = request.form.get('observe_from')
@@ -279,31 +280,44 @@ def apply_strategy():
     period = request.form.get('period')
     stddev = request.form.get('stddev')
 
-
-
-    from .models import Strategy_crypto, Crypto_strategy, Param_crypto_strategy_bollinger
+    from .models import Strategy, Crypto_strategy, Param_stock_strategy_breakdown, Param_stock_strategy_breakout, Param_stock_strategy_bollinger
 
     strategy = db.session.query(
-            Strategy_crypto
+            Strategy
         ).with_entities(
-            Strategy_crypto.params,
-            Strategy_crypto.name
+            Strategy.id,
+            Strategy.params,
+            Strategy.name
         ).filter(
-            Strategy_crypto.id == strategy_id
+            Strategy.name == strategy_name
         ).first()
 
     # insert parameters into database
 
-    if strategy.params == "param_crypto_strategy_bollinger":
+    if strategy.params == "param_stock_strategy_breakdown":
 
-        new_param_bollinger = Param_crypto_strategy_bollinger(crypto_id = stock_id, period = period, stddev = stddev, trade_price = trade_price)
-        db.session.add(new_param_bollinger)
+        new_param_breakdown = Param_stock_strategy_breakdown(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
+        db.session.add(new_param_breakdown)
+        db.session.commit()
+    
+    elif strategy.params == "param_stock_strategy_breakout":
+
+        new_param_breakout = Param_stock_strategy_breakout(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
+        db.session.add(new_param_breakout)
         db.session.commit()
 
-    parameter_id = db.session.execute("select * from " + strategy.params + " where parameter_id = (select max(parameter_id) from " + strategy.params + ")").first().parameter_id
+    elif strategy.params == "param_stock_strategy_bollinger":
 
+        new_param_bollinger = Param_stock_strategy_bollinger(trading_id = stock_id, period = period, stddev = stddev, trade_price = trade_price)
+        db.session.add(new_param_bollinger)
+        db.session.commit()
+    try:
+        parameter_id = db.session.execute("select * from " + strategy.params + " where parameter_id = (select max(parameter_id) from " + strategy.params + ")").first().parameter_id
+    except Exception as e:
+        parameter_id = 0
+        print(e)
     # insert stock_strategy into database
-    new_stock_strategy = Crypto_strategy(crypto_id = stock_id, strategy_id = strategy_id, parameter_id = parameter_id)
+    new_stock_strategy = Crypto_strategy(crypto_id = stock_id, strategy_id = strategy.id, parameter_id = parameter_id)
     db.session.add(new_stock_strategy)
     db.session.commit()
 
@@ -313,17 +327,17 @@ def apply_strategy():
 @login_required
 def strategies():
 
-    from .models import Strategy_crypto
+    from .models import Strategy
 
     strategies = db.session.query(
-            Strategy_crypto
+            Strategy
         ).with_entities(
-            Strategy_crypto.name, 
-            Strategy_crypto.id, 
-            Strategy_crypto.params,
-            Strategy_crypto.url_pic
+            Strategy.name, 
+            Strategy.id, 
+            Strategy.params,
+            Strategy.url_pic
         ).order_by(
-            asc(Strategy_crypto.id)
+            asc(Strategy.id)
         ).all()
 
     return render_template(
@@ -338,25 +352,25 @@ def strategies():
 @login_required
 def crypto_strategy(strategy_name, mode):
 
-    from .models import Strategy_crypto
+    from .models import Strategy
 
     strategy = db.session.query(
-        Strategy_crypto
+        Strategy
     ).filter(
-        Strategy_crypto.name == strategy_name
+        Strategy.name == strategy_name
     ).first()
 
     print(f"Strategy: {strategy}")
 
     applied_cryptos = db.session.execute("SELECT * from " + strategy.params + "\
-    join crypto_strategy on " + strategy.params + ".parameter_id = crypto_strategy.parameter_id and " + strategy.params + ".crypto_id = crypto_strategy.crypto_id\
+    join crypto_strategy on " + strategy.params + ".parameter_id = crypto_strategy.parameter_id and " + strategy.params + ".trading_id = crypto_strategy.crypto_id\
     join crypto on crypto.id = crypto_strategy.crypto_id\
     where crypto_strategy.strategy_id = " + str(strategy.id) + "\
     GROUP BY crypto_strategy.parameter_id\
     ORDER BY symbol")
 
     saved_cryptos = db.session.execute("SELECT * from " + strategy.params + "\
-        join crypto on crypto.id = " + strategy.params + ".crypto_id\
+        join crypto on crypto.id = " + strategy.params + ".trading_id\
         ORDER BY id")
 
     list_applied_cryptos = []
