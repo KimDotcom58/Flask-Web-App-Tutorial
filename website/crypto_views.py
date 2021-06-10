@@ -1,13 +1,12 @@
-from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
-from .models import Note
 from . import db
 import json
 from sqlalchemy import desc, asc, func
 
 crypto_views = Blueprint('crypto_views', __name__)
 
-@crypto_views.route('/cryptos', methods=['GET', 'POST'])
+@crypto_views.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
     # read data from request
@@ -268,7 +267,7 @@ def crypto_detail(symbol):
         stocks_bollinger= cryptos['bollinger_bands']
         )
 
-@crypto_views.route("/apply_crypto_strategy", methods=['GET', 'POST'])
+@crypto_views.route("/apply_strategy", methods=['GET', 'POST'])
 @login_required
 def apply_strategy():
 
@@ -280,7 +279,7 @@ def apply_strategy():
     period = request.form.get('period')
     stddev = request.form.get('stddev')
 
-    from .models import Strategy, Crypto_strategy, Param_stock_strategy_breakdown, Param_stock_strategy_breakout, Param_stock_strategy_bollinger
+    from .models import Strategy, Crypto_strategy, Trading, Param_stock_strategy_breakdown, Param_stock_strategy_breakout, Param_stock_strategy_bollinger
 
     strategy = db.session.query(
             Strategy
@@ -292,38 +291,44 @@ def apply_strategy():
             Strategy.name == strategy_name
         ).first()
 
+    trading = db.session.query(
+        Trading
+    ).filter(
+        Trading.trading == "Crypto"
+    ).first()
+
     # insert parameters into database
 
     if strategy.params == "param_stock_strategy_breakdown":
 
-        new_param_breakdown = Param_stock_strategy_breakdown(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
+        new_param_breakdown = Param_stock_strategy_breakdown(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
         db.session.add(new_param_breakdown)
         db.session.commit()
     
     elif strategy.params == "param_stock_strategy_breakout":
 
-        new_param_breakout = Param_stock_strategy_breakout(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
+        new_param_breakout = Param_stock_strategy_breakout(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
         db.session.add(new_param_breakout)
         db.session.commit()
 
     elif strategy.params == "param_stock_strategy_bollinger":
 
-        new_param_bollinger = Param_stock_strategy_bollinger(trading_id = stock_id, period = period, stddev = stddev, trade_price = trade_price)
+        new_param_bollinger = Param_stock_strategy_bollinger(trading_id = stock_id, period = period, stddev = stddev, trade_price = trade_price, trading = trading.id)
         db.session.add(new_param_bollinger)
         db.session.commit()
     try:
         parameter_id = db.session.execute("select * from " + strategy.params + " where parameter_id = (select max(parameter_id) from " + strategy.params + ")").first().parameter_id
     except Exception as e:
         parameter_id = 0
-        print(e)
+
     # insert stock_strategy into database
-    new_stock_strategy = Crypto_strategy(crypto_id = stock_id, strategy_id = strategy.id, parameter_id = parameter_id)
+    new_stock_strategy = Crypto_strategy(crypto_id = stock_id, strategy_id = strategy.id, parameter_id = parameter_id, is_traded = True)
     db.session.add(new_stock_strategy)
     db.session.commit()
 
-    return redirect(url_for('crypto_views.crypto_strategy', strategy_name = strategy.name, mode = 'applied'))
+    return redirect(url_for('crypto_views.strategy', strategy_name = strategy.name, mode = 'applied'))
 
-@crypto_views.route("/strategies_crypto", methods = ['GET', 'POST'])
+@crypto_views.route("/strategies", methods = ['GET', 'POST'])
 @login_required
 def strategies():
 
@@ -348,11 +353,11 @@ def strategies():
         strategies = strategies
     )
 
-@crypto_views.route("/crypto_strategy/<strategy_name>/<mode>")
+@crypto_views.route("/strategy/<strategy_name>/<mode>")
 @login_required
-def crypto_strategy(strategy_name, mode):
+def strategy(strategy_name, mode):
 
-    from .models import Strategy
+    from .models import Strategy, Trading
 
     strategy = db.session.query(
         Strategy
@@ -360,17 +365,22 @@ def crypto_strategy(strategy_name, mode):
         Strategy.name == strategy_name
     ).first()
 
-    print(f"Strategy: {strategy}")
+    trading = db.session.query(
+        Trading
+    ).filter(
+        Trading.trading == "Crypto"
+    ).first()
 
     applied_cryptos = db.session.execute("SELECT * from " + strategy.params + "\
     join crypto_strategy on " + strategy.params + ".parameter_id = crypto_strategy.parameter_id and " + strategy.params + ".trading_id = crypto_strategy.crypto_id\
     join crypto on crypto.id = crypto_strategy.crypto_id\
-    where crypto_strategy.strategy_id = " + str(strategy.id) + "\
+    where crypto_strategy.strategy_id = " + str(strategy.id) + " and " + strategy.params + ".trading = "+str(trading.id)+"\
     GROUP BY crypto_strategy.parameter_id\
     ORDER BY symbol")
 
     saved_cryptos = db.session.execute("SELECT * from " + strategy.params + "\
         join crypto on crypto.id = " + strategy.params + ".trading_id\
+        where " + strategy.params + ".trading = "+str(trading.id)+"\
         ORDER BY id")
 
     list_applied_cryptos = []
@@ -398,12 +408,6 @@ def crypto_strategy(strategy_name, mode):
     if mode == 'saved':
         cryptos = list_cryptos_saved
 
-    for crypto in cryptos:
-            print(f"last: {crypto}")
-
-
-    print(f"is traded: {is_traded}")
-
     return render_template(
         "strategy.html",
         title = 'Crypto',
@@ -415,7 +419,7 @@ def crypto_strategy(strategy_name, mode):
         is_traded = is_traded
     )
 
-@crypto_views.route("/delete_traded_crypto_strategy", methods=['GET', 'POST'])
+@crypto_views.route("/delete_traded_strategy", methods=['GET', 'POST'])
 @login_required
 def delete_traded_strategy():
 
@@ -430,9 +434,10 @@ def delete_traded_strategy():
     crypto.delete()
     db.session.commit()
 
-    return redirect(url_for('crypto_views.crypto_strategy', strategy_name = strategy_name, mode = 'applied'))
+    return redirect(url_for('crypto_views.strategy', strategy_name = strategy_name, mode = 'applied'))
 
-@crypto_views.route("/apply_saved_crypto_strategies/<strategy_name>", methods=['GET', 'POST'])
+
+@crypto_views.route("/apply_saved_strategies/<strategy_name>", methods=['GET', 'POST'])
 @login_required
 def apply_traded_strategy(strategy_name):
 
@@ -462,7 +467,7 @@ def apply_traded_strategy(strategy_name):
         try:
             b=applied_parameters_on_strategy.index(int(parameter_id))
         except ValueError:
-            new_crypto_strategy = Crypto_strategy(crypto_id=crypto_id, strategy_id=strategy_id, parameter_id = parameter_id)
+            new_crypto_strategy = Crypto_strategy(crypto_id=crypto_id, strategy_id=strategy_id, parameter_id = parameter_id, is_traded = True)
             db.session.add(new_crypto_strategy)
             db.session.commit()
 
@@ -474,4 +479,4 @@ def apply_traded_strategy(strategy_name):
             crypto.delete()
             db.session.commit()
 
-    return redirect(url_for('crypto_views.crypto_strategy', strategy_name = strategy_name, mode = 'saved'))
+    return redirect(url_for('crypto_views.strategy', strategy_name = strategy_name, mode = 'saved'))

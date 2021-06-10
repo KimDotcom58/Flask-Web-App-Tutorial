@@ -7,7 +7,7 @@ from sqlalchemy import desc, asc, func
 
 stock_views = Blueprint('stock_views', __name__)
 
-@stock_views.route('/stocks', methods=['GET', 'POST'])
+@stock_views.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
     # read data from request
@@ -291,7 +291,7 @@ def apply_strategy():
     period = request.form.get('period')
     stddev = request.form.get('stddev')
 
-    from .models import Strategy, Stock_strategy, Param_stock_strategy_breakdown, Param_stock_strategy_breakout, Param_stock_strategy_bollinger
+    from .models import Strategy, Stock_strategy, Trading, Param_stock_strategy_breakdown, Param_stock_strategy_breakout, Param_stock_strategy_bollinger
 
     strategy = db.session.query(
             Strategy
@@ -303,27 +303,30 @@ def apply_strategy():
             Strategy.name == strategy_name
         ).first()
 
-    # For Raw-SQL cibbect to database
-    from sqlalchemy import create_engine
-    engine = create_engine('sqlite:///website/app.db')
+    trading = db.session.query(
+            Trading
+        ).filter(
+            Trading.trading == "Stock"
+        ).first()
+
 
     # insert parameters into database
     
     if strategy.params == "param_stock_strategy_breakdown":
 
-        new_param_breakdown = Param_stock_strategy_breakdown(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
+        new_param_breakdown = Param_stock_strategy_breakdown(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
         db.session.add(new_param_breakdown)
         db.session.commit()
     
     elif strategy.params == "param_stock_strategy_breakout":
 
-        new_param_breakout = Param_stock_strategy_breakout(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price)
+        new_param_breakout = Param_stock_strategy_breakout(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
         db.session.add(new_param_breakout)
         db.session.commit()
 
     elif strategy.params == "param_stock_strategy_bollinger":
 
-        new_param_bollinger = Param_stock_strategy_bollinger(trading_id = stock_id, period = period, stddev = stddev, trade_price = trade_price)
+        new_param_bollinger = Param_stock_strategy_bollinger(trading_id = stock_id, period = period, stddev = stddev, trade_price = trade_price, trading = trading.id)
         db.session.add(new_param_bollinger)
         db.session.commit()
 
@@ -331,10 +334,9 @@ def apply_strategy():
         parameter_id = db.session.execute("select * from " + strategy.params + " where parameter_id = (select max(parameter_id) from " + strategy.params + ")").first().parameter_id
     except Exception as e:
         parameter_id = 0
-        print(e)
 
     # insert stock_strategy into database
-    new_stock_strategy = Stock_strategy(stock_id = stock_id, strategy_id = strategy.id, parameter_id = parameter_id)
+    new_stock_strategy = Stock_strategy(stock_id = stock_id, strategy_id = strategy.id, parameter_id = parameter_id, is_traded = True)
     db.session.add(new_stock_strategy)
     db.session.commit()
 
@@ -369,7 +371,7 @@ def strategies():
 @login_required
 def strategy(strategy_name, mode):
 
-    from .models import Strategy
+    from .models import Strategy, Trading
 
     strategy = db.session.query(
         Strategy
@@ -377,15 +379,24 @@ def strategy(strategy_name, mode):
         Strategy.name == strategy_name
     ).first()
 
+    trading = db.session.query(
+            Trading
+        ).filter(
+            Trading.trading == "Stock"
+        ).first()
+
+    print(trading.id)
+
     applied_stocks = db.session.execute("SELECT * from " + strategy.params + "\
     join stock_strategy on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
     join stock on stock.id = stock_strategy.stock_id\
-    where stock_strategy.strategy_id = " + str(strategy.id) + "\
+    where stock_strategy.strategy_id = " + str(strategy.id) + " and " + strategy.params + ".trading = "+ str(trading.id)+"\
     GROUP BY stock_strategy.parameter_id\
     ORDER BY symbol")
 
     saved_stocks = db.session.execute("SELECT * from " + strategy.params + "\
         join stock on stock.id = " + strategy.params + ".trading_id\
+        where " + strategy.params + ".trading = "+ str(trading.id)+"\
         ORDER BY id")
 
     list_applied_stocks = []
@@ -441,7 +452,7 @@ def delete_traded_strategy():
 
 @stock_views.route("/apply_saved_strategies/<strategy_name>", methods=['GET', 'POST'])
 @login_required
-def apply_traded_strategy(strategy_name):
+def apply_saved_strategies(strategy_name):
 
     from .models import Stock_strategy
 
@@ -469,12 +480,13 @@ def apply_traded_strategy(strategy_name):
         try:
             b=applied_parameters_on_strategy.index(int(parameter_id))
         except ValueError:
-            new_stock_strategy = Stock_strategy(stock_id=stock_id, strategy_id=strategy_id, parameter_id = parameter_id)
+            new_stock_strategy = Stock_strategy(stock_id=stock_id, strategy_id=strategy_id, parameter_id = parameter_id, is_traded = True)
             db.session.add(new_stock_strategy)
             db.session.commit()
 
     # look to remove
     for saved in saved_stocks:
+        print(f"Hallo: {saved.parameter_id}")
         if str(saved.parameter_id) not in array_parsed:
             print(f"Hallo: ")
             stock = db.session.query(Stock_strategy).filter_by(strategy_id = saved.strategy_id, parameter_id = saved.parameter_id, stock_id = saved.stock_id)

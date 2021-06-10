@@ -9,7 +9,6 @@ class Note(db.Model):
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
@@ -32,6 +31,40 @@ class Market(db.Model):
     timezone = db.Column(db.Text, nullable=False)
     pause_start = db.Column(db.Text)
     pause_stop = db.Column(db.Text)
+
+class Strategy(db.Model): 
+    id = db.Column(db.Integer, primary_key=True, nullable = True)
+    name = db.Column(db.Text, nullable=False)
+    params = db.Column(db.Text, nullable=False)
+    url_pic = db.Column(db.Text, nullable=False)
+    
+class Param_stock_strategy_bollinger(db.Model):
+    parameter_id = db.Column(db.Integer, primary_key=True)
+    trading_id = db.Column(db.Integer, nullable=False)
+    period = db.Column(db.Integer, nullable=False)
+    stddev = db.Column(db.Integer, nullable=False)
+    trade_price = db.Column(db.Integer, nullable=False)
+    trading = db.Column(db.Integer, nullable=False)
+
+class Param_stock_strategy_breakout(db.Model):
+    parameter_id = db.Column(db.Integer, primary_key=True)
+    trading_id = db.Column(db.Integer, nullable=False)
+    observe_from = db.Column(db.Text, nullable=False)
+    observe_until = db.Column(db.Text, nullable=False)
+    trade_price = db.Column(db.Integer, nullable=False)
+    trading = db.Column(db.Integer, nullable=False)
+
+class Param_stock_strategy_breakdown(db.Model):
+    parameter_id = db.Column(db.Integer, primary_key=True)
+    trading_id = db.Column(db.Integer, nullable=False)
+    observe_from = db.Column(db.Text, nullable=False)
+    observe_until = db.Column(db.Text, nullable=False)
+    trade_price = db.Column(db.Integer, nullable=False)
+    trading = db.Column(db.Integer, nullable=False)
+
+class Trading(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    trading = db.Column(db.Text, nullable=False, unique=True)
 
 class Stock(db.Model):
     __tablename__ = 'stock'
@@ -58,27 +91,6 @@ class Stock_price(db.Model):
     sma_50 = db.Column(db.Text)
     rsi_14 = db.Column(db.Text)
 
-class Param_stock_strategy_bollinger(db.Model):
-    parameter_id = db.Column(db.Integer, primary_key=True)
-    trading_id = db.Column(db.Integer, nullable=False)
-    period = db.Column(db.Integer, nullable=False)
-    stddev = db.Column(db.Integer, nullable=False)
-    trade_price = db.Column(db.Integer, nullable=False)
-
-class Param_stock_strategy_breakout(db.Model):
-    parameter_id = db.Column(db.Integer, primary_key=True)
-    trading_id = db.Column(db.Integer, nullable=False)
-    observe_from = db.Column(db.Text, nullable=False)
-    observe_until = db.Column(db.Text, nullable=False)
-    trade_price = db.Column(db.Integer, nullable=False)
-
-class Param_stock_strategy_breakdown(db.Model):
-    parameter_id = db.Column(db.Integer, primary_key=True)
-    trading_id = db.Column(db.Integer, nullable=False)
-    observe_from = db.Column(db.Text, nullable=False)
-    observe_until = db.Column(db.Text, nullable=False)
-    trade_price = db.Column(db.Integer, nullable=False)
-
 class Stock_price_minute(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     stock_id = db.Column(db.Integer, nullable=False)
@@ -94,12 +106,7 @@ class Stock_strategy(db.Model):
     stock_id = db.Column(db.Integer, nullable=False)
     strategy_id = db.Column(db.Integer, nullable=False)
     parameter_id = db.Column(db.Integer, nullable=False)
-
-class Strategy(db.Model): 
-    id = db.Column(db.Integer, primary_key=True, nullable = True)
-    name = db.Column(db.Text, nullable=False)
-    params = db.Column(db.Text, nullable=False)
-    url_pic = db.Column(db.Text, nullable=False)
+    is_traded = db.Column(db.Boolean, nullable=False)
 
 class Crypto(db.Model):
     __tablename__ = 'crypto'
@@ -128,10 +135,5 @@ class Crypto_strategy(db.Model):
     crypto_id = db.Column(db.Integer, nullable=False)
     strategy_id = db.Column(db.Integer, nullable=False)
     parameter_id = db.Column(db.Integer, nullable=False)
-
-class Param_crypto_strategy_bollinger(db.Model):
-    parameter_id = db.Column(db.Integer, primary_key=True)
-    crypto_id = db.Column(db.Integer, nullable=False)
-    period = db.Column(db.Integer, nullable=False)
-    stddev = db.Column(db.Integer, nullable=False)
-    trade_price = db.Column(db.Integer, nullable=False)
+    is_traded = db.Column(db.Boolean, nullable=False)
+    

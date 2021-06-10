@@ -50,10 +50,10 @@
         </td>
         {% else %}
         <td>
-            <a href="crypto_strategy/{{ strategy.name }}/applied">List</a>
+            <a {% if strategy.name == 'bollinger_bands' %}href="strategy/{{ strategy.name }}/applied">List{% else %}>N/A{% endif %}</a>
         </td>
         <td>
-            <a href="crypto_strategy/{{ strategy.name }}/saved">List</a>
+            <a {% if strategy.name == 'bollinger_bands' %}href="strategy/{{ strategy.name }}/saved">List{% else %}>N/A{% endif %}</a>
         </td>
         {% endif %}
     </tr>

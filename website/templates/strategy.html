@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>{% if title == 'Stock' %}<a  href="/strategies"> {% elif title == 'Crypto' %}<a  href="/strategies_crypto">{% endif %}{{title}} Strategies</a>
+<h1>{% if title == 'Stock' %}<a  href="/stocks/strategies"> {% elif title == 'Crypto' %}<a  href="/cryptos/strategies">{% endif %}{{title}} Strategies</a>
     <i class="angle double right icon"></i>
     {{ strategy.name }}
 </h1>
@@ -90,7 +90,7 @@
 </script>
 
 
-<form id="form_delete_traded_strategy" name="form_delete_traded_strategy" {% if mode == 'applied' %}method="post" {% if title == 'Stock' %}action="/delete_traded_strategy"{% elif title == 'Crypto' %}action="/delete_traded_crypto_strategy"{% endif %}{% else %}method="get" {% if title == 'Stock' %}action="/apply_saved_strategies/{{strategy.name}}"{% elif title == 'Crypto' %}action="/apply_saved_crypto_strategies/{{strategy.name}}"{% endif %}{% endif %}>
+<form id="form_delete_traded_strategy" name="form_delete_traded_strategy" {% if mode == 'applied' %}method="post" {% if title == 'Stock' %}action="/stocks/delete_traded_strategy"{% elif title == 'Crypto' %}action="/cryptos/delete_traded_strategy"{% endif %}{% else %}method="get" {% if title == 'Stock' %}action="/stocks/apply_saved_strategies/{{strategy.name}}"{% elif title == 'Crypto' %}action="/cryptos/apply_saved_strategies/{{strategy.name}}"{% endif %}{% endif %}>
 
     <input type="hidden" id="strategy_id" name="strategy_id" value="{{strategy.id}}">
 
@@ -124,7 +124,7 @@
             <tr id="{{show.parameter_id}}">
                 <td class="row-data">{{ show.symbol }}</td>
                 <td class="row-data">{{ show.name }}</td>
-                <td class="row-data">{% if title == 'Stock' %}{{ show.stock_id }}{% elif title == 'Crypto' %}{{show.crypto_id}}{% endif %}</td>
+                <td class="row-data">{{show.trading_id}}</td>
                 <td class="row-data">{{ show.parameter_id }}</td>
                 {% if strategy.name == "opening_range_breakout" or strategy.name == "opening_range_breakdown" %}
                 <td class="row-data">{{ show.observe_from }}</td>
@@ -148,11 +148,10 @@
     <input type="hidden" value = "0" name="trading_id" id="trading_id">
     <input type="hidden" value = "{{strategy.id}}" name="strategy_id" id="strategy_id">
     <input type="hidden" value = "{{strategy.name}}" name="strategy_name" id="strategy_name">
-    <button type="submit" value="Apply settings" name="apply_settings" id="apply_settings" onclick="return get_row_checkboxes()">lol</button>
+    {% if mode == 'saved' %}<button type="submit" value="Apply settings" name="apply_settings" id="apply_settings" onclick="return get_row_checkboxes()">Apply/Disapply (un)checked {{title}}s</button>{% endif %}
 </form>
 
 {% else %}
 no stocks
 {% endif %}
-
 {% endblock %}

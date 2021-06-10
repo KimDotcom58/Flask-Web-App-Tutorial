@@ -115,14 +115,13 @@ TradingView Widget END -->
 
 <h2>Apply Strategy</h2>
 
-<form id="form_apply_strategy" name="form_apply_strategy" method="post" {% if title == "Stock" %}action="/apply_strategy"{% elif title == "Crypto" %}action="/apply_crypto_strategy"{% endif %}>
+<form id="form_apply_strategy" name="form_apply_strategy" method="post" {% if title == "Stock" %}action="/stocks/apply_strategy"{% elif title == "Crypto" %}action="/cryptos/apply_strategy"{% endif %}>
 
     <div class="aside">
         <select name="strategy_name", id="strategy_name" class="toggle-divs">
             <option selected="selected" value="">Select item...</option>
             {% for strategy in strategies %}
             <option value="{{ strategy.name }}" {% if title == "Crypto" %}{% if strategy.name != 'bollinger_bands' %}disabled="disabled"{% endif %}{% endif %}>{{strategy.name}}</option>
-
             {% endfor %}
         </select>
     </div>
@@ -185,8 +184,8 @@ TradingView Widget END -->
             <span class="validity"></span>
             <br>
             <!-- TRADING PRICE -->
-            <label for="trade_price">trade_price</label>
-            <input type="number" name="trade_price" id="trade_price_bollinger" value=15 min=1 max=10000>
+            <label for="trade_price_bollinger">trade_price</label>
+            <input type="number" name="trade_price_bollinger" id="trade_price_bollinger" value=15 min=1 max=10000>
             <span class="validity"></span>
         </div>
 

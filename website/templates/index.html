@@ -86,7 +86,7 @@
         {% for show in trading %}
         <tr>
             <td>{{ show.symbol }}</td>
-            <td>{% if title == 'Stock' %}<a href="/stock/{{show.symbol}}">{% else %}<a href="/crypto/{{show.symbol}}">{% endif %}{{ show.name }}</a> </td>
+            <td>{% if title == 'Stock' %}<a href="/stocks/stock/{{show.symbol}}">{% else %}<a href="/cryptos/crypto/{{show.symbol}}">{% endif %}{{ show.name }}</a> </td>
             {% if show.date %}
             {% if show.close %}
             <td>{{ show.close|float|round(2) }}</td>

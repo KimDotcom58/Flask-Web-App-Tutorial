@@ -19,8 +19,8 @@ def create_app():
     from .auth import auth
 
     app.register_blueprint(views, url_prefix='/')
-    app.register_blueprint(stock_views, url_prefix='/')
-    app.register_blueprint(crypto_views, url_prefix='/')
+    app.register_blueprint(stock_views, url_prefix='/stocks')
+    app.register_blueprint(crypto_views, url_prefix='/cryptos')
     app.register_blueprint(auth, url_prefix='/')
 
     from .models import User
@@ -46,11 +46,11 @@ def create_database(app):
         populate_database()
 
 
-
 def populate_database():
     populate_strategies()
     populate_filters()
     populate_markets()
+    populate_trading()
     populate_stocks()
     populate_stock_prices()
     populate_cryptos()
@@ -59,15 +59,27 @@ def populate_database():
 
     print("Populated Database!")
 
+
 def populate_user():
     from .models import User
     new_user = User(email = "kim.schenk@hotmail.com", password = "sha256$EN5U9Q8G$46e100accf6ba8832e22753ba6e04034cfca0e7dde604f2bc71f41c428ab52bc", first_name = "kim")
     db.session.add(new_user)
     db.session.commit()
 
+
+def populate_trading():
+    from .models import Trading
+    new_trading = Trading(trading = "Stock")
+    db.session.add(new_trading)
+    db.session.commit()
+    new_trading = Trading(trading = "Crypto")
+    db.session.add(new_trading)
+    db.session.commit()
+    print("populated tradings")
+
 def populate_strategies():
 
-    from .models import Strategy, Strategy_crypto
+    from .models import Strategy
 
     strategies = ['opening_range_breakout', 'opening_range_breakdown', 'bollinger_bands']
     parameters = ['param_stock_strategy_breakout', 'param_stock_strategy_breakdown', 'param_stock_strategy_bollinger']
@@ -78,11 +90,8 @@ def populate_strategies():
         db.session.add(new_strategy)
         db.session.commit()
 
-    new_crypto_strategy = Strategy_crypto(name=strategies[2], params="param_crypto_strategy_bollinger", url_pic=urls[2])
-    db.session.add(new_crypto_strategy)
-    db.session.commit()
-
     print("...populated strategies...")
+
 
 def populate_filters():
 
@@ -95,6 +104,7 @@ def populate_filters():
         db.session.add(new_filter)
         db.session.commit()
     print("...populated filters...")
+
 
 def populate_markets():
     from .models import Market
@@ -221,6 +231,7 @@ def populate_stock_prices():
 
         db.session.commit()
     print("...populated stock prices...")
+
 
 def populate_cryptos():
 
@@ -349,3 +360,5 @@ def populate_crypto_prices():
 
         db.session.commit()
     print("...populated crypto prices...")
+
+    

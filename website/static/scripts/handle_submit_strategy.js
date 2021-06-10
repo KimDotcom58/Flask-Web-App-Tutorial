@@ -20,5 +20,4 @@ $(document).ready(function () {
     if (handle_submit_strategy_var.stocks_breakout.includes(handle_submit_strategy_var.stock_id) || handle_submit_strategy_var.stocks_breakdown.includes(handle_submit_strategy_var.stock_id) || handle_submit_strategy_var.stocks_bollinger.includes(handle_submit_strategy_var.stock_id)) {
         handle_submit_strategy_var.actual_document.getElementById(handle_submit_strategy_var.disable_apply_button).value = "Apply Strategy (!)";
     }
-    })
-
+})
