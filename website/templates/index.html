@@ -25,19 +25,20 @@
 </script>
 
 <link href="{{ url_for('static', filename='css/trading_detail.css') }}" rel="stylesheet">
-<script type="text/javascript" src="{{ url_for('static', filename='toggle_div.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/toggle_div.js') }}"></script>
 
 <h1>
     {{ title }} Filter
 </h1>
 
+
+
 <form method="get">
     <div class="aside">
         <select name="filter" class="toggle-divs">
-            <option value="">All Stocks</option>
+            <option value="all_stocks">All Stocks</option>
             {% for filter in filters %}
-            <option {% if true %}selected="selected" {% endif %}
-                value="{{filter.name}}">{{filter.name}}</option>
+            <option {% if filter.name == request.args.get('filter') %}selected="selected" {% endif %} value="{{filter.name}}">{{filter.name}}</option>
             {% endfor %}
         </select>
     </div>
@@ -62,7 +63,7 @@
             <input type="number" id="number" name="rsi_os" value=30 min=1 max=100>
             <span class="validity"></span>
         </div>
-        <input type="submit" value="Apply filter" />
+        <input type="submit" id="submitting" value="Apply filter" />
     </div>
 </form>
 
