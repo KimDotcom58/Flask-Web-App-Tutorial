@@ -1,10 +1,12 @@
-from . import db
 from sqlalchemy import func
 
 class database(object):
 
+
     def populate_user():
         from .models import User
+        from . import db
+
         new_user = User(email = "kim.schenk@hotmail.com", password = "sha256$EN5U9Q8G$46e100accf6ba8832e22753ba6e04034cfca0e7dde604f2bc71f41c428ab52bc", first_name = "kim")
         db.session.add(new_user)
         db.session.commit()
@@ -12,6 +14,8 @@ class database(object):
 
     def populate_trading():
         from .models import Trading
+        from . import db
+
         new_trading = Trading(trading = "Stock")
         db.session.add(new_trading)
         db.session.commit()
@@ -23,6 +27,7 @@ class database(object):
     def populate_strategies():
 
         from .models import Strategy
+        from . import db
 
         strategies = ['opening_range_breakout', 'opening_range_breakdown', 'bollinger_bands']
         parameters = ['param_stock_strategy_breakout', 'param_stock_strategy_breakdown', 'param_stock_strategy_bollinger']
@@ -39,6 +44,7 @@ class database(object):
     def populate_filters():
 
         from .models import Filter
+        from . import db
 
         filters = ['new_closing_highs', 'new_closing_lows', 'rsi_overbought', 'rsi_oversold']
 
@@ -51,6 +57,7 @@ class database(object):
 
     def populate_markets():
         from .models import Market
+        from . import db
 
         markets=Market.query.limit(100).all()
         market_list = [market.name for market in markets]
@@ -82,13 +89,17 @@ class database(object):
 
 
     def populate_stocks():
+        print('hello')
 
         from website import config
         import alpaca_trade_api as tradeapi
         from .models import Stock, Market
+        from . import db
+        print('hello')
 
         stocks=Stock.query.all()
         symbols = [stock.symbol for stock in stocks]
+        print('hello')
 
         api = tradeapi.REST(config.API_KEY_ALPACA,
                             config.API_SECRET_ALPACA,
@@ -120,6 +131,8 @@ class database(object):
         import tulipy, numpy
         from datetime import date, datetime
         from .models import Stock, Stock_price
+        from . import db
+
         # https://www.youtube.com/watch?v=Ni8mqdUXH3g
 
         stocks=Stock.query.all()
@@ -181,6 +194,7 @@ class database(object):
         from website import config
         from binance.client import Client
         from .models import Crypto
+        from . import db
 
         cryptos = Crypto.query.all()
         symbols = [crypto.symbol for crypto in cryptos]
@@ -223,6 +237,7 @@ class database(object):
         import tulipy, numpy
         from datetime import date, datetime
         from .models import Crypto, Crypto_price
+        from . import db
         # https://www.youtube.com/watch?v=Ni8mqdUXH3g
 
         cryptos=Crypto.query.all()
@@ -304,4 +319,6 @@ class database(object):
             db.session.commit()
         print("...populated crypto prices...")
 
-        
+
+    def test():
+        print("Bonjour motherfucker")
