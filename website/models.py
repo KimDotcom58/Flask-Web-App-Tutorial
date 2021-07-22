@@ -1,4 +1,4 @@
-from . import db
+from .extensions import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
@@ -75,6 +75,14 @@ class Stock(db.Model):
     market_id = db.Column(db.Integer, db.ForeignKey('market.id'))
     market = db.relationship('Market', back_populates="stocks")
     shortable = db.Column(db.Boolean, nullable=False)
+
+class Symbol_XTB(db.Model):
+    id = db.Column(db.Integer, primary_key=True, nullable=True)
+    symbol = db.Column(db.Text, nullable=False, unique=True)
+    description = db.Column(db.Text, nullable=False)
+    trading_id = db.Column(db.Integer, nullable=False)
+    currency = db.Column(db.Text, nullable=False)
+    trailing_enabled = db.Column(db.Boolean, nullable=False)
 
 class Stock_price(db.Model):
     __tablename__ = 'stock_price'

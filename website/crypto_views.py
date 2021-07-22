@@ -1,10 +1,26 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
-from . import db
+from .extensions import db, alpaca_api
 import json
 from sqlalchemy import desc, asc, func
 
 crypto_views = Blueprint('crypto_views', __name__)
+
+@crypto_views.route('/orders', methods=['GET', 'POST'])
+@login_required
+def orders():
+
+    orders = alpaca_api.list_orders(status='all')
+
+    print(orders)
+    
+    return render_template(
+        "orders.html",
+        title = 'Crypto',
+        user = current_user,
+        request = request,
+        orders = orders
+    )
 
 @crypto_views.route('/', methods=['GET', 'POST'])
 @login_required
@@ -294,7 +310,7 @@ def apply_strategy():
     trading = db.session.query(
         Trading
     ).filter(
-        Trading.trading == "Crypto"
+        Trading.trading == "CRT"
     ).first()
 
     # insert parameters into database

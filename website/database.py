@@ -5,7 +5,7 @@ class database(object):
 
     def populate_user():
         from .models import User
-        from . import db
+        from .extensions import db
 
         new_user = User(email = "kim.schenk@hotmail.com", password = "sha256$EN5U9Q8G$46e100accf6ba8832e22753ba6e04034cfca0e7dde604f2bc71f41c428ab52bc", first_name = "kim")
         db.session.add(new_user)
@@ -14,20 +14,30 @@ class database(object):
 
     def populate_trading():
         from .models import Trading
-        from . import db
+        from .extensions import db, xtb_api
 
-        new_trading = Trading(trading = "Stock")
-        db.session.add(new_trading)
-        db.session.commit()
-        new_trading = Trading(trading = "Crypto")
-        db.session.add(new_trading)
-        db.session.commit()
+        symbols_xtb = xtb_api.get_all_symbols()
+
+        category_names = []
+        for symbol in symbols_xtb:
+            try:
+                asset_category = symbol['categoryName']
+                asset_symbol = symbol['symbol']
+                if asset_category not in category_names:
+                    category_names.append(asset_category)
+                    new_trading = Trading(trading = asset_category)
+                    db.session.add(new_trading)
+                    db.session.commit()
+            except Exception as e:
+                print(asset_symbol)
+                print(e)
+        print(category_names)
         print("populated tradings")
 
     def populate_strategies():
 
         from .models import Strategy
-        from . import db
+        from .extensions import db
 
         strategies = ['opening_range_breakout', 'opening_range_breakdown', 'bollinger_bands']
         parameters = ['param_stock_strategy_breakout', 'param_stock_strategy_breakdown', 'param_stock_strategy_bollinger']
@@ -44,7 +54,7 @@ class database(object):
     def populate_filters():
 
         from .models import Filter
-        from . import db
+        from .extensions import db
 
         filters = ['new_closing_highs', 'new_closing_lows', 'rsi_overbought', 'rsi_oversold']
 
@@ -57,7 +67,7 @@ class database(object):
 
     def populate_markets():
         from .models import Market
-        from . import db
+        from .extensions import db
 
         markets=Market.query.limit(100).all()
         market_list = [market.name for market in markets]
@@ -89,23 +99,14 @@ class database(object):
 
 
     def populate_stocks():
-        print('hello')
-
         from website import config
-        import alpaca_trade_api as tradeapi
-        from .models import Stock, Market
-        from . import db
-        print('hello')
+        from .models import Stock, Market, Symbol_XTB, Trading
+        from .extensions import db, xtb_api, alpaca_api
 
         stocks=Stock.query.all()
         symbols = [stock.symbol for stock in stocks]
-        print('hello')
 
-        api = tradeapi.REST(config.API_KEY_ALPACA,
-                            config.API_SECRET_ALPACA,
-                            base_url=config.API_URL_ALPACA)
-
-        assets = api.list_assets()
+        assets = alpaca_api.list_assets()
 
         for asset in assets:
             print(asset.symbol)
@@ -121,6 +122,55 @@ class database(object):
                 print(asset.symbol)
                 print(e)
 
+    # CHECK IF MARKET IS OPEN FOR EURUSD
+        symbols_xtb = xtb_api.get_all_symbols()
+
+        for symbol in symbols_xtb:
+            asset_symbol = symbol['symbol']
+
+            try:
+                asset_category = symbol['categoryName']
+
+                trading_id = db.session.query(
+                        Trading
+                    ).filter(
+                        Trading.trading == asset_category
+                    ).first()
+
+                asset_description = symbol['description']
+                asset_currency = symbol['currency']
+                asset_trailing_en = symbol['trailingEnabled']
+                
+                new_symbol = Symbol_XTB(symbol=asset_symbol, trading_id = trading_id.id, description=asset_description, currency=asset_currency, trailing_enabled = asset_trailing_en)
+                db.session.add(new_symbol)
+                db.session.commit()
+
+            except Exception as e:
+                print(asset_symbol)
+                print(e)
+
+        # trade = "TSLA.US_9"
+
+        # # # CHECK IF MARKET IS OPEN FOR EURUSD
+        # # xtb_api.get_commission(trade,1.0)
+        # # # CHECK IF MARKET IS OPEN FOR EURUSD
+        # xtb_api.get_symbol(trade)
+        # # # CHECK IF MARKET IS OPEN FOR EURUSD
+        # # xtb_api.check_if_market_open([trade])
+        # # # # BUY ONE VOLUME (FOR EURUSD THAT CORRESPONDS TO 100000 units)
+        # # xtb_api.open_trade('buy', trade, 1)
+        # # SEE IF ACTUAL GAIN IS ABOVE 100 THEN CLOSE THE TRADE
+        # trades = xtb_api.update_trades() # GET CURRENT TRADES
+        # trade_ids = [trade_id for trade_id in trades.keys()]
+        # for trade in trade_ids:
+        #     actual_profit = xtb_api.get_trade_profit(trade) # CHECK PROFIT
+        #     if actual_profit >= 100:
+        #         xtb_api.close_trade(trade) # CLOSE TRADE
+        # # CLOSE ALL OPEN TRADES
+        # xtb_api.close_all_trades()
+        # # THEN LOGOUT
+        # xtb_api.logout()
+        
         print("...populated stocks...")
 
 
@@ -131,7 +181,7 @@ class database(object):
         import tulipy, numpy
         from datetime import date, datetime
         from .models import Stock, Stock_price
-        from . import db
+        from .extensions import db
 
         # https://www.youtube.com/watch?v=Ni8mqdUXH3g
 
@@ -183,18 +233,17 @@ class database(object):
                             # print(f"added price to {symbol}")
 
                         except Exception as e:
-                            print(f"No stock-price added {e}")
+                            print(f"No stock-price added: {e}")
 
             db.session.commit()
         print("...populated stock prices...")
-
 
     def populate_cryptos():
 
         from website import config
         from binance.client import Client
         from .models import Crypto
-        from . import db
+        from .extensions import db
 
         cryptos = Crypto.query.all()
         symbols = [crypto.symbol for crypto in cryptos]
@@ -217,7 +266,6 @@ class database(object):
             print(symbol)
             print(symbol['symbol'])
 
-
             try:
                 if symbol['status'] == 'TRADING' and symbol['symbol'] not in symbols:
                     print(f"Added a new crypto: {symbol['symbol']}")
@@ -237,7 +285,7 @@ class database(object):
         import tulipy, numpy
         from datetime import date, datetime
         from .models import Crypto, Crypto_price
-        from . import db
+        from .extensions import db
         # https://www.youtube.com/watch?v=Ni8mqdUXH3g
 
         cryptos=Crypto.query.all()

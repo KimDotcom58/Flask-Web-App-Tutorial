@@ -1,8 +1,10 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import Note
-from . import db
+from .extensions import db
 import json
+from .extensions import scheduler
+from .tasks import task2
 
 views = Blueprint('views', __name__)
 
@@ -33,4 +35,33 @@ def delete_note():
             db.session.delete(note)
             db.session.commit()
     return jsonify({})
+
+@views.route("/add")
+def add():
+    """Add a task.
+
+    :url: /add/
+    :returns: job
+    """
+    job = scheduler.add_job(
+        func=task2,
+        trigger="interval",
+        seconds=10,
+        id="test job 2",
+        name="test job 2",
+        replace_existing=True,
+    )
+    return "%s added!" % job.name
+
+@views.route("/remove")
+def remove():
+    """Remove a task.
+
+    :url: /remove/
+    :returns: job
+    """
+    scheduler.remove_job(
+        id="test job 2"
+    )
+    return "Removed!"
 

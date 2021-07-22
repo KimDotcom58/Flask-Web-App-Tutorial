@@ -1,10 +1,9 @@
 from website import create_app
 
-[app, scheduler] = create_app()
-
-
+app = create_app()
 
 if __name__ == '__main__':
 
     app.run(debug=True)
+    app.app_context().push()
     

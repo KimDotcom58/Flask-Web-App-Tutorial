@@ -1,0 +1,976 @@
+2021-07-22 18:55:06 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 18:55:06 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 18:55:06 - DEBUG - XTBApi.api.Client - took 0.2922525405883789 s.
+2021-07-22 18:55:06 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 18:55:07 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 18:55:07 - DEBUG - XTBApi.api.Client - took 0.11468005180358887 s.
+2021-07-22 18:55:07 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 18:55:07 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:00:24 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:00:24 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:00:24 - DEBUG - XTBApi.api.Client - took 0.26441121101379395 s.
+2021-07-22 19:00:25 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:00:25 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:00:25 - DEBUG - XTBApi.api.Client - took 0.10947632789611816 s.
+2021-07-22 19:00:25 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:00:25 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:02:50 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:02:50 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:02:50 - DEBUG - XTBApi.api.Client - took 0.2673451900482178 s.
+2021-07-22 19:02:50 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:02:51 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:02:51 - DEBUG - XTBApi.api.Client - took 0.10854554176330566 s.
+2021-07-22 19:02:51 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:02:51 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:04:25 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:04:25 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:04:25 - DEBUG - XTBApi.api.Client - took 0.2624380588531494 s.
+2021-07-22 19:04:25 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:04:25 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:04:25 - DEBUG - XTBApi.api.Client - took 0.11022496223449707 s.
+2021-07-22 19:04:25 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:04:25 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:04:28 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:04:28 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:04:28 - DEBUG - XTBApi.api.Client - took 0.2624688148498535 s.
+2021-07-22 19:04:29 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:04:29 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:04:29 - DEBUG - XTBApi.api.Client - took 0.10079526901245117 s.
+2021-07-22 19:04:29 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:04:29 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:04:48 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:04:48 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:04:48 - DEBUG - XTBApi.api.Client - took 0.26067686080932617 s.
+2021-07-22 19:04:48 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:04:48 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:04:48 - DEBUG - XTBApi.api.Client - took 0.10096406936645508 s.
+2021-07-22 19:04:49 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:04:49 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:05:05 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:05:05 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:05:05 - DEBUG - XTBApi.api.Client - took 0.2614259719848633 s.
+2021-07-22 19:05:06 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:05:06 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:05:06 - DEBUG - XTBApi.api.Client - took 0.10132169723510742 s.
+2021-07-22 19:05:06 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:05:06 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:05:06 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:05:06 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:05:06 - DEBUG - XTBApi.api.Client - took 0.2605321407318115 s.
+2021-07-22 19:05:07 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:05:07 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:05:07 - DEBUG - XTBApi.api.Client - took 0.10596299171447754 s.
+2021-07-22 19:05:07 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:05:07 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:05:47 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:05:47 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:05:47 - DEBUG - XTBApi.api.Client - took 0.2645866870880127 s.
+2021-07-22 19:05:47 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:05:47 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:05:47 - DEBUG - XTBApi.api.Client - took 0.1117861270904541 s.
+2021-07-22 19:05:47 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:05:47 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:05:58 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:05:58 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:05:58 - DEBUG - XTBApi.api.Client - took 0.26613593101501465 s.
+2021-07-22 19:05:58 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:05:59 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:05:59 - DEBUG - XTBApi.api.Client - took 0.1086122989654541 s.
+2021-07-22 19:05:59 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:05:59 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:06:14 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:06:14 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:06:14 - DEBUG - XTBApi.api.Client - took 0.2610182762145996 s.
+2021-07-22 19:06:14 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:06:14 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:06:14 - DEBUG - XTBApi.api.Client - took 0.1072993278503418 s.
+2021-07-22 19:06:14 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:06:14 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:06:42 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:06:42 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:06:42 - DEBUG - XTBApi.api.Client - took 0.2632913589477539 s.
+2021-07-22 19:06:42 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:06:42 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:06:42 - DEBUG - XTBApi.api.Client - took 0.10870766639709473 s.
+2021-07-22 19:06:42 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:06:42 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:06:55 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:06:55 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:06:56 - DEBUG - XTBApi.api.Client - took 0.2663280963897705 s.
+2021-07-22 19:06:56 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:06:56 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:06:56 - DEBUG - XTBApi.api.Client - took 0.10158133506774902 s.
+2021-07-22 19:06:56 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:06:56 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:07:20 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:07:20 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:07:20 - DEBUG - XTBApi.api.Client - took 0.26958560943603516 s.
+2021-07-22 19:07:20 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:07:20 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:07:20 - DEBUG - XTBApi.api.Client - took 0.1020352840423584 s.
+2021-07-22 19:07:20 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:07:20 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:07:21 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:07:21 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:07:21 - DEBUG - XTBApi.api.Client - took 0.26370692253112793 s.
+2021-07-22 19:07:21 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:07:21 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:07:21 - DEBUG - XTBApi.api.Client - took 0.11022114753723145 s.
+2021-07-22 19:07:21 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:07:21 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:07:39 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:07:39 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:07:40 - DEBUG - XTBApi.api.Client - took 0.42421913146972656 s.
+2021-07-22 19:07:40 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:07:40 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:07:40 - DEBUG - XTBApi.api.Client - took 0.11090373992919922 s.
+2021-07-22 19:07:40 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:07:40 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:07:56 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:07:56 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:07:56 - DEBUG - XTBApi.api.Client - took 0.3004720211029053 s.
+2021-07-22 19:07:56 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:07:56 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:07:56 - DEBUG - XTBApi.api.Client - took 0.1079246997833252 s.
+2021-07-22 19:07:56 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:07:56 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:08:02 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:08:02 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:08:02 - DEBUG - XTBApi.api.Client - took 0.26644182205200195 s.
+2021-07-22 19:08:02 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:08:02 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:08:02 - DEBUG - XTBApi.api.Client - took 0.10692644119262695 s.
+2021-07-22 19:08:03 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:08:03 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:08:21 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:08:21 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:08:21 - DEBUG - XTBApi.api.Client - took 0.2876594066619873 s.
+2021-07-22 19:08:22 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:08:22 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:08:22 - DEBUG - XTBApi.api.Client - took 0.11075973510742188 s.
+2021-07-22 19:08:22 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:08:22 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:08:36 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:08:36 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:08:36 - DEBUG - XTBApi.api.Client - took 0.26763367652893066 s.
+2021-07-22 19:08:36 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:08:36 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:08:36 - DEBUG - XTBApi.api.Client - took 0.1023702621459961 s.
+2021-07-22 19:08:36 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:08:36 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:09:01 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:09:01 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:09:01 - DEBUG - XTBApi.api.Client - took 0.2645566463470459 s.
+2021-07-22 19:09:01 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:09:01 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:09:01 - DEBUG - XTBApi.api.Client - took 0.07684850692749023 s.
+2021-07-22 19:09:01 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:09:01 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:09:02 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:09:02 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:09:02 - DEBUG - XTBApi.api.Client - took 0.2591264247894287 s.
+2021-07-22 19:09:02 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:09:02 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:09:02 - DEBUG - XTBApi.api.Client - took 0.056268930435180664 s.
+2021-07-22 19:09:02 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:09:02 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:09:22 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:09:22 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:09:22 - DEBUG - XTBApi.api.Client - took 0.2647590637207031 s.
+2021-07-22 19:09:22 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:09:23 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:09:23 - DEBUG - XTBApi.api.Client - took 0.10994338989257812 s.
+2021-07-22 19:09:23 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:09:23 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:09:45 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:09:45 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:09:45 - DEBUG - XTBApi.api.Client - took 0.32932090759277344 s.
+2021-07-22 19:09:45 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:09:45 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:09:45 - DEBUG - XTBApi.api.Client - took 0.11296319961547852 s.
+2021-07-22 19:09:45 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:09:45 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:11:38 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:11:38 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:11:38 - DEBUG - XTBApi.api.Client - took 0.27701544761657715 s.
+2021-07-22 19:11:38 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:11:38 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:11:38 - DEBUG - XTBApi.api.Client - took 0.11207270622253418 s.
+2021-07-22 19:11:39 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:11:39 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:11:53 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:11:53 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:11:55 - DEBUG - XTBApi.api.Client - took 1.441727876663208 s.
+2021-07-22 19:11:55 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:11:55 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:11:55 - DEBUG - XTBApi.api.Client - took 0.09972667694091797 s.
+2021-07-22 19:11:55 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:11:55 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:12:09 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:12:09 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:12:09 - DEBUG - XTBApi.api.Client - took 0.263577938079834 s.
+2021-07-22 19:12:09 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:12:09 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:12:09 - DEBUG - XTBApi.api.Client - took 0.11089849472045898 s.
+2021-07-22 19:12:09 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:12:09 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:12:15 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:12:15 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:12:15 - DEBUG - XTBApi.api.Client - took 0.2618746757507324 s.
+2021-07-22 19:12:15 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:12:16 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:12:16 - DEBUG - XTBApi.api.Client - took 0.10923171043395996 s.
+2021-07-22 19:12:16 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:12:16 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:12:25 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:12:25 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:12:28 - DEBUG - XTBApi.api.Client - took 2.6803641319274902 s.
+2021-07-22 19:12:28 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:12:28 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:12:28 - DEBUG - XTBApi.api.Client - took 0.11736607551574707 s.
+2021-07-22 19:12:28 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:12:28 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:12:30 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:12:30 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:12:30 - DEBUG - XTBApi.api.Client - took 0.35283613204956055 s.
+2021-07-22 19:12:30 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:12:30 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 19:12:30 - DEBUG - XTBApi.api.Client - took 0.11302018165588379 s.
+2021-07-22 19:12:30 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:12:30 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:13:38 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:13:38 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:13:38 - DEBUG - XTBApi.api.Client - took 0.2749307155609131 s.
+2021-07-22 19:13:38 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:13:38 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:13:38 - DEBUG - XTBApi.api.Client - took 0.11107897758483887 s.
+2021-07-22 19:13:39 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:13:39 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:14:18 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:14:18 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:14:19 - DEBUG - XTBApi.api.Client - took 1.9224538803100586 s.
+2021-07-22 19:14:20 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:14:20 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:14:20 - DEBUG - XTBApi.api.Client - took 0.08943653106689453 s.
+2021-07-22 19:14:20 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:14:20 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:16:04 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:16:04 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:16:05 - DEBUG - XTBApi.api.Client - took 0.27117204666137695 s.
+2021-07-22 19:16:05 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:16:05 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:16:05 - DEBUG - XTBApi.api.Client - took 0.08228874206542969 s.
+2021-07-22 19:16:05 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:16:05 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:16:06 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:16:06 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:16:06 - DEBUG - XTBApi.api.Client - took 0.2671067714691162 s.
+2021-07-22 19:16:06 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:16:06 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:16:06 - DEBUG - XTBApi.api.Client - took 0.11023306846618652 s.
+2021-07-22 19:16:06 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:16:06 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:16:16 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:16:16 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:16:16 - DEBUG - XTBApi.api.Client - took 0.2645559310913086 s.
+2021-07-22 19:16:16 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:16:16 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:16:16 - DEBUG - XTBApi.api.Client - took 0.10895562171936035 s.
+2021-07-22 19:16:16 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:16:16 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:17:02 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:17:02 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:17:02 - DEBUG - XTBApi.api.Client - took 0.26473164558410645 s.
+2021-07-22 19:17:02 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:17:02 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:17:02 - DEBUG - XTBApi.api.Client - took 0.11490583419799805 s.
+2021-07-22 19:17:02 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:17:02 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:17:32 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:17:32 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:17:32 - DEBUG - XTBApi.api.Client - took 0.2652151584625244 s.
+2021-07-22 19:17:33 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:17:33 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:17:33 - DEBUG - XTBApi.api.Client - took 0.10996389389038086 s.
+2021-07-22 19:17:33 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:17:33 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:17:47 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:17:47 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:17:47 - DEBUG - XTBApi.api.Client - took 0.26236581802368164 s.
+2021-07-22 19:17:47 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:17:47 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:17:47 - DEBUG - XTBApi.api.Client - took 0.11183476448059082 s.
+2021-07-22 19:17:47 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:17:47 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:35:57 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:35:57 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:35:57 - DEBUG - XTBApi.api.Client - took 0.27721190452575684 s.
+2021-07-22 19:35:57 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:35:57 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:35:57 - DEBUG - XTBApi.api.Client - took 0.11174988746643066 s.
+2021-07-22 19:35:57 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:35:57 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:43:27 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:43:27 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:43:27 - DEBUG - XTBApi.api.Client - took 0.29825592041015625 s.
+2021-07-22 19:43:28 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:43:28 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:43:28 - DEBUG - XTBApi.api.Client - took 0.10781574249267578 s.
+2021-07-22 19:43:28 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:43:28 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:44:03 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:44:03 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:44:03 - DEBUG - XTBApi.api.Client - took 0.2900049686431885 s.
+2021-07-22 19:44:04 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:44:04 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:44:04 - DEBUG - XTBApi.api.Client - took 0.09970355033874512 s.
+2021-07-22 19:44:04 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:44:04 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:44:37 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:44:37 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:44:37 - DEBUG - XTBApi.api.Client - took 0.27718472480773926 s.
+2021-07-22 19:44:38 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:44:38 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:44:38 - DEBUG - XTBApi.api.Client - took 0.10319161415100098 s.
+2021-07-22 19:44:38 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:44:38 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:44:42 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:44:42 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:44:42 - DEBUG - XTBApi.api.Client - took 0.26536035537719727 s.
+2021-07-22 19:44:42 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:44:42 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:44:42 - DEBUG - XTBApi.api.Client - took 0.10943984985351562 s.
+2021-07-22 19:44:42 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:44:42 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:45:01 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:45:01 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:45:01 - DEBUG - XTBApi.api.Client - took 0.2597029209136963 s.
+2021-07-22 19:45:01 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:45:01 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:45:01 - DEBUG - XTBApi.api.Client - took 0.10238814353942871 s.
+2021-07-22 19:45:02 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:45:02 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:46:25 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:46:25 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:46:25 - DEBUG - XTBApi.api.Client - took 0.2641909122467041 s.
+2021-07-22 19:46:25 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:46:25 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:46:25 - DEBUG - XTBApi.api.Client - took 0.09370112419128418 s.
+2021-07-22 19:46:25 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:46:25 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:46:39 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:46:39 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:46:39 - DEBUG - XTBApi.api.Client - took 0.268054723739624 s.
+2021-07-22 19:46:39 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:46:39 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:46:39 - DEBUG - XTBApi.api.Client - took 0.10296368598937988 s.
+2021-07-22 19:46:40 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:46:40 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:46:45 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:46:45 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:46:45 - DEBUG - XTBApi.api.Client - took 0.26679563522338867 s.
+2021-07-22 19:46:45 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:46:45 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:46:45 - DEBUG - XTBApi.api.Client - took 0.10144877433776855 s.
+2021-07-22 19:46:45 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:46:45 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:46:46 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:46:46 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:46:46 - DEBUG - XTBApi.api.Client - took 0.27547383308410645 s.
+2021-07-22 19:46:46 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:46:46 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:46:46 - DEBUG - XTBApi.api.Client - took 0.10599589347839355 s.
+2021-07-22 19:46:46 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:46:46 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:47:10 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:47:10 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:47:10 - DEBUG - XTBApi.api.Client - took 0.26168155670166016 s.
+2021-07-22 19:47:10 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:47:11 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:47:11 - DEBUG - XTBApi.api.Client - took 0.1014413833618164 s.
+2021-07-22 19:47:11 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:47:11 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:47:16 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:47:16 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:47:16 - DEBUG - XTBApi.api.Client - took 0.32535839080810547 s.
+2021-07-22 19:47:16 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:47:16 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:47:16 - DEBUG - XTBApi.api.Client - took 0.09976840019226074 s.
+2021-07-22 19:47:17 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:47:17 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:47:31 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:47:31 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:47:31 - DEBUG - XTBApi.api.Client - took 0.26235485076904297 s.
+2021-07-22 19:47:31 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:47:31 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:47:31 - DEBUG - XTBApi.api.Client - took 0.11390233039855957 s.
+2021-07-22 19:47:31 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:47:31 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:47:32 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:47:32 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:47:32 - DEBUG - XTBApi.api.Client - took 0.261749267578125 s.
+2021-07-22 19:47:32 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:47:32 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:47:32 - DEBUG - XTBApi.api.Client - took 0.11169219017028809 s.
+2021-07-22 19:47:32 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:47:32 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:47:42 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:47:42 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:47:42 - DEBUG - XTBApi.api.Client - took 0.2618274688720703 s.
+2021-07-22 19:47:42 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:47:42 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:47:42 - DEBUG - XTBApi.api.Client - took 0.08742785453796387 s.
+2021-07-22 19:47:43 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:47:43 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:48:01 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:48:01 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:48:01 - DEBUG - XTBApi.api.Client - took 0.2622239589691162 s.
+2021-07-22 19:48:01 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:48:01 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:48:01 - DEBUG - XTBApi.api.Client - took 0.10807323455810547 s.
+2021-07-22 19:48:01 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:48:01 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:48:45 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:48:45 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:48:45 - DEBUG - XTBApi.api.Client - took 0.26453208923339844 s.
+2021-07-22 19:48:45 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:48:45 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:48:45 - DEBUG - XTBApi.api.Client - took 0.10597586631774902 s.
+2021-07-22 19:48:45 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:48:45 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:48:46 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:48:46 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:48:46 - DEBUG - XTBApi.api.Client - took 0.2618236541748047 s.
+2021-07-22 19:48:46 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:48:46 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:48:46 - DEBUG - XTBApi.api.Client - took 0.1110219955444336 s.
+2021-07-22 19:48:46 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:48:46 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:49:17 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:49:17 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:49:17 - DEBUG - XTBApi.api.Client - took 0.2627389430999756 s.
+2021-07-22 19:49:17 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:49:17 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:49:17 - DEBUG - XTBApi.api.Client - took 0.10342764854431152 s.
+2021-07-22 19:49:17 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:49:17 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:49:36 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:49:36 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:49:36 - DEBUG - XTBApi.api.Client - took 0.264178991317749 s.
+2021-07-22 19:49:36 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:49:36 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:49:36 - DEBUG - XTBApi.api.Client - took 0.11095690727233887 s.
+2021-07-22 19:49:37 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:49:37 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:49:53 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:49:53 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:49:54 - DEBUG - XTBApi.api.Client - took 0.26648879051208496 s.
+2021-07-22 19:49:54 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:49:54 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:49:54 - DEBUG - XTBApi.api.Client - took 0.11172127723693848 s.
+2021-07-22 19:49:54 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:49:54 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:50:51 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:50:51 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:50:51 - DEBUG - XTBApi.api.Client - took 0.26244330406188965 s.
+2021-07-22 19:50:52 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:50:52 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:50:52 - DEBUG - XTBApi.api.Client - took 0.11122679710388184 s.
+2021-07-22 19:50:52 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:50:52 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:57:22 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:57:22 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:57:22 - DEBUG - XTBApi.api.Client - took 0.2698516845703125 s.
+2021-07-22 19:57:22 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:57:22 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:57:22 - DEBUG - XTBApi.api.Client - took 0.11454534530639648 s.
+2021-07-22 19:57:22 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:57:22 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:57:27 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:57:27 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:57:27 - DEBUG - XTBApi.api.Client - took 0.2731471061706543 s.
+2021-07-22 19:57:27 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:57:27 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:57:27 - DEBUG - XTBApi.api.Client - took 0.10767984390258789 s.
+2021-07-22 19:57:28 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:57:28 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:57:42 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:57:42 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:57:42 - DEBUG - XTBApi.api.Client - took 0.26230502128601074 s.
+2021-07-22 19:57:42 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:57:43 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:57:43 - DEBUG - XTBApi.api.Client - took 0.1024012565612793 s.
+2021-07-22 19:57:43 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:57:43 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:57:43 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:57:43 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:57:43 - DEBUG - XTBApi.api.Client - took 0.2625155448913574 s.
+2021-07-22 19:57:44 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:57:44 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:57:44 - DEBUG - XTBApi.api.Client - took 0.11785221099853516 s.
+2021-07-22 19:57:44 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:57:44 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:58:06 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:58:06 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:58:06 - DEBUG - XTBApi.api.Client - took 0.2628018856048584 s.
+2021-07-22 19:58:06 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:58:06 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:58:06 - DEBUG - XTBApi.api.Client - took 0.1126713752746582 s.
+2021-07-22 19:58:07 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:58:07 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:58:10 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:58:10 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:58:11 - DEBUG - XTBApi.api.Client - took 0.2643430233001709 s.
+2021-07-22 19:58:11 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:58:11 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:58:11 - DEBUG - XTBApi.api.Client - took 0.10649371147155762 s.
+2021-07-22 19:58:11 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:58:11 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 19:58:12 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:58:12 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:58:12 - DEBUG - XTBApi.api.Client - took 0.2664792537689209 s.
+2021-07-22 19:58:12 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:58:12 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:58:12 - DEBUG - XTBApi.api.Client - took 0.11110234260559082 s.
+2021-07-22 19:58:12 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:58:12 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 19:59:27 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:59:27 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:59:27 - DEBUG - XTBApi.api.Client - took 0.2726259231567383 s.
+2021-07-22 19:59:27 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:59:27 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:59:27 - DEBUG - XTBApi.api.Client - took 0.11009383201599121 s.
+2021-07-22 19:59:27 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:59:27 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 19:59:37 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 19:59:37 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 19:59:37 - DEBUG - XTBApi.api.Client - took 0.2721388339996338 s.
+2021-07-22 19:59:37 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 19:59:37 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 19:59:37 - DEBUG - XTBApi.api.Client - took 0.10584616661071777 s.
+2021-07-22 19:59:37 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 19:59:37 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:00:14 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:00:14 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:00:14 - DEBUG - XTBApi.api.Client - took 0.2671933174133301 s.
+2021-07-22 20:00:14 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:00:14 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:00:14 - DEBUG - XTBApi.api.Client - took 0.1183321475982666 s.
+2021-07-22 20:00:14 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:00:14 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:02:15 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:02:15 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:02:15 - DEBUG - XTBApi.api.Client - took 0.26641130447387695 s.
+2021-07-22 20:02:15 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:02:15 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:02:15 - DEBUG - XTBApi.api.Client - took 0.10343122482299805 s.
+2021-07-22 20:02:15 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:02:15 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:02:16 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:02:16 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:02:16 - DEBUG - XTBApi.api.Client - took 0.2619974613189697 s.
+2021-07-22 20:02:16 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:02:16 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:02:16 - DEBUG - XTBApi.api.Client - took 0.10710620880126953 s.
+2021-07-22 20:02:16 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:02:16 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:02:30 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:02:30 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:02:30 - DEBUG - XTBApi.api.Client - took 0.26474618911743164 s.
+2021-07-22 20:02:30 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:02:31 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:02:31 - DEBUG - XTBApi.api.Client - took 0.1126704216003418 s.
+2021-07-22 20:02:31 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:02:31 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:03:11 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:03:11 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:03:11 - DEBUG - XTBApi.api.Client - took 0.2642941474914551 s.
+2021-07-22 20:03:11 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:03:11 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:03:11 - DEBUG - XTBApi.api.Client - took 0.11421799659729004 s.
+2021-07-22 20:03:11 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:03:11 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:04:01 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:04:01 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:04:01 - DEBUG - XTBApi.api.Client - took 0.26425600051879883 s.
+2021-07-22 20:04:01 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:04:01 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:04:01 - DEBUG - XTBApi.api.Client - took 0.09699344635009766 s.
+2021-07-22 20:04:01 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:04:01 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:04:30 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:04:30 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:04:30 - DEBUG - XTBApi.api.Client - took 0.2660701274871826 s.
+2021-07-22 20:04:30 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:04:30 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:04:30 - DEBUG - XTBApi.api.Client - took 0.10342979431152344 s.
+2021-07-22 20:04:31 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:04:31 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:04:53 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:04:53 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:04:53 - DEBUG - XTBApi.api.Client - took 0.26434946060180664 s.
+2021-07-22 20:04:53 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:04:54 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:04:54 - DEBUG - XTBApi.api.Client - took 0.09836196899414062 s.
+2021-07-22 20:04:54 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:04:54 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:05:44 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:05:44 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:05:44 - DEBUG - XTBApi.api.Client - took 0.26747989654541016 s.
+2021-07-22 20:05:45 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:05:45 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:05:45 - DEBUG - XTBApi.api.Client - took 0.1023092269897461 s.
+2021-07-22 20:05:45 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:05:45 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:06:00 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:06:00 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:06:00 - DEBUG - XTBApi.api.Client - took 0.26374101638793945 s.
+2021-07-22 20:06:01 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:06:01 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:06:01 - DEBUG - XTBApi.api.Client - took 0.10211849212646484 s.
+2021-07-22 20:06:01 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:06:01 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:06:30 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:06:30 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:06:30 - DEBUG - XTBApi.api.Client - took 0.2655041217803955 s.
+2021-07-22 20:06:31 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:06:31 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:06:31 - DEBUG - XTBApi.api.Client - took 0.10165882110595703 s.
+2021-07-22 20:06:31 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:06:31 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 20:07:28 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:07:28 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:07:28 - DEBUG - XTBApi.api.Client - took 0.2623898983001709 s.
+2021-07-22 20:07:28 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:07:28 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:07:28 - DEBUG - XTBApi.api.Client - took 0.10349655151367188 s.
+2021-07-22 20:07:28 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:07:28 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 20:08:14 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:08:14 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:08:15 - DEBUG - XTBApi.api.Client - took 0.2617049217224121 s.
+2021-07-22 20:08:15 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:08:15 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:08:15 - DEBUG - XTBApi.api.Client - took 0.1040799617767334 s.
+2021-07-22 20:08:15 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:08:15 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:08:15 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:08:15 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:08:16 - DEBUG - XTBApi.api.Client - took 0.26552820205688477 s.
+2021-07-22 20:08:16 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:08:16 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:08:16 - DEBUG - XTBApi.api.Client - took 0.10740971565246582 s.
+2021-07-22 20:08:16 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:08:16 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:08:49 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:08:49 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:08:49 - DEBUG - XTBApi.api.Client - took 0.26254820823669434 s.
+2021-07-22 20:08:49 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:08:50 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:08:50 - DEBUG - XTBApi.api.Client - took 0.10615754127502441 s.
+2021-07-22 20:08:50 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:08:50 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 20:10:09 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:10:09 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:10:09 - DEBUG - XTBApi.api.Client - took 0.2596261501312256 s.
+2021-07-22 20:10:09 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:10:09 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:10:09 - DEBUG - XTBApi.api.Client - took 0.09527182579040527 s.
+2021-07-22 20:10:09 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:10:09 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:11:03 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:11:03 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:11:03 - DEBUG - XTBApi.api.Client - took 0.2629389762878418 s.
+2021-07-22 20:11:03 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:11:03 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:11:03 - DEBUG - XTBApi.api.Client - took 0.09224176406860352 s.
+2021-07-22 20:11:03 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:11:03 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 20:11:04 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:11:04 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:11:04 - DEBUG - XTBApi.api.Client - took 0.26222896575927734 s.
+2021-07-22 20:11:04 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:11:04 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:11:04 - DEBUG - XTBApi.api.Client - took 0.05845165252685547 s.
+2021-07-22 20:11:04 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:11:04 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:11:59 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:11:59 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:11:59 - DEBUG - XTBApi.api.Client - took 0.26415514945983887 s.
+2021-07-22 20:11:59 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:11:59 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:11:59 - DEBUG - XTBApi.api.Client - took 0.10967111587524414 s.
+2021-07-22 20:11:59 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:11:59 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 20:15:18 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:15:18 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:15:24 - DEBUG - XTBApi.api.Client - took 6.254552841186523 s.
+2021-07-22 20:15:24 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:15:24 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:15:24 - DEBUG - XTBApi.api.Client - took 0.10795807838439941 s.
+2021-07-22 20:15:24 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:15:24 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:15:25 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:15:25 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:15:25 - DEBUG - XTBApi.api.Client - took 0.2982816696166992 s.
+2021-07-22 20:15:25 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:15:25 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:15:25 - DEBUG - XTBApi.api.Client - took 0.10673308372497559 s.
+2021-07-22 20:15:26 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:15:26 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:15:43 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:15:43 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:15:48 - DEBUG - XTBApi.api.Client - took 5.277537822723389 s.
+2021-07-22 20:15:48 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:15:48 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:15:48 - DEBUG - XTBApi.api.Client - took 0.08172225952148438 s.
+2021-07-22 20:15:49 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:15:49 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:15:49 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:15:49 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:15:49 - DEBUG - XTBApi.api.Client - took 0.26090073585510254 s.
+2021-07-22 20:15:49 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:15:49 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:15:49 - DEBUG - XTBApi.api.Client - took 0.10795927047729492 s.
+2021-07-22 20:15:50 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:15:50 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:16:21 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:16:21 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:16:21 - DEBUG - XTBApi.api.Client - took 0.2646341323852539 s.
+2021-07-22 20:16:21 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:16:21 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:16:21 - DEBUG - XTBApi.api.Client - took 0.10893368721008301 s.
+2021-07-22 20:16:21 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:16:21 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:16:53 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:16:53 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:16:53 - DEBUG - XTBApi.api.Client - took 0.26552581787109375 s.
+2021-07-22 20:16:53 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:16:53 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:16:53 - DEBUG - XTBApi.api.Client - took 0.11158370971679688 s.
+2021-07-22 20:16:53 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:16:53 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:17:14 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:17:14 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:17:14 - DEBUG - XTBApi.api.Client - took 0.26493263244628906 s.
+2021-07-22 20:17:14 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:17:15 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:17:15 - DEBUG - XTBApi.api.Client - took 0.10599327087402344 s.
+2021-07-22 20:17:15 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:17:15 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:17:33 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:17:33 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:17:33 - DEBUG - XTBApi.api.Client - took 0.263714075088501 s.
+2021-07-22 20:17:33 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:17:33 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:17:33 - DEBUG - XTBApi.api.Client - took 0.10593104362487793 s.
+2021-07-22 20:17:33 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:17:33 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}]
+2021-07-22 20:18:10 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:18:10 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:18:10 - DEBUG - XTBApi.api.Client - took 0.2646009922027588 s.
+2021-07-22 20:18:11 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:18:11 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:18:11 - DEBUG - XTBApi.api.Client - took 0.10883688926696777 s.
+2021-07-22 20:18:11 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:18:11 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:18:48 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:18:48 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:18:48 - DEBUG - XTBApi.api.Client - took 0.2656428813934326 s.
+2021-07-22 20:18:48 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:18:48 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:18:48 - DEBUG - XTBApi.api.Client - took 0.1062774658203125 s.
+2021-07-22 20:18:48 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:18:48 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:24:53 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:24:53 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:24:53 - DEBUG - XTBApi.api.Client - took 0.2622945308685303 s.
+2021-07-22 20:24:53 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:24:53 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:24:53 - DEBUG - XTBApi.api.Client - took 0.11234068870544434 s.
+2021-07-22 20:24:53 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:24:53 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:28:59 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:28:59 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:28:59 - DEBUG - XTBApi.api.Client - took 0.3844451904296875 s.
+2021-07-22 20:28:59 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:29:00 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:29:00 - DEBUG - XTBApi.api.Client - took 0.10488057136535645 s.
+2021-07-22 20:29:00 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:29:00 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:29:37 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:29:37 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:29:37 - DEBUG - XTBApi.api.Client - took 0.8276076316833496 s.
+2021-07-22 20:29:38 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:29:38 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:29:38 - DEBUG - XTBApi.api.Client - took 0.10172772407531738 s.
+2021-07-22 20:29:38 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:29:38 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:29:39 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:29:39 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:29:39 - DEBUG - XTBApi.api.Client - took 0.26346468925476074 s.
+2021-07-22 20:29:39 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:29:39 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:29:39 - DEBUG - XTBApi.api.Client - took 0.10611534118652344 s.
+2021-07-22 20:29:39 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:29:39 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:30:08 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:30:08 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:30:08 - DEBUG - XTBApi.api.Client - took 0.2644374370574951 s.
+2021-07-22 20:30:08 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:30:08 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:30:08 - DEBUG - XTBApi.api.Client - took 0.10499787330627441 s.
+2021-07-22 20:30:09 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:30:09 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:30:16 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:30:16 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:30:16 - DEBUG - XTBApi.api.Client - took 0.2652719020843506 s.
+2021-07-22 20:30:16 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:30:16 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:30:16 - DEBUG - XTBApi.api.Client - took 0.10595822334289551 s.
+2021-07-22 20:30:16 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:30:16 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:30:17 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:30:17 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:30:17 - DEBUG - XTBApi.api.Client - took 0.26215219497680664 s.
+2021-07-22 20:30:17 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:30:17 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:30:17 - DEBUG - XTBApi.api.Client - took 0.09362006187438965 s.
+2021-07-22 20:30:17 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:30:17 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:31:47 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:31:47 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:31:47 - DEBUG - XTBApi.api.Client - took 0.275620698928833 s.
+2021-07-22 20:31:47 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:31:47 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:31:47 - DEBUG - XTBApi.api.Client - took 0.10215878486633301 s.
+2021-07-22 20:31:47 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:31:47 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:32:10 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:32:10 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:32:10 - DEBUG - XTBApi.api.Client - took 0.2769310474395752 s.
+2021-07-22 20:32:11 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:32:11 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:32:11 - DEBUG - XTBApi.api.Client - took 0.1060183048248291 s.
+2021-07-22 20:32:11 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:32:11 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:32:38 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:32:38 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:32:38 - DEBUG - XTBApi.api.Client - took 0.6105663776397705 s.
+2021-07-22 20:32:38 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:32:38 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:32:38 - DEBUG - XTBApi.api.Client - took 0.10203909873962402 s.
+2021-07-22 20:32:39 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:32:39 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:34:51 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:34:51 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:34:51 - DEBUG - XTBApi.api.Client - took 0.26445698738098145 s.
+2021-07-22 20:34:51 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:34:51 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:34:51 - DEBUG - XTBApi.api.Client - took 0.1008603572845459 s.
+2021-07-22 20:34:52 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:34:52 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:38:40 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:38:40 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:38:40 - DEBUG - XTBApi.api.Client - took 0.27757954597473145 s.
+2021-07-22 20:38:40 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:38:40 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:38:40 - DEBUG - XTBApi.api.Client - took 0.10220146179199219 s.
+2021-07-22 20:38:40 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:38:40 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:38:41 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:38:41 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:38:41 - DEBUG - XTBApi.api.Client - took 0.2901153564453125 s.
+2021-07-22 20:38:41 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:38:41 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:38:41 - DEBUG - XTBApi.api.Client - took 0.08483433723449707 s.
+2021-07-22 20:38:41 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:38:41 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:38:59 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:38:59 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:38:59 - DEBUG - XTBApi.api.Client - took 0.2579469680786133 s.
+2021-07-22 20:38:59 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:38:59 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:38:59 - DEBUG - XTBApi.api.Client - took 0.0774526596069336 s.
+2021-07-22 20:39:00 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:39:00 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:39:48 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:39:48 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:39:48 - DEBUG - XTBApi.api.Client - took 0.43410539627075195 s.
+2021-07-22 20:39:49 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:39:49 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:39:49 - DEBUG - XTBApi.api.Client - took 0.10228705406188965 s.
+2021-07-22 20:39:49 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:39:49 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:41:00 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:41:00 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:41:00 - DEBUG - XTBApi.api.Client - took 0.2599174976348877 s.
+2021-07-22 20:41:00 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:41:00 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:41:00 - DEBUG - XTBApi.api.Client - took 0.10756278038024902 s.
+2021-07-22 20:41:01 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:41:01 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:41:01 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:41:01 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:41:01 - DEBUG - XTBApi.api.Client - took 0.2603137493133545 s.
+2021-07-22 20:41:01 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:41:01 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:41:01 - DEBUG - XTBApi.api.Client - took 0.1076662540435791 s.
+2021-07-22 20:41:02 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:41:02 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:45:36 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:45:36 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:45:37 - DEBUG - XTBApi.api.Client - took 0.2739255428314209 s.
+2021-07-22 20:45:37 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:45:37 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:45:37 - DEBUG - XTBApi.api.Client - took 0.11533260345458984 s.
+2021-07-22 20:45:37 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:45:37 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]
+2021-07-22 20:46:47 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:46:47 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:46:47 - DEBUG - XTBApi.api.Client - took 0.2630951404571533 s.
+2021-07-22 20:46:47 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:46:47 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:46:47 - DEBUG - XTBApi.api.Client - took 0.11238694190979004 s.
+2021-07-22 20:46:47 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:46:47 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:47:11 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:47:11 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:47:11 - DEBUG - XTBApi.api.Client - took 0.27628207206726074 s.
+2021-07-22 20:47:11 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:47:12 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:47:12 - DEBUG - XTBApi.api.Client - took 0.10946130752563477 s.
+2021-07-22 20:47:12 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:47:12 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:48:01 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:48:01 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:48:01 - DEBUG - XTBApi.api.Client - took 0.2881655693054199 s.
+2021-07-22 20:48:02 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:48:02 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:48:02 - DEBUG - XTBApi.api.Client - took 0.10871767997741699 s.
+2021-07-22 20:48:02 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:48:02 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:48:32 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:48:32 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:48:32 - DEBUG - XTBApi.api.Client - took 0.3061256408691406 s.
+2021-07-22 20:48:32 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:48:32 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 20:48:32 - DEBUG - XTBApi.api.Client - took 0.08380556106567383 s.
+2021-07-22 20:48:33 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:48:33 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:48:37 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:48:37 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:48:37 - DEBUG - XTBApi.api.Client - took 0.26113080978393555 s.
+2021-07-22 20:48:37 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:48:38 - INFO - XTBApi.api.Client - CMD: get trading hours of len 2...
+2021-07-22 20:48:38 - DEBUG - XTBApi.api.Client - took 0.10620498657226562 s.
+2021-07-22 20:48:38 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:48:38 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}]}, {'symbol': 'EURUSD', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}]}]
+2021-07-22 20:59:04 - DEBUG - XTBApi.api - BaseClient inited
+2021-07-22 20:59:04 - INFO - XTBApi.api.Client - Client inited
+2021-07-22 20:59:04 - DEBUG - XTBApi.api.Client - took 0.2674548625946045 s.
+2021-07-22 20:59:04 - INFO - XTBApi.api.Client - CMD: login...
+2021-07-22 20:59:04 - INFO - XTBApi.api.Client - CMD: get trading hours of len 1...
+2021-07-22 20:59:04 - DEBUG - XTBApi.api.Client - took 0.10622024536132812 s.
+2021-07-22 20:59:04 - INFO - XTBApi.api.Client - CMD: done
+2021-07-22 20:59:04 - DEBUG - XTBApi.api.Client - [{'symbol': 'EURCHF', 'trading': [{'day': 5, 'fromT': 0, 'toT': 79200000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 7, 'fromT': 82800000, 'toT': 86400000}], 'quotes': [{'day': 7, 'fromT': 82800000, 'toT': 86400000}, {'day': 3, 'fromT': 0, 'toT': 86400000}, {'day': 4, 'fromT': 0, 'toT': 86400000}, {'day': 1, 'fromT': 0, 'toT': 86400000}, {'day': 2, 'fromT': 0, 'toT': 86400000}, {'day': 5, 'fromT': 0, 'toT': 79200000}]}]

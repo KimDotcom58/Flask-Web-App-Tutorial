@@ -135,9 +135,9 @@
                 {% endif %}
                 <td class="row-data">{{ show.trade_price }}</td>
 
-                <td>{% if mode == 'applied' %}<input type="submit" value="delete" onclick="return get_row_data()">{% else %}<input type="checkbox" name="checkbox{{show.parameter_id}}" id="checkbox{{show.parameter_id}}" {% if is_traded[show.parameter_id] == True %}checked{% endif %}>{% endif %}</td>
+                <td>{% if mode == 'applied' %}<input type="submit" value="delete" onclick="return get_row_data()">{% else %}<input type="checkbox" name="checkbox{{show.parameter_id}}" id="checkbox{{show.parameter_id}}" {% if show.is_traded == True %}checked{% endif %}>{% endif %}</td>
 
-                {% if mode == 'saved' %}<th>{% if is_traded[show.parameter_id] == True %}Yes{% else %}No{% endif %}</th>{%endif%}
+                {% if mode == 'saved' %}<th>{% if show.is_traded == True %}Yes{% else %}No{% endif %}</th>{%endif%}
             </tr>
             {% endfor %}
         </tbody>

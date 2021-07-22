@@ -1,10 +1,31 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
-from . import db
+from .extensions import db, alpaca_api
 import json
 from sqlalchemy import desc, asc, func
 
 stock_views = Blueprint('stock_views', __name__)
+
+@stock_views.route('/orders', methods=['GET', 'POST'])
+@login_required
+def orders():
+    stock_filter = request.args.get('filter')
+    print(stock_filter)
+
+    # orders = alpaca_api.list_orders(status='all', symbol=['A'])
+    orders = alpaca_api.list_orders(status=stock_filter)
+    # print(orders)
+
+    filters = ["all", "open", "closed"]
+
+    return render_template(
+        "orders.html",
+        title = 'Stock',
+        user = current_user,
+        request = request,
+        orders = orders,
+        filters = filters
+    )
 
 @stock_views.route('/', methods=['GET', 'POST'])
 @login_required
@@ -305,9 +326,8 @@ def apply_strategy():
     trading = db.session.query(
             Trading
         ).filter(
-            Trading.trading == "Stock"
+            Trading.trading == "STC"
         ).first()
-
 
     # insert parameters into database
     
@@ -320,6 +340,7 @@ def apply_strategy():
     elif strategy.params == "param_stock_strategy_breakout":
 
         new_param_breakout = Param_stock_strategy_breakout(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
+        print(f"Observe Until 222: {observe_until}")
         db.session.add(new_param_breakout)
         db.session.commit()
 
@@ -387,13 +408,14 @@ def strategy(strategy_name, mode):
     print(trading.id)
 
     applied_stocks = db.session.execute("SELECT * from " + strategy.params + "\
-    join stock_strategy on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
-    join stock on stock.id = stock_strategy.stock_id\
-    where stock_strategy.strategy_id = " + str(strategy.id) + " and " + strategy.params + ".trading = "+ str(trading.id)+"\
-    GROUP BY stock_strategy.parameter_id\
-    ORDER BY symbol")
+        join stock_strategy on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
+        join stock on stock.id = stock_strategy.stock_id\
+        where stock_strategy.strategy_id = " + str(strategy.id) + " and " + strategy.params + ".trading = "+ str(trading.id)+"\
+        GROUP BY stock_strategy.parameter_id\
+        ORDER BY symbol")
 
     saved_stocks = db.session.execute("SELECT * from " + strategy.params + "\
+        join stock_strategy on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
         join stock on stock.id = " + strategy.params + ".trading_id\
         where " + strategy.params + ".trading = "+ str(trading.id)+"\
         ORDER BY id")
@@ -454,7 +476,7 @@ def delete_traded_strategy():
 def apply_saved_strategies(strategy_name):
 
     from .models import Stock_strategy
-
+    
     array = request.args.get('parameters_to_apply')
     strategy_id = request.args.get('strategy_id')
 
@@ -488,8 +510,8 @@ def apply_saved_strategies(strategy_name):
         print(f"Hallo: {saved.parameter_id}")
         if str(saved.parameter_id) not in array_parsed:
             print(f"Hallo: ")
-            stock = db.session.query(Stock_strategy).filter_by(strategy_id = saved.strategy_id, parameter_id = saved.parameter_id, stock_id = saved.stock_id)
-            stock.delete()
+
+            db.session.query(Stock_strategy).filter_by(strategy_id = saved.strategy_id, parameter_id = saved.parameter_id, stock_id = saved.stock_id).update({"is_traded": False})
             db.session.commit()
 
     return redirect(url_for('stock_views.strategy', strategy_name = strategy_name, mode = 'saved'))

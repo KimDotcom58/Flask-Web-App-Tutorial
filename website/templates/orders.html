@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>
+    {{ title }} Orders
+</h1>
+<form method="get">
+        <select name="filter", id="filter">
+            <option selected="selected" value="">Select item...</option>
+            {% for filter in filters %}
+            <option value="{{ filter }}" {% if filter == request.args.get('filter') %}selected="selected" {% endif %}>{{filter}}</option>
+            {% endfor %}
+        </select>
+        <br>
+    <input type="submit" id="submitting" value="Apply filter" />
+</form>
+<table class="ui striped table">
+    <thead>
+        <tr>
+            <th>Created</th>
+            <th>Side</th>
+            <th>Quantity</th>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    {% for order in orders %}
+    <tr>
+        <td>
+            {{ order.created_at }}
+        </td>
+        <td>
+            {{ order.side }}
+        </td>
+        <td>
+            {{ order.filled_qty }}
+        </td>
+        <td>
+            {{ order.symbol }}
+        </td>
+        <td>
+            {{ order.filled_avg_price }}
+        </td>
+        <td>
+            {{ order.status }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
