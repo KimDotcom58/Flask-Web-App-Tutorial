@@ -46,25 +46,28 @@ def create_app():
 
             scheduler.start()
 
-        from . import events  # noqa: F401
+        # from . import events  # noqa: F401
 
-        from .tasks import task2, task_populate_database, task_strategy_bollinger, task_strategy_opening_breakdown, task_strategy_opening_breakout
+        from .tasks import task2, task_populate_database, task_strategy_bollinger, task_strategy_opening_breakdown, task_strategy_opening_breakout, task_populate_trading
 
         # Blueprints
         from .views import views
-        from .stock_views import stock_views
-        from .crypto_views import crypto_views
+        from .views_alpaca import views_alpaca
+        from .views_binance import views_binance
+        from .views_xtb import views_xtb
         from .scheduler_views import scheduler_views
         from .auth import auth
 
         app.register_blueprint(views, url_prefix='/')
-        app.register_blueprint(stock_views, url_prefix='/stocks')
-        app.register_blueprint(crypto_views, url_prefix='/cryptos')
+        app.register_blueprint(views_alpaca, url_prefix='/alpaca')
+        app.register_blueprint(views_binance, url_prefix='/binance')
+        app.register_blueprint(views_xtb, url_prefix='/xtb')
         app.register_blueprint(scheduler_views, url_prefix='/schedulers')
         app.register_blueprint(auth, url_prefix='/')
 
         # If database does not exist, it will be created
         create_database(app)
+
 
         # scheduler.add_job(
         #     func=task_strategy_opening_breakdown,
@@ -93,47 +96,39 @@ def create_app():
         #     replace_existing=True,
         # )
 
+        scheduler.add_job(
+            func=task_populate_database,
+            trigger="cron",
+            day_of_week='mon-sun',
+            hour=21,
+            minute=30,
+            id="periodic stock populating",
+            name="periodic stock populating",
+            replace_existing=True
+        )
+
         # scheduler.add_job(
-        #     func=task_populate_database,
+        #     func=task_populate_trading,
         #     trigger="cron",
-        #     day_of_week='mon-fri',
-        #     hour=23,
-        #     minute=59,
+        #     day_of_week='mon-sun',
+        #     hour=21,
+        #     minute=35,
         #     id="periodic stock populating",
         #     name="periodic stock populating",
         #     replace_existing=True,
         # )
- 
-         # # CHECK IF MARKET IS OPEN FOR EURUSD
-        new = xtb_api.get_trading_hours(['EURCHF'])
-        week = [None] * 7
-        for symbol in new:
-            for day in symbol['trading']:
-                fromT = day['fromT']
-                hours1 = int(fromT/3600)
-                left = fromT - hours1*3600
-                if str(hours1) == '0':
-                    hours1 = '00'
-                minutes1 = str(int(left/60))
-                if minutes1 == '0':
-                    minutes1 = '00'
 
-                toT = day['toT']
-                hours2 = int(toT/3600)
-                left = toT - hours2*3600
-                if str(hours2) == '0':
-                    hours2 = '00'
-                minutes2 = str(int(left/60))
-                if minutes2 == '0':
-                    minutes2 = '00'
-                week[day['day']-1] = [f"{hours1}:{minutes1}",f"{hours2}:{minutes2}"]
+        # scheduler.add_job(
+        #     func=task_populate_trading,
+        #     trigger="interval",
+        #     seconds=10,
+        #     id="populate trading",
+        #     name="populate trading",
+        #     replace_existing=True,
+        # )
 
-            for day in week:
-                if day == None:
-                    number = week.index(day)
-                    week[number] = [ "00:00", "00:00"]
+    # xtb_api.get_chart_range_request(end = 1262944412000, period = 1, start = 1262944112000, symbol = 'EURUSD', ticks = 0)
 
-            print(week)
     # import degiroapi
     # from degiroapi.product import Product
     # from degiroapi.order import Order
@@ -141,7 +136,10 @@ def create_app():
 
     # degiro = degiroapi.DeGiro()
     # degiro.login("kimbo91", "SifdjObmnk1")
-
+    # daxsymbols = []
+    # products = degiro.get_stock_list(6, 906)
+    # for product in products:
+    #     daxsymbols.append(Product(product).symbol)
     # degiro.logout()
 
     # instantiate login manager
@@ -161,22 +159,21 @@ def create_database(app):
     if not path.exists('website/' + db_name):
         db.create_all(app=app)
         print('Created Database!')
-        app.app_context().push()
         populate_database()
-
 
 def populate_database():
     from .database import database
 
     database.populate_strategies()
     database.populate_filters()
-    database.populate_markets()
+    database.populate_alpaca_market()
     database.populate_trading()
-    database.populate_stocks()
-    database.populate_stock_prices()
+    database.populate_user()
+    database.populate_xtb_symbols_and_market()
+    database.populate_alpaca_stocks()
+    database.populate_alpaca_stock_prices()
     database.populate_cryptos()
     database.populate_crypto_prices()
-    database.populate_user()
 
     print("Populated Database!")
     

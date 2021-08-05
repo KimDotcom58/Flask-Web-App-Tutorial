@@ -147,7 +147,7 @@ class BaseClient(object):
             raise CommandFailed(res)
         if 'returnData' in res.keys():
             self.LOGGER.info("CMD: done")
-            self.LOGGER.debug(res['returnData'])
+            # self.LOGGER.debug(res['returnData'])
             return res['returnData']
 
     def _send_command_with_check(self, dict_data):
@@ -202,7 +202,7 @@ class BaseClient(object):
         """getChartRangeRequest command"""
         if not isinstance(ticks, int):
             raise ValueError(f"ticks value {ticks} must be int")
-        self._check_login()
+        # self._check_login()
         args = {
             "end": end * 1000,
             "period": period,
@@ -210,6 +210,7 @@ class BaseClient(object):
             "symbol": symbol,
             "ticks": ticks
         }
+        
         data = _get_data("getChartRangeRequest", info=args)
         self.LOGGER.info(f"CMD: get chart range request for {symbol} of "
                          f"{period} from {start} to {end} with ticks of "
@@ -418,6 +419,30 @@ class Client(BaseClient):
             LOGGER.debug(res)
             res['rateInfos'] = res['rateInfos'][-number:]
             sec_prior *= 3
+        candle_history = []
+        for candle in res['rateInfos']:
+            _pr = candle['open']
+            op_pr = _pr / 10 ** res['digits']
+            cl_pr = (_pr + candle['close']) / 10 ** res['digits']
+            hg_pr = (_pr + candle['high']) / 10 ** res['digits']
+            lw_pr = (_pr + candle['low']) / 10 ** res['digits']
+            new_candle_entry = {'timestamp': candle['ctm'] / 1000, 'open':
+                op_pr, 'close': cl_pr, 'high': hg_pr, 'low': lw_pr,
+                                'volume': candle['vol']}
+            candle_history.append(new_candle_entry)
+        LOGGER.debug(candle_history)
+        return candle_history
+
+    def get_range_candle_history(self, symbol, start, end, period, ticks):
+        """get candles of range"""
+        
+        res = self.get_chart_range_request(symbol,
+            period, start, end, ticks)
+        print(f"res: {res}")
+
+        LOGGER.debug(f"sym: {symbol}, start: {start}, end: {end},"
+                     f" {end}, period: {period}, ticks: {ticks}")
+
         candle_history = []
         for candle in res['rateInfos']:
             _pr = candle['open']

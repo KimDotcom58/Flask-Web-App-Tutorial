@@ -1,0 +1,21 @@
+NZX,New Zealand Stock Market,10:00,16:45,Pacific/Auckland,0,0
+ASX,Australian Securities Exchange,10:00,16:00,Australia/Perth,0,0
+TPX,Tokyo Stock Exchange,09:00,15:00,Asia/Tokyo,11:30,12:30
+SSE,Shanghai Stock Exchange,09:30,15:00,Asia/Shanghai,11:30,13:00
+SZSE,Shenzhen Stock Exchange,09:30,15:00,Asia/Hong_Kong,11:30,13:00
+HKEX,Hong Kong Stock Exchange,09:30,16:00,Asia/Hong_Kong,12:00,13:00
+BSE,Bombay Stock Exchange,09:15,15:30,Asia/Kolkata,0,0
+TSE,Tehran Stock Exchange,09:00,12:30,Asia/Tehran,0,0
+XETRA,Deutsche Börse (Börse Frankfurt),08:00,20:00,Europe/Berlin,0,0
+AEX,Euronext Amsterdam,09:00,17:40,Europe/Amsterdam,0,0
+CAC 40,Euronext Paris,09:00,17:30,Europe/Paris,0,0
+LSE,London Stock Exchange,08:00,16:30,Europe/London,0,0
+PSI-20,Euronext Lissabon,08:00,16:30,Europe/Lisbon,0,0
+BVSP,Bolsa de Valores de Sao Paulo,10:00,17:30,America/Sao_Paulo,0,0
+TSX,Toronto Stock Exchange,09:30,16:00,America/Toronto,0,0
+NASDAQ,National Association of Securities Dealers Automated Quotations,09:30,16:00,US/Eastern,0,0
+NYSE,New York Stock Exchange,09:30,16:00,America/New_York,0,0
+AMEX,NYSE American Express Company,07:00,20:00,America/New_York,0,0
+ARCA,NYSE ARCA,04:00,20:00,America/New_York,0,0
+OTC,over-the-counter,09:30,16:00,America/New_York,0,0
+BATS,BATS Global Markets,09:30,16:00,America/New_York,0,0

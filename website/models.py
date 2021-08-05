@@ -29,8 +29,26 @@ class Market(db.Model):
     market_open_local = db.Column(db.Text, nullable=False)
     market_close_local = db.Column(db.Text, nullable=False)
     timezone = db.Column(db.Text, nullable=False)
-    pause_start = db.Column(db.Text)
-    pause_stop = db.Column(db.Text)
+
+class Week(db.Model):
+    __tablename__ = 'week'
+    symbols = db.relationship("Symbol_XTB", back_populates="week")
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text, nullable=False)
+    Monday = db.Column(db.Text, nullable=False)
+    Monday2 = db.Column(db.Text, nullable=False)
+    Tuseday = db.Column(db.Text, nullable=False)
+    Tuseday2 = db.Column(db.Text, nullable=False)
+    Wednesday = db.Column(db.Text, nullable=False)
+    Wednesday2 = db.Column(db.Text, nullable=False)
+    Thursday = db.Column(db.Text, nullable=False)
+    Thursday2 = db.Column(db.Text, nullable=False)
+    Friday = db.Column(db.Text, nullable=False)
+    Friday2 = db.Column(db.Text, nullable=False)
+    Saturday = db.Column(db.Text, nullable=False)
+    Saturday2 = db.Column(db.Text, nullable=False)
+    Sunday = db.Column(db.Text, nullable=False)
+    Sunday2 = db.Column(db.Text, nullable=False)
 
 class Strategy(db.Model): 
     id = db.Column(db.Integer, primary_key=True, nullable = True)
@@ -70,6 +88,7 @@ class Stock(db.Model):
     __tablename__ = 'stock'
     stock_prices = db.relationship("Stock_price", back_populates="stock")
     id = db.Column(db.Integer, primary_key=True, nullable=True)
+    trading_id = db.Column(db.Integer, nullable=True)
     symbol = db.Column(db.Text, nullable=False, unique=True)
     name = db.Column(db.Text, nullable=False)
     market_id = db.Column(db.Integer, db.ForeignKey('market.id'))
@@ -77,10 +96,14 @@ class Stock(db.Model):
     shortable = db.Column(db.Boolean, nullable=False)
 
 class Symbol_XTB(db.Model):
+    __tablename__ = 'symbol_XTB'
+    symbol_prices = db.relationship("Symbol_XTB_price", back_populates="symbol")
     id = db.Column(db.Integer, primary_key=True, nullable=True)
     symbol = db.Column(db.Text, nullable=False, unique=True)
     description = db.Column(db.Text, nullable=False)
     trading_id = db.Column(db.Integer, nullable=False)
+    week_id = db.Column(db.Integer, db.ForeignKey('week.id'))
+    week = db.relationship('Week', back_populates="symbols")
     currency = db.Column(db.Text, nullable=False)
     trailing_enabled = db.Column(db.Boolean, nullable=False)
 
@@ -89,6 +112,21 @@ class Stock_price(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     stock_id = db.Column(db.Integer, db.ForeignKey('stock.id'))
     stock = db.relationship('Stock', back_populates="stock_prices")
+    date = db.Column(db.Text, nullable=False)
+    open = db.Column(db.Text, nullable=False)
+    high = db.Column(db.Text, nullable=False)
+    low = db.Column(db.Text, nullable=False)
+    close = db.Column(db.Text, nullable=False)
+    volume = db.Column(db.Text, nullable=False)
+    sma_20 = db.Column(db.Text)
+    sma_50 = db.Column(db.Text)
+    rsi_14 = db.Column(db.Text)
+
+class Symbol_XTB_price(db.Model):
+    __tablename__ = 'symbol_XTB_price'
+    id = db.Column(db.Integer, primary_key=True)
+    symbol_id = db.Column(db.Integer, db.ForeignKey('symbol_XTB.id'))
+    symbol = db.relationship('Symbol_XTB', back_populates="symbol_prices")
     date = db.Column(db.Text, nullable=False)
     open = db.Column(db.Text, nullable=False)
     high = db.Column(db.Text, nullable=False)

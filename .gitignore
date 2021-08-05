@@ -4,3 +4,9 @@ website/database.db
 website/XTBApi/logs/logfile.log.2021-07-18
 website/XTBApi/logs/logfile.log.2021-07-19
 website/XTBApi/logs/logfile.log.2021-07-21
+website/XTBApi/logs/logfile.log.2021-08-02
+website/XTBApi/logs/logfile.log.2021-08-03
+website/XTBApi/logs/logfile.log.2021-08-04
+website/XTBApi/logs/logfile.log
+website/XTBApi/logs/logfile.log
+*.log
