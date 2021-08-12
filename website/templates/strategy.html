@@ -2,13 +2,25 @@
 
 {% block content %}
 
-<h1>{% if title == 'Stock' %}<a  href="/stocks/strategies"> {% elif title == 'Crypto' %}<a  href="/cryptos/strategies">{% endif %}{{title}} Strategies</a>
+<h1><a  href="/{{broker.name}}/strategies">{{broker.name}} Strategies</a>
     <i class="angle double right icon"></i>
     {{ strategy.name }}
 </h1>
 
-{% if trading: %}
-<h2>{{title}}s traded by {{strategy.name}}</h2>
+<form method="get">
+    <div class="aside">
+        <select name="filter" class="toggle-divs">
+            <option value="">All symbols</option>
+            {% for trade in filters %}
+            <option {% if trade == request.args.get('filter') %}selected="selected" {% endif %} value="{{trade}}">{{trade}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <input type="submit" id="submitting" value="Apply filter" />
+</form>
+
+{% if symbols: %}
+<h2>{{trading.name}}s traded by {{strategy.name}}</h2>
 
 
 <script>
@@ -55,7 +67,7 @@
         var oTable = document.getElementById('myTable');
 
         //gets rows of table
-        var rowLength = oTable.rows.length;
+        var rowLength = oTable.rows.length;1
         
         //loops through rows    
         for (i = 1; i < rowLength; i++) {
@@ -90,6 +102,7 @@
 </script>
 
 
+
 <form id="form_delete_traded_strategy" name="form_delete_traded_strategy" {% if mode == 'applied' %}method="post" {% if title == 'Stock' %}action="/stocks/delete_traded_strategy"{% elif title == 'Crypto' %}action="/cryptos/delete_traded_strategy"{% endif %}{% else %}method="get" {% if title == 'Stock' %}action="/stocks/apply_saved_strategies/{{strategy.name}}"{% elif title == 'Crypto' %}action="/cryptos/apply_saved_strategies/{{strategy.name}}"{% endif %}{% endif %}>
 
     <input type="hidden" id="strategy_id" name="strategy_id" value="{{strategy.id}}">
@@ -98,8 +111,9 @@
         <thead>
             <tr>
                 <th>Symbol</th>
+                <th>trading</th>
                 <th>Name</th>
-                <th>{% if title == 'Stock' %}Stock ID{% elif title == 'Crypto' %}Crypto ID{% endif %}</th>
+                <th>{{trading.name}} ID</th>
                 <th>Parameter ID</th>
                 {% if strategy.name == "opening_range_breakout" or strategy.name == "opening_range_breakdown" %}
                 <th>observe_from</th>
@@ -120,11 +134,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for show in trading %}
+            {% for show in symbols %}
             <tr id="{{show.parameter_id}}">
                 <td class="row-data">{{ show.symbol }}</td>
+                <td class="row-data">{{ show.trading_name }}</td>
                 <td class="row-data">{{ show.name }}</td>
-                <td class="row-data">{{show.trading_id}}</td>
+                <td class="row-data">{{show.symbol_id}}</td>
                 <td class="row-data">{{ show.parameter_id }}</td>
                 {% if strategy.name == "opening_range_breakout" or strategy.name == "opening_range_breakdown" %}
                 <td class="row-data">{{ show.observe_from }}</td>

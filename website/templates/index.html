@@ -28,15 +28,13 @@
 <script type="text/javascript" src="{{ url_for('static', filename='scripts/toggle_div.js') }}"></script>
 
 <h1>
-    {{ title }} Filter
+    {{ trading.name }} Filter
 </h1>
-
-
 
 <form method="get">
     <div class="aside">
         <select name="filter" class="toggle-divs">
-            <option value="all_stocks">All {{ title }}s</option>
+            <option value="all_symbols">All {{ trading.name }}s</option>
             {% for filter in filters %}
             <option {% if filter.name == request.args.get('filter') %}selected="selected" {% endif %} value="{{filter.name}}">{{filter.name}}</option>
             {% endfor %}
@@ -45,11 +43,9 @@
 
     <div class="aside">
         <div class="divnew_closing_highs" style="display:none;">
-
         </div>
 
         <div class="divnew_closing_lows" style="display:none;">
-
         </div>
 
         <div class="divrsi_overbought" style="display:none;">
@@ -63,12 +59,14 @@
             <input type="number" id="number" name="rsi_os" value=30 min=1 max=100>
             <span class="validity"></span>
         </div>
+        <input type="hidden" id="trading_id" name="trading_id" value={{trading.id}}>
+        <input type="hidden" id="broker_id" name="broker_id" value={{broker.id}}>
         <input type="submit" id="submitting" value="Apply filter" />
     </div>
 </form>
 
 <h1>
-    {{ title }} List
+    {{ trading.name }} List {{broker.name}}
 </h1>
 
 <table class="ui striped table">
@@ -80,32 +78,31 @@
             <th>RSI 14</th>
             <th>SMA 20</th>
             <th>SMA 50</th>
-
         </tr>
     </thead>
     <tbody>
-        {% for show in trading %}
+        {% for symbol in symbols %}
         <tr>
-            <td>{{ show.symbol }}</td>
-            <td>{% if broker == 'alpaca' %}<a href="/{{broker}}/stock/{{show.symbol}}">{% elif broker == 'xtb' %}<a href="/{{ broker }}/symbol/{{show.symbol}}">{% elif broker == 'binance' %}<a href="/{{ broker }}/crypto/{{show.symbol}}">{% endif %}{{ show.name }}</a> </td>
-            {% if show.date %}
-            {% if show.close %}
-            <td>{{ show.close|float|round(2) }}</td>
+            <td>{{ symbol.symbol }}</td>
+            <td><a href="/{{broker.name}}/symbol/{{symbol.symbol}}">{{ symbol.name }}</a> </td>
+            {% if symbol.date %}
+            {% if symbol.close %}
+            <td>{{ symbol.close|float|round(2) }}</td>
             {% else %}
             <td>N/A</td>
             {% endif %}
-            {% if show.rsi_14 %}
-            <td>{{ show.rsi_14|float|round(2) }}</td>
+            {% if symbol.rsi_14 %}
+            <td>{{ symbol.rsi_14|float|round(2) }}</td>
             {% else %}
             <td>N/A</td>
             {% endif %}
-            {% if show.sma_20 %}
-            <td>{{ show.sma_20|float|round(3) }}</td>
+            {% if symbol.sma_20 %}
+            <td>{{ symbol.sma_20|float|round(3) }}</td>
             {% else %}
             <td>N/A</td>
             {% endif %}
-            {% if show.sma_50 %}
-            <td>{{ show.sma_50|float|round(3)}}</td>
+            {% if symbol.sma_50 %}
+            <td>{{ symbol.sma_50|float|round(3)}}</td>
             {% else %}
             <td>N/A</td>
             {% endif %}

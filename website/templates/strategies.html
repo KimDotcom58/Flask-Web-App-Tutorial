@@ -9,7 +9,7 @@
 <script type="text/javascript" src="{{ url_for('static', filename='scripts/modal.js') }}"></script>
 
 <h1>
-    {{title}} Strategies
+    {{broker.name}} Strategies
 </h1>
 <table class="ui striped table">
     <thead>
@@ -41,19 +41,19 @@
                 <div id="caption{{strategy.id}}"></div>
             </div>
         </td>
-        {% if title == "Stock" %}
+        {% if trading.name != "Crypto" %}
         <td>
-            <a href="strategy/{{ strategy.name }}/applied">List</a>
+            <a href="/{{broker.name}}/strategy/{{strategy.name}}/applied">List</a>
         </td>
         <td>
-            <a href="strategy/{{ strategy.name }}/saved">List</a>
+            <a href="/{{broker.name}}/strategy/{{strategy.name}}/saved">List</a>
         </td>
         {% else %}
         <td>
-            <a {% if strategy.name == 'bollinger_bands' %}href="strategy/{{ strategy.name }}/applied">List{% else %}>N/A{% endif %}</a>
+            <a {% if strategy.name == 'bollinger_bands' %}href="strategy/{{ strategy.name }}/applied/{{trading.id}}">List{% else %}>N/A{% endif %}</a>
         </td>
         <td>
-            <a {% if strategy.name == 'bollinger_bands' %}href="strategy/{{ strategy.name }}/saved">List{% else %}>N/A{% endif %}</a>
+            <a {% if strategy.name == 'bollinger_bands' %}href="strategy/{{ strategy.name }}/saved/{{trading.id}}">List{% else %}>N/A{% endif %}</a>
         </td>
         {% endif %}
     </tr>

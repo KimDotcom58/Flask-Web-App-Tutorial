@@ -18,6 +18,8 @@ class database(object):
             Trading
         ).all()
 
+        desc = {'STC': "Stock", "FX": "Forex", "ETF": "Fonds", "IND": "Indices", "CMD": "Commodities", "CRT": "Crypto"}
+
         category_names = [trading.trading for trading in tradings]
         symbols_xtb = xtb_api.get_all_symbols()
 
@@ -27,7 +29,7 @@ class database(object):
                 asset_symbol = symbol['symbol']
                 if asset_category not in category_names:
                     category_names.append(asset_category)
-                    new_trading = Trading(trading = asset_category)
+                    new_trading = Trading(trading = asset_category, name = desc[asset_category])
                     db.session.add(new_trading)
                     db.session.commit()
                     print(f"Added a new bond: {asset_category}")
@@ -67,6 +69,22 @@ class database(object):
             db.session.commit()
         print("...populated filters...")
 
+    def populate_brokers():
+        from .models import Broker
+        from .extensions import db
+
+        brokers = ['alpaca', 'binance', 'xtb']
+
+        for broker in brokers:
+            try:
+                new_broker = Broker(name=broker)
+                db.session.add(new_broker)
+                db.session.commit()
+            except Exception as e:
+                print(f"Exception: already has {broker}")
+
+        print("...populated filters...")
+
 
     def populate_alpaca_market():
         from .models import Market
@@ -99,8 +117,8 @@ class database(object):
 
         print("...populated markets...")
 
-    def populate_alpaca_stocks():
-        from .models import Stock, Market, Trading, Trading
+    def populate_alpaca_symbols():
+        from .models import Symbol_alpaca, Market, Trading, Trading
         from .extensions import db, alpaca_api
 
         trading_id = db.session.query(
@@ -109,9 +127,7 @@ class database(object):
             Trading.trading == "STC"
         ).first().id
 
-        print(trading_id)
-
-        stocks=db.session.query(Stock).all()
+        stocks=db.session.query(Symbol_alpaca).all()
         symbols = [stock.symbol for stock in stocks]
 
         assets = alpaca_api.list_assets()
@@ -126,27 +142,31 @@ class database(object):
                     if asset.status == 'active' and asset.tradable and asset.symbol not in symbols:
                         market_id = Market.query.filter_by(exchange=asset.exchange).first().id
                         print(f"Add a new alpaca symbol: {asset.exchange} {asset.symbol} {asset.name}")
-                        new_stock = Stock(symbol=asset.symbol, name=asset.name, market_id=market_id, shortable=asset.shortable, trading_id = trading_id)
+                        new_stock = Symbol_alpaca(symbol=asset.symbol, name=asset.name, market_id=market_id, shortable=asset.shortable, trading_id = trading_id)
                         db.session.add(new_stock)
                 except Exception as e:
                     print(f"Exception: {asset.symbol}")
                     print(e)
+                    print(f"Skip alpaca symbol: {asset.exchange} {asset.symbol} {asset.name}")
+
             db.session.commit()
     
         print("...populated alpaca stocks...")
 
-    def populate_alpaca_stock_prices():
+    def populate_alpaca_symbol_prices():
 
         from website import config
         import alpaca_trade_api as tradeapi
         import tulipy, numpy
         from datetime import date, datetime
-        from .models import Stock, Stock_price
+        from .models import Symbol_alpaca, Symbol_alpaca_price
         from .extensions import db
 
         # https://www.youtube.com/watch?v=Ni8mqdUXH3g
 
-        stocks=Stock.query.all()
+        stocks = db.session.query(
+            Symbol_alpaca
+        ).all()
 
         symbols = []
         stock_dict = {}
@@ -159,19 +179,21 @@ class database(object):
 
         current_date = date.today().isoformat()
 
+
         chunk_size = 200
         for i in range(0, len(symbols), chunk_size):
             symbol_chunk = symbols[i:i+chunk_size]
-            barsets = api.get_barset(symbol_chunk, 'day', start=current_date, end=current_date)
+            barsets = api.get_barset(symbol_chunk, 'day', start='2000-01-01', end=current_date)
 
             for symbol in barsets:
                 stock_id = stock_dict[symbol]
                 print(symbol)
-                date = db.session.query(func.max(Stock_price.date)).filter(Stock_price.stock_id==stock_id).scalar()
+                date1 = db.session.query(func.max(Symbol_alpaca_price.date)).filter(Symbol_alpaca_price.stock_id==stock_id).scalar()
+                close_done = None
                 close_done = []
 
                 try:
-                    max_date = datetime.strptime(date, '%Y-%m-%d').date().isoformat()
+                    max_date = datetime.strptime(date1, '%Y-%m-%d').date().isoformat()
 
                 except Exception as e:
                     # print(f"No data {e}")
@@ -183,7 +205,6 @@ class database(object):
 
                     if bar_date > max_date and bar_date < current_date:
                         sma_20, sma_50, rsi_14 = None, None, None
-
                         if len(close_done) > 20:
                             sma_20 = tulipy.sma(numpy.array(close_done), period=20)[-1]
 
@@ -192,11 +213,11 @@ class database(object):
 
                         if len(close_done) > 14:
                             rsi_14 = tulipy.rsi(numpy.array(close_done), period=14)[-1]
-                                                        
+
                         try:
-                            new_stock_price = Stock_price(stock_id=stock_id, date=bar.t.date(), open=bar.o, high=bar.h, low=bar.l, close=bar.c, volume=bar.v, sma_20=sma_20, sma_50=sma_50, rsi_14=rsi_14)
+                            new_stock_price = Symbol_alpaca_price(stock_id=stock_id, date=bar.t.date(), open=bar.o, high=bar.h, low=bar.l, close=bar.c, volume=bar.v, sma_20=sma_20, sma_50=sma_50, rsi_14=rsi_14)
                             db.session.add(new_stock_price)
-                            # print(f"added price to {symbol}")
+                            print(f"added price to {symbol}")
 
                         except Exception as e:
                             print(f"No stock-price added: {e}")
@@ -396,7 +417,7 @@ class database(object):
 
         print("...populated xtb symbols...")
 
-    def test_XY():
+    def populate_xtb_symbol_prices():
         from .extensions import xtb_api
         import datetime, time
         from datetime import date
@@ -466,15 +487,15 @@ class database(object):
         print("...populated stock prices...")
 
 
-    def populate_cryptos():
+    def populate_binance_symbols():
 
         from website import config
         from binance.client import Client
-        from .models import Crypto
+        from .models import Symbol_binance, Trading
         from .extensions import db
 
-        cryptos = Crypto.query.all()
-        symbols = [crypto.symbol for crypto in cryptos]
+        cryptos = Symbol_binance.query.all()
+        symbol_list = [crypto.symbol for crypto in cryptos]
 
         # Login to Client
         client = Client(api_key=config.api_key, api_secret=config.api_secret)
@@ -487,35 +508,40 @@ class database(object):
             client2.API_URL = config.API_URL_BINANCE
 
         exchange_info = client.get_exchange_info()
-        # print(exchange_info)
+        print(exchange_info['symbols'])
         
+        trading_id = db.session.query(
+            Trading
+        ).filter(
+            Trading.trading == "CRT"
+        ).first().id
+
         symbols=exchange_info['symbols']
         for symbol in symbols:
-            print(symbol)
-            print(symbol['symbol'])
 
             try:
-                if symbol['status'] == 'TRADING' and symbol['symbol'] not in symbols:
-                    print(f"Added a new crypto: {symbol['symbol']}")
-                    new_crypto = Crypto(symbol=symbol['symbol'], name=symbol['baseAsset'])
+                if symbol['status'] == 'TRADING' and symbol['symbol'] not in symbol_list:
+                    new_crypto = Symbol_binance(symbol=symbol['symbol'], name=symbol['baseAsset'], trading_id = trading_id)
                     db.session.add(new_crypto)
                     db.session.commit()
+                    print(f"Added a new crypto: {symbol['symbol']}")
+                else:
+                    print(f"Crypto already existing, skip: {symbol['symbol']}")
             except Exception as e:
-                print(symbol['symbol'])
-                print(e)
+                print(f"Exception: {symbol['symbol']}")
         print("...populated cryptos...")
 
-    def populate_crypto_prices():
+    def populate_binance_symbol_prices():
 
         from website import config
         from binance.client import Client
         import tulipy, numpy
         from datetime import date, datetime
-        from .models import Crypto, Crypto_price
+        from .models import Symbol_binance, Symbol_binance_price
         from .extensions import db
         # https://www.youtube.com/watch?v=Ni8mqdUXH3g
 
-        cryptos=Crypto.query.all()
+        cryptos=Symbol_binance.query.all()
 
         symbols = []
         crypto_dict = {}
@@ -536,15 +562,15 @@ class database(object):
             client2.API_URL = config.API_URL_BINANCE
 
         current_date = date.today().isoformat()
+        print(current_date)
 
         for symbol in symbols:
-            candlesticks = client2.get_historical_klines(symbol, Client.KLINE_INTERVAL_1DAY, "1 Jan, 2012", "12 Jul, 2020")
+            candlesticks = client2.get_historical_klines(symbol, Client.KLINE_INTERVAL_1DAY, "1 Jan, 2012", current_date)
 
             recent_closes = []
-            print(recent_closes)
             crypto_id = crypto_dict[symbol]
 
-            date = db.session.query(func.max(Crypto_price.date)).filter(Crypto_price.crypto_id==crypto_id).scalar()
+            date = db.session.query(func.max(Symbol_binance_price.date)).filter(Symbol_binance_price.crypto_id==crypto_id).scalar()
             print(f"Date_max 1: {date}")
 
             try:
@@ -562,14 +588,17 @@ class database(object):
                 bar_date = datetime.fromtimestamp(int(close_time/1000)).strftime('%Y-%m-%d')
 
                 if bar_date > max_date and bar_date < current_date:
+                    sma_20, sma_50, rsi_14 = None, None, None
 
-                    if len(recent_closes) >= 50:
+                    if len(recent_closes) > 20:
                         sma_20 = tulipy.sma(numpy.array(recent_closes), period=20)[-1]
+
+                    if len(recent_closes) > 50:
                         sma_50 = tulipy.sma(numpy.array(recent_closes), period=50)[-1]
+
+                    if len(recent_closes) > 14:
                         rsi_14 = tulipy.rsi(numpy.array(recent_closes), period=14)[-1]
-                    else:
-                        sma_20, sma_50, rsi_14 = None, None, None
-                        
+
                     try:
 
                         # open_time = candlestick[0] # timestamp unix
@@ -584,7 +613,7 @@ class database(object):
                         # taker_buy_base_asset_volume = candlestick[9] # timestamp unix
                         # taker_buy_quote_asset_volume = candlestick[10] # timestamp unix
 
-                        new_crypto_price = Crypto_price(crypto_id=crypto_id, date=bar_date, open=open, high=high, low=low, close=close, volume=volume, sma_20=sma_20, sma_50=sma_50, rsi_14=rsi_14)
+                        new_crypto_price = Symbol_binance_price(crypto_id=crypto_id, date=bar_date, open=open, high=high, low=low, close=close, volume=volume, sma_20=sma_20, sma_50=sma_50, rsi_14=rsi_14)
                         db.session.add(new_crypto_price)
                         print(f"added price to {symbol}")
 

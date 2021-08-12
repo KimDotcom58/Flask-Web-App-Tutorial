@@ -66,16 +66,12 @@ function myfunctionhandler(display) {
 
 </script>
 
-<h1>{% if title == 'Stock' %}<a  href="/stocks"> {% elif title == 'Crypto' %}<a  href="/cryptos">{% endif %}{{title}}s</a>
+<h1><a  href="/{{broker.name}}/index/{{trading.trading}}">{{trading.name}}s {{broker.name}}</a>
     <i class="angle double right icon"></i>
     {{ stock.name }} ({{ stock.symbol }})
 </h1>
 
-{% if trading: %}
-<h2>{{title}}s traded by {{strategy.name}}</h2>
-{%endif%}
-
-<h2>Market: {{stock.market_name}}</h2>
+<!-- <h2>Market: {{stock.market_name}}</h2> -->
 
 <div class="tradingview-widget-container">
     <div id="tradingview_a8dd1"></div>
@@ -85,7 +81,7 @@ function myfunctionhandler(display) {
             {
                 "width": "100%",
                 "height": 610,
-                "symbol": "{% if broker == 'alpaca' %}{% if stock.exchange == 'ARCA' %}AMEX{% else %}{{ stock.exchange }}{% endif %}:{{stock.symbol}}{% elif broker == 'xtb' %}{{symbol}}{% elif broker == 'binance' %}{{stock.symbol}}{% endif %}",
+                "symbol": "{% if broker.name == 'alpaca' %}{% if stock.exchange == 'ARCA' %}AMEX{% else %}{{ stock.exchange }}{% endif %}:{{stock.symbol}}{% elif broker.name == 'xtb' %}{{symbol}}{% elif broker.name == 'binance' %}{{stock.symbol}}{% endif %}",
                 "interval": "D",
                 "timezone": "Europe/London",
                 "theme": "dark",
@@ -107,10 +103,21 @@ function myfunctionhandler(display) {
     2. function asks user to replace applied strategy on stock or apply anyways
 -->
 
-<h3>Opens at {{stock.market_open_local}} and closes at {{stock.market_close_local}}</h3>
+
+<h3>
+    Market opening hours today:<br>
+    {% if opening_hours['morning_close'] %}
+    <!-- Market opens from {{opening_hours['morning_open']}} until {{opening_hours['morning_close']}}<br>and from {{opening_hours['evening_open']}} until {{opening_hours['evening_close']}} -->
+    {{opening_hours['morning_open']}} - {{opening_hours['morning_close']}} and {{opening_hours['evening_open']}} - {{opening_hours['evening_close']}}
+    {% else: %}
+    <!-- Market opens from {{opening_hours['morning_open']}} until {{opening_hours['evening_close']}} -->
+    {{opening_hours['morning_open']}} - {{opening_hours['evening_close']}}
+    {% endif %}
+</h3>
+
 
 <h2>Apply Strategy</h2>
-<form id="form_apply_strategy" name="form_apply_strategy" method="post" {% if title == "Stock" %}action="/stocks/apply_strategy"{% elif title == "Crypto" %}action="/cryptos/apply_strategy"{% endif %}>
+<form id="form_apply_strategy" name="form_apply_strategy" method="post" action="/{{broker.name}}/apply_strategy">
 
     <div class="aside">
         <select name="strategy_name", id="strategy_name" class="toggle-divs">
@@ -124,19 +131,19 @@ function myfunctionhandler(display) {
     <div class="aside">
 
         <!-- div to show BREAKOUT strategy -->
-        <div class="divopening_range_breakout" style="display:none;" id="div1">
+        <div class="divopening_range_breakout" style="display:none;" id="div1">week
 
             <!-- OBSERVE FROM -->
             <label for="observe_from_breakout">observe_from</label>
             <input type="time" name="observe_from_breakout" id="observe_from_breakout"
-                value="{{stock.market_open_local}}" readonly>
+                value="{{opening_hours['morning_open']}}" readonly>
             <span class="validity"></span>
             <br>
             <!-- OBSERVE UNTIL -->
             <label for="observe_until_breakout">observe_until</label>
             <input type="time" name="observe_until_breakout" id="observe_until_breakout"
-                value="{{stock.market_close_local}}" min={{stock.market_open_local}}
-                max="{{stock.market_close_local}}">
+                value="{{opening_hours['morning_open']}}" min="{{opening_hours['morning_open']}}"
+                max="{{opening_hours['evening_close']}}">
             <span class="validity"></span>
             <br>
             <!-- TRADING PRICE -->
@@ -150,14 +157,14 @@ function myfunctionhandler(display) {
             <!-- OBSERVE FROM -->
             <label for="observe_from_breakdown">observe_from</label>
             <input type="time" name="observe_from_breakdown" id="observe_from_breakdown"
-                value="{{stock.market_open_local}}" readonly>
+                value="{{opening_hours['morning_open']}}" readonly>
             <span class="validity"></span>
             <br>
             <!-- OBSERVE UNTIL -->
             <label for="observe_until_breakdown">observe_until</label>
             <input type="time" name="observe_until_breakdown" id="observe_until_breakdown"
-                value="{{stock.market_close_local}}" min={{stock.market_open_local}}
-                max="{{stock.market_close_local}}">
+                value="{{opening_hours['morning_open']}}" min="{{opening_hours['morning_open']}}"
+                max="{{opening_hours['evening_close']}}">
             <span class="validity"></span>
             <br>
             <!-- TRADING PRICE -->
@@ -174,7 +181,7 @@ function myfunctionhandler(display) {
             <span class="validity"></span>
             <br>
             <!-- PERIOD -->
-            <label for="stddev_bollinger">stddev</label>
+            <label for="stddev_bollinger">ststockddev</label>
             <input type="number" name="stddev_bollinger" id="stddev_bollinger" value=2 min=1 max=5>
             <span class="validity"></span>
             <br>
@@ -224,7 +231,8 @@ function myfunctionhandler(display) {
         <input type="hidden" value=15 name="trade_price" id="trade_price">
         <input type="hidden" value="{{stock.market_open_local}}" name="observe_from" id="observe_from">
         <input type="hidden" value="{{stock.market_close_local}}" name="observe_until" id="observe_until">
-        <input type="hidden" name="trading_id" value="{{ stock.id }}" />
+        <input type="hidden" name="symbol_id" value="{{ stock.id }}" />
+        <input type="hidden" name="trading_id" value="{{ trading.id }}" />
         <input type="submit" value="Apply Strategy" class="testform" onclick="return myfunctionhandler('block')"
             id="submitting" />
 </form>

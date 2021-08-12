@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquernamey.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
@@ -45,8 +45,9 @@
           <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
           {% if user.is_authenticated %}
           <li class="nav-item active"> <a class="nav-link" href="/">Home </a> </li>
-          <li class="nav-item dropdown" id="myDropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Stocks </a>
+
+          <!-- <li class="nav-item dropdown" id="myDropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Stocks (STC) </a>
             <ul class="dropdown-menu">
               <li> <a class="dropdown-item" href="#"> Tradeable Stocks &raquo; </a>
                 <ul class="submenu dropdown-menu">
@@ -64,8 +65,53 @@
               <li><a class="dropdown-item" href="/alpaca/orders"> Stock orders </a></li>
             </ul>
           </li>
+
           <li class="nav-item dropdown" id="myDropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Cryotos </a>
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Fonds (ETF) </a>
+            <ul class="dropdown-menu">
+              <li> <a class="dropdown-item" href="#"> Tradeable Fonds &raquo; </a>
+                <ul class="submenu dropdown-menu">
+                  <li><a class="dropdown-item" href="/xtb/index/ETF">XTB</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" id="myDropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Forex (FX) </a>
+            <ul class="dropdown-menu">
+              <li> <a class="dropdown-item" href="#"> Tradeable Forex &raquo; </a>
+                <ul class="submenu dropdown-menu">
+                  <li><a class="dropdown-item" href="/xtb/index/FX">XTB</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" id="myDropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Indices (IND) </a>
+            <ul class="dropdown-menu">
+              <li> <a class="dropdown-item" href="#"> Tradeable Indices &raquo; </a>
+                <ul class="submenu dropdown-menu">
+                  <li><a class="dropdown-item" href="/xtb/index/IND">XTB</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" id="myDropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  CMDs (CMD) </a>
+            <ul class="dropdown-menu">
+              <li> <a class="dropdown-item" href="#"> Tradeable CMDs &raquo; </a>
+                <ul class="submenu dropdown-menu">
+                  <li><a class="dropdown-item" href="/xtb/index/CMD">XTB</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li> 
+
+          <li class="nav-item dropdown" id="myDropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Cryotos (CRT) </a>
             <ul class="dropdown-menu">
               <li> <a class="dropdown-item" href="#"> Tradeable Cryptos &raquo; </a>
                 <ul class="submenu dropdown-menu">
@@ -76,7 +122,52 @@
               <li><a class="dropdown-item" href="/binance/strategies"> Crypto strategies </a></li>
               <li><a class="dropdown-item" href="/binance/orders"> Crypto orders </a></li>
             </ul>
+          </li>-->
+
+          <li class="nav-item dropdown" id="myDropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Alpaca </a>
+            <ul class="dropdown-menu">
+              <li> <a class="dropdown-item" href="#"> Market &raquo; </a>
+                <ul class="submenu dropdown-menu">
+                  <li><a class="dropdown-item" href="/alpaca/index/STC">Stocks (STC)</a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="/alpaca/strategies"> Strategies </a></li>
+              <li><a class="dropdown-item" href="/alpaca/orders"> Orders </a></li>
+            </ul>
           </li>
+
+          <li class="nav-item dropdown" id="myDropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Binance </a>
+            <ul class="dropdown-menu">
+              <li> <a class="dropdown-item" href="#"> Market &raquo; </a>
+                <ul class="submenu dropdown-menu">
+                  <li><a class="dropdown-item" href="/binance/index/CRT">Cryptos (CRT)</a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="/binance/strategies"> Strategies </a></li>
+              <li><a class="dropdown-item" href="/binance/orders"> Orders </a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" id="myDropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> XTB </a>
+            <ul class="dropdown-menu">
+              <li> <a class="dropdown-item" href="#"> Market &raquo; </a>
+                <ul class="submenu dropdown-menu">
+                  <li><a class="dropdown-item" href="/xtb/index/STC">Stocks (STC)</a></li>
+                  <li><a class="dropdown-item" href="/xtb/index/ETF">Fonds (ETF)</a></li>
+                  <li><a class="dropdown-item" href="/xtb/index/FX">Forex (FX)</a></li>
+                  <li><a class="dropdown-item" href="/xtb/index/IND">Indices (IND)</a></li>
+                  <li><a class="dropdown-item" href="/xtb/index/CMD">Commodities (CMD)</a></li>
+                  <li><a class="dropdown-item" href="/xtb/index/CRT">Cryptos (CRT)</a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="/xtb/strategies"> Strategies </a></li>
+              <li><a class="dropdown-item" href="/xtb/orders"> Orders </a></li>
+            </ul>
+          </li>
+
           <li class="nav-item"> <a class="nav-link" href="/schedulers">Scheduler </a> </li>
           <li class="nav-item"> <a class="nav-link" href="/logout">Logout </a> </li>
           {% else %}

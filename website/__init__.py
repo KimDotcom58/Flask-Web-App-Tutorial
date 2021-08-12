@@ -55,14 +55,14 @@ def create_app():
         from .views_alpaca import views_alpaca
         from .views_binance import views_binance
         from .views_xtb import views_xtb
-        from .scheduler_views import scheduler_views
+        from .views_scheduler import views_scheduler
         from .auth import auth
 
         app.register_blueprint(views, url_prefix='/')
         app.register_blueprint(views_alpaca, url_prefix='/alpaca')
         app.register_blueprint(views_binance, url_prefix='/binance')
         app.register_blueprint(views_xtb, url_prefix='/xtb')
-        app.register_blueprint(scheduler_views, url_prefix='/schedulers')
+        app.register_blueprint(views_scheduler, url_prefix='/schedulers')
         app.register_blueprint(auth, url_prefix='/')
 
         # If database does not exist, it will be created
@@ -100,8 +100,8 @@ def create_app():
             func=task_populate_database,
             trigger="cron",
             day_of_week='mon-sun',
-            hour=21,
-            minute=30,
+            hour=00,
+            minute=10,
             id="periodic stock populating",
             name="periodic stock populating",
             replace_existing=True
@@ -111,21 +111,21 @@ def create_app():
         #     func=task_populate_trading,
         #     trigger="cron",
         #     day_of_week='mon-sun',
-        #     hour=21,
-        #     minute=35,
+        #     hour=20,
+        #     minute=52,
         #     id="periodic stock populating",
         #     name="periodic stock populating",
         #     replace_existing=True,
         # )
 
-        # scheduler.add_job(
-        #     func=task_populate_trading,
-        #     trigger="interval",
-        #     seconds=10,
-        #     id="populate trading",
-        #     name="populate trading",
-        #     replace_existing=True,
-        # )
+        scheduler.add_job(
+            func=task_populate_trading,
+            trigger="interval",
+            seconds=10,
+            id="populate trading",
+            name="populate trading",
+            replace_existing=True,
+        )
 
     # xtb_api.get_chart_range_request(end = 1262944412000, period = 1, start = 1262944112000, symbol = 'EURUSD', ticks = 0)
 
@@ -141,7 +141,14 @@ def create_app():
     # for product in products:
     #     daxsymbols.append(Product(product).symbol)
     # degiro.logout()
+    # from .models import Broker
 
+    # brokers = ['alpaca', 'binance', 'xtb']
+
+    # for broker in brokers:
+    #     new_broker = Broker(name=broker)
+    #     db.session.add(new_broker)
+    #     db.session.commit()
     # instantiate login manager
     from .models import User
     login_manager = LoginManager()
@@ -166,14 +173,16 @@ def populate_database():
 
     database.populate_strategies()
     database.populate_filters()
+    database.populate_brokers()
     database.populate_alpaca_market()
     database.populate_trading()
     database.populate_user()
     database.populate_xtb_symbols_and_market()
-    database.populate_alpaca_stocks()
-    database.populate_alpaca_stock_prices()
-    database.populate_cryptos()
-    database.populate_crypto_prices()
+    database.populate_xtb_symbol_prices()
+    database.populate_alpaca_symbols()
+    database.populate_alpaca_symbol_prices()
+    database.populate_binance_symbols()
+    database.populate_binance_symbol_prices()
 
     print("Populated Database!")
     

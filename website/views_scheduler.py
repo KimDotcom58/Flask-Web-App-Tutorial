@@ -3,10 +3,9 @@ from flask_login import login_required, current_user
 from sqlalchemy import asc
 from .extensions import db
 
+views_scheduler = Blueprint('views_scheduler', __name__)
 
-scheduler_views = Blueprint('scheduler_views', __name__)
-
-@scheduler_views.route('/', methods=['GET', 'POST'])
+@views_scheduler.route('/', methods=['GET', 'POST'])
 @login_required
 def scheduler():
 

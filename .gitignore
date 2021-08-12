@@ -10,3 +10,13 @@ website/XTBApi/logs/logfile.log.2021-08-04
 website/XTBApi/logs/logfile.log
 website/XTBApi/logs/logfile.log
 *.log
+website/XTBApi/logs/logfile.log
+website/app.db
+website/XTBApi/logs/logfile.log.2021-08-10
+website/XTBApi/logs/logfile.log.2021-08-09
+website/XTBApi/logs/logfile.log.2021-08-08
+website/XTBApi/logs/logfile.log
+website/XTBApi/logs/logfile.log
+*.log
+*.db
+*.db

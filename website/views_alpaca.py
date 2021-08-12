@@ -1,8 +1,11 @@
+from re import T
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 from .extensions import db, alpaca_api
 import json
 from sqlalchemy import desc, asc, func
+
+broker_name = 'alpaca'
 
 views_alpaca = Blueprint('views_alpaca', __name__)
 
@@ -21,7 +24,7 @@ def orders():
     return render_template(
         "orders.html",
         title = 'Stock',
-        broker = 'alpaca',
+        broker = broker_name,
         user = current_user,
         request = request,
         orders = orders,
@@ -36,213 +39,225 @@ def index(trading):
     rsi_ob = request.args.get('rsi_ob')
     rsi_os = request.args.get('rsi_os')
 
-    from .models import Stock_price, Trading
-    max_date = db.session.query(func.max(Stock_price.date)).first()[0]
+    from .models import Symbol_alpaca_price, Trading
+    max_date = db.session.query(func.max(Symbol_alpaca_price.date)).first()[0]
 
     stocks = []
 
-    trading_id = db.session.query(
+    trading = db.session.query(
         Trading
     ).filter(
         Trading.trading == trading
-    ).first().id
+    ).first()
 
     # grab latest stock-data according filter
     if stock_filter == 'new_closing_highs':
 
-        from .models import Stock, Stock_price
+        from .models import Symbol_alpaca, Symbol_alpaca_price
 
         last_orders = db.session.query(
-            Stock_price.stock_id, db.func.max(Stock_price.close).label('max_close_stock')
-        ).group_by(Stock_price.stock_id).subquery()
+            Symbol_alpaca_price.symbol_id, db.func.max(Symbol_alpaca_price.close).label('max_close_stock')
+        ).group_by(Symbol_alpaca_price.symbol_id).subquery()
 
         stocks = db.session.query(
-                Stock_price
+                Symbol_alpaca_price
             ).join(
-                Stock, 
-                Stock.id == Stock_price.stock_id
+                Symbol_alpaca, 
+                Symbol_alpaca.id == Symbol_alpaca_price.symbol_id
             ).join(
                 last_orders,
-                last_orders.c.stock_id == Stock_price.stock_id
+                last_orders.c.symbol_id == Symbol_alpaca_price.symbol_id
             ).with_entities(
-                Stock.name, 
-                Stock.symbol, 
-                Stock.id, 
+                Symbol_alpaca.name, 
+                Symbol_alpaca.symbol, 
+                Symbol_alpaca.id, 
 
-                Stock_price.date, 
+                Symbol_alpaca_price.date, 
                 last_orders.c.max_close_stock,
-                Stock_price.close, 
-                Stock_price.sma_20, 
-                Stock_price.sma_50, 
-                Stock_price.rsi_14
+                Symbol_alpaca_price.close, 
+                Symbol_alpaca_price.sma_20, 
+                Symbol_alpaca_price.sma_50, 
+                Symbol_alpaca_price.rsi_14
             ).filter(
-                Stock_price.close == last_orders.c.max_close_stock,
-                Stock_price.date == max_date,
-                Stock.trading_id == trading_id
+                Symbol_alpaca_price.close == last_orders.c.max_close_stock,
+                Symbol_alpaca_price.date == max_date,
+                Symbol_alpaca.trading_id == trading.id
             ).order_by(
                 asc(
-                    Stock.symbol
+                    Symbol_alpaca.symbol
                 )
             ).all()
 
     elif stock_filter == 'new_closing_lows':
 
         last_orders = db.session.query(
-            Stock_price.stock_id, db.func.min(Stock_price.close).label('min_close_stock')
-        ).group_by(Stock_price.stock_id).subquery()
+            Symbol_alpaca_price.symbol_id, db.func.min(Symbol_alpaca_price.close).label('min_close_stock')
+        ).group_by(Symbol_alpaca_price.symbol_id).subquery()
 
-        from .models import Stock, Stock_price
+        from .models import Symbol_alpaca, Symbol_alpaca_price
 
         stocks = db.session.query(
-                Stock_price
+                Symbol_alpaca_price
             ).join(
-                Stock, 
-                Stock.id == Stock_price.stock_id
+                Symbol_alpaca, 
+                Symbol_alpaca.id == Symbol_alpaca_price.symbol_id
             ).join(
                 last_orders,
-                last_orders.c.stock_id == Stock_price.stock_id
+                last_orders.c.symbol_id == Symbol_alpaca_price.symbol_id
             ).with_entities(
-                Stock.name, 
-                Stock.symbol, 
-                Stock.id, 
+                Symbol_alpaca.name, 
+                Symbol_alpaca.symbol, 
+                Symbol_alpaca.id, 
 
-                Stock_price.date, 
+                Symbol_alpaca_price.date, 
                 last_orders.c.min_close_stock,
-                Stock_price.close, 
-                Stock_price.sma_20, 
-                Stock_price.sma_50, 
-                Stock_price.rsi_14
+                Symbol_alpaca_price.close, 
+                Symbol_alpaca_price.sma_20, 
+                Symbol_alpaca_price.sma_50, 
+                Symbol_alpaca_price.rsi_14
             ).filter(
-                Stock_price.close == last_orders.c.min_close_stock,
-                Stock_price.date == max_date,
-                Stock.trading_id == trading_id
-
+                Symbol_alpaca_price.close == last_orders.c.min_close_stock,
+                Symbol_alpaca_price.date == max_date,
+                Symbol_alpaca.trading_id == trading.id
             ).order_by(
                 asc(
-                    Stock.symbol
+                    Symbol_alpaca.symbol
                 )
             ).all()
 
     elif stock_filter == 'rsi_overbought':
 
-        from .models import Stock, Stock_price
+        from .models import Symbol_alpaca, Symbol_alpaca_price
         stocks = db.session.query(
-                Stock_price
+                Symbol_alpaca_price
             ).join(
-                Stock, 
-                Stock_price.stock_id == Stock.id
+                Symbol_alpaca, 
+                Symbol_alpaca_price.symbol_id == Symbol_alpaca.id
             ).with_entities(
-                Stock.name, 
-                Stock.symbol, 
-                Stock.id, 
+                Symbol_alpaca.name, 
+                Symbol_alpaca.symbol, 
+                Symbol_alpaca.id, 
 
-                Stock_price.date, 
-                Stock_price.close, 
-                Stock_price.sma_20, 
-                Stock_price.sma_50, 
-                Stock_price.rsi_14
+                Symbol_alpaca_price.date, 
+                Symbol_alpaca_price.close, 
+                Symbol_alpaca_price.sma_20, 
+                Symbol_alpaca_price.sma_50, 
+                Symbol_alpaca_price.rsi_14
             ).filter(
-                Stock_price.rsi_14 > str(rsi_ob),
-                Stock_price.date == max_date,
-                Stock.trading_id == trading_id
+                Symbol_alpaca_price.rsi_14 > str(rsi_ob),
+                Symbol_alpaca_price.date == max_date,
+                Symbol_alpaca.trading_id == trading.id
 
             ).order_by(
                 asc(
-                    Stock.symbol
+                    Symbol_alpaca.symbol
                 )
             ).all()
 
     elif stock_filter == 'rsi_oversold':
-        from .models import Stock, Stock_price
+        from .models import Symbol_alpaca, Symbol_alpaca_price
         stocks = db.session.query(
-                Stock_price
+                Symbol_alpaca_price
             ).join(
-                Stock, 
-                Stock_price.stock_id == Stock.id
+                Symbol_alpaca, 
+                Symbol_alpaca_price.symbol_id == Symbol_alpaca.id
             ).with_entities(
-                Stock.name, 
-                Stock.symbol, 
-                Stock.id, 
+                Symbol_alpaca.name, 
+                Symbol_alpaca.symbol, 
+                Symbol_alpaca.id, 
 
-                Stock_price.date, 
-                Stock_price.close, 
-                Stock_price.sma_20, 
-                Stock_price.sma_50, 
-                Stock_price.rsi_14
+                Symbol_alpaca_price.date, 
+                Symbol_alpaca_price.close, 
+                Symbol_alpaca_price.sma_20, 
+                Symbol_alpaca_price.sma_50, 
+                Symbol_alpaca_price.rsi_14
             ).filter(
-                Stock_price.rsi_14 < str(rsi_os),
-                Stock_price.date == max_date,
-                Stock.trading_id == trading_id
-
+                Symbol_alpaca_price.rsi_14 < str(rsi_os),
+                Symbol_alpaca_price.date == max_date,
+                Symbol_alpaca.trading_id == trading.id
             ).order_by(
                 asc(
-                    Stock.symbol
+                    Symbol_alpaca.symbol
                 )
             ).all()
 
     else:
-        from .models import Stock, Stock_price
+        from .models import Symbol_alpaca, Symbol_alpaca_price
 
         stocks = db.session.query(
-                Stock
+                Symbol_alpaca
             ).join(
-                Stock_price, 
-                Stock_price.stock_id == Stock.id
+                Symbol_alpaca_price, 
+                Symbol_alpaca_price.symbol_id == Symbol_alpaca.id
             ).with_entities(
-                Stock.name, 
-                Stock.symbol, 
-                Stock.id, 
+                Symbol_alpaca.name, 
+                Symbol_alpaca.symbol, 
+                Symbol_alpaca.id, 
 
-                Stock_price.date, 
-                Stock_price.close, 
-                Stock_price.sma_20, 
-                Stock_price.sma_50, 
-                Stock_price.rsi_14
+                Symbol_alpaca_price.date, 
+                Symbol_alpaca_price.close, 
+                Symbol_alpaca_price.sma_20, 
+                Symbol_alpaca_price.sma_50, 
+                Symbol_alpaca_price.rsi_14
             ).filter(
-                Stock_price.date == max_date,
-                Stock.trading_id == trading_id
+                Symbol_alpaca_price.date == max_date,
+                Symbol_alpaca.trading_id == trading.id
             ).order_by(
-                asc(Stock.symbol)
+                asc(Symbol_alpaca.symbol)
             ).all()
 
     from .models import Filter
     filters = Filter.query.all()
 
+    from .models import Broker
+    broker = db.session.query(
+            Broker
+        ).filter(
+            Broker.name == broker_name
+        ).first()
+
     return render_template(
         "index.html",
         request=request,
-        title = 'Stock',
-        broker = 'alpaca',
-        trading=stocks,
+        trading=trading,
+        broker=broker,
+        symbols=stocks,
         user=current_user,
         filters=filters
     )
 
-@views_alpaca.route("/stock/<symbol>", methods=['GET', 'POST'])
+@views_alpaca.route("/symbol/<symbol>", methods=['GET', 'POST'])
 @login_required
 def stock_detail(symbol):
 
     # # init database
     # [cursor, connection] = helpers.init_database()
-    from .models import Stock, Market, Strategy, Stock_strategy, Stock_price
+    from .models import Symbol_alpaca, Market, Strategy, Strategy_symbol, Symbol_alpaca_price, Trading, Broker
     stock = db.session.query(
-            Stock
+            Symbol_alpaca
         ).join(
             Market, 
-            Market.id == Stock.market_id
+            Market.id == Symbol_alpaca.market_id
         ).with_entities(
-            Stock.name, 
-            Stock.symbol, 
-            Stock.id, 
+            Symbol_alpaca.name, 
+            Symbol_alpaca.symbol, 
+            Symbol_alpaca.id, 
+            Symbol_alpaca.trading_id, 
 
             Market.name.label('market_name'),
             Market.market_close_local,
             Market.market_open_local
         ).filter(
-            Stock.symbol == symbol
+            Symbol_alpaca.symbol == symbol
         ).order_by(
-            asc(Stock.symbol)
+            asc(Symbol_alpaca.symbol)
         ).one()
+
+    opening_hours = {}
+    opening_hours["morning_open"] = stock.market_open_local
+    opening_hours["evening_close"] = stock.market_close_local
+
+    print(opening_hours)
 
     strategies = db.session.query(
             Strategy
@@ -266,9 +281,9 @@ def stock_detail(symbol):
     stocks = {}
 
     for strategy in strategies:
-        temp = db.session.execute("SELECT * from stock_strategy\
-            join " + strategy.params + " on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
-            where stock_strategy.stock_id = "+str(stock.id)+" and stock_strategy.strategy_id = "+ str(strategy.id))
+        temp = db.session.execute("SELECT * from strategy_symbol\
+            join " + strategy.params + " on " + strategy.params + ".parameter_id = strategy_symbol.parameter_id and " + strategy.params + ".trading_id = strategy_symbol.symbol_id\
+            where strategy_symbol.symbol_id = "+str(stock.id)+" and strategy_symbol.strategy_id = "+ str(strategy.id))
 
         stats = []
         for x in temp:
@@ -276,35 +291,52 @@ def stock_detail(symbol):
         parameters[strategy.name] = stats
                             
         temp_stock_ids = db.session.query(
-            Stock_strategy
+            Strategy_symbol
         ).with_entities(
-            Stock_strategy.stock_id
+            Strategy_symbol.symbol_id
         ).filter(
-            Stock_strategy.strategy_id == strategy.id
+            Strategy_symbol.strategy_id == strategy.id
         ).order_by(
-            asc(Stock_strategy.id)
+            asc(Strategy_symbol.id)
         ).all()
+
+        print(temp_stock_ids)
 
         # convert stock-id's in an array and write array in List
-        stock_id = []
+        symbol_id = []
         for temp_stock_id in temp_stock_ids:
-            stock_id.append(temp_stock_id.stock_id)
-        stocks[strategy.name] = stock_id
+            symbol_id.append(temp_stock_id.symbol_id)
+        stocks[strategy.name] = symbol_id
 
     bars = db.session.query(
-            Stock_price
+            Symbol_alpaca_price
         ).filter(
-            Stock_price.stock_id == stock.id
+            Symbol_alpaca_price.symbol_id == stock.id
         ).order_by(
-            desc(Stock_price.date)
+            desc(Symbol_alpaca_price.date)
         ).all()
         
+    print(stock.trading_id)
+
+    trading = db.session.query(
+        Trading
+    ).filter(
+        Trading.id == stock.trading_id
+    ).first()
+
+    broker = db.session.query(
+        Broker
+    ).filter(
+        Broker.name == broker_name
+    ).first()
+
     return render_template(
         "trading_detail.html",
         user = current_user,
+        opening_hours = opening_hours, 
         request = request, 
-        title = "Stock",
-        broker = 'alpaca',
+        broker = broker,
+        trading = trading,
         stock = stock, 
         bars = bars,  # recent data of stock
         strategies = strategies,  # possible strategies which can be applied
@@ -321,15 +353,17 @@ def stock_detail(symbol):
 def apply_strategy():
 
     strategy_name = request.form.get('strategy_name')
-    stock_id = request.form.get('trading_id')
-    print(f"stock_id: {stock_id}")
+    symbol_id = request.form.get('symbol_id')
+    trading_id = request.form.get('trading_id')
+    print(f"symbol_id: {symbol_id}")
+    print(f"trading_id: {trading_id}")
     trade_price = request.form.get('trade_price')
     observe_from = request.form.get('observe_from')
     observe_until = request.form.get('observe_until')
     period = request.form.get('period')
     stddev = request.form.get('stddev')
 
-    from .models import Strategy, Stock_strategy, Trading, Param_stock_strategy_breakdown, Param_stock_strategy_breakout, Param_stock_strategy_bollinger
+    from .models import Strategy, Strategy_symbol, Trading, Param_stock_strategy_breakdown, Param_stock_strategy_breakout, Param_stock_strategy_bollinger
 
     strategy = db.session.query(
             Strategy
@@ -344,27 +378,27 @@ def apply_strategy():
     trading = db.session.query(
             Trading
         ).filter(
-            Trading.trading == "STC"
+            Trading.id == trading_id
         ).first()
 
     # insert parameters into database
     
     if strategy.params == "param_stock_strategy_breakdown":
 
-        new_param_breakdown = Param_stock_strategy_breakdown(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
+        new_param_breakdown = Param_stock_strategy_breakdown(trading_id = symbol_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
         db.session.add(new_param_breakdown)
         db.session.commit()
 
     elif strategy.params == "param_stock_strategy_breakout":
 
-        new_param_breakout = Param_stock_strategy_breakout(trading_id = stock_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
+        new_param_breakout = Param_stock_strategy_breakout(trading_id = symbol_id, observe_from = observe_from, observe_until = observe_until, trade_price = trade_price, trading = trading.id)
         print(f"Observe Until 222: {observe_until}")
         db.session.add(new_param_breakout)
         db.session.commit()
 
     elif strategy.params == "param_stock_strategy_bollinger":
 
-        new_param_bollinger = Param_stock_strategy_bollinger(trading_id = stock_id, period = period, stddev = stddev, trade_price = trade_price, trading = trading.id)
+        new_param_bollinger = Param_stock_strategy_bollinger(trading_id = symbol_id, period = period, stddev = stddev, trade_price = trade_price, trading = trading.id)
         db.session.add(new_param_bollinger)
         db.session.commit()
 
@@ -373,18 +407,24 @@ def apply_strategy():
     except Exception as e:
         parameter_id = 0
 
+    from .models import Broker
+    broker = db.session.query(
+            Broker
+        ).filter(
+            Broker.name == broker_name
+        ).first()
+
     # insert stock_strategy into database
-    new_stock_strategy = Stock_strategy(stock_id = stock_id, strategy_id = strategy.id, parameter_id = parameter_id, is_traded = True)
+    new_stock_strategy = Strategy_symbol(symbol_id = symbol_id, strategy_id = strategy.id, parameter_id = parameter_id, is_traded = True, broker_id = broker.id, trading_id = trading.id)
     db.session.add(new_stock_strategy)
     db.session.commit()
 
-    return redirect(url_for('views_alpaca.strategy', strategy_name = strategy.name, mode = 'applied'))
+    return redirect(url_for('views_alpaca.strategy', strategy_name = strategy.name, mode = 'applied', trading_id = trading_id))
 
 @views_alpaca.route("/strategies", methods = ['GET', 'POST'])
 @login_required
 def strategies():
-
-    from .models import Strategy
+    from .models import Strategy, Trading, Broker
 
     strategies = db.session.query(
             Strategy
@@ -397,10 +437,20 @@ def strategies():
             asc(Strategy.id)
         ).all()
 
+    trading = db.session.query(
+        Trading
+    ).all()
+
+    broker = db.session.query(
+        Broker
+    ).filter(
+        Broker.name == broker_name
+    ).first()
+
     return render_template(
         "strategies.html",
-        title = "Stock",
-        broker = "alpaca",
+        broker = broker,
+        trading = trading, 
         user = current_user,
         request = request,
         strategies = strategies
@@ -409,8 +459,9 @@ def strategies():
 @views_alpaca.route("/strategy/<strategy_name>/<mode>")
 @login_required
 def strategy(strategy_name, mode):
-
-    from .models import Strategy, Trading
+    strategy_filter = request.args.get('filter')
+    print(strategy_filter)
+    from .models import Strategy, Trading, Broker
 
     strategy = db.session.query(
         Strategy
@@ -418,34 +469,57 @@ def strategy(strategy_name, mode):
         Strategy.name == strategy_name
     ).first()
 
-    trading = db.session.query(
-            Trading
-        ).filter(
-            Trading.trading == "STC"
-        ).first()
+    filter = ""
+
+    trading = {}
+        
+    if strategy_filter is not "" and strategy_filter is not None:
+
+        trading = db.session.query(
+                Trading
+            ).filter(
+                Trading.name == strategy_filter
+            ).first()
+        filter = " and " + strategy.params + ".trading = "+ str(trading.id)
+
+    else:
+        trading['name'] = "All symbol"
+
+    broker = db.session.query(
+        Broker
+    ).filter(
+        Broker.name == broker_name
+    ).first()
 
     applied_stocks = db.session.execute("SELECT * from " + strategy.params + "\
-        join stock_strategy on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
-        join stock on stock.id = stock_strategy.stock_id\
-        where stock_strategy.strategy_id = " + str(strategy.id) + " and " + strategy.params + ".trading = "+ str(trading.id)+"\
-        GROUP BY stock_strategy.parameter_id\
+        join strategy_symbol on " + strategy.params + ".parameter_id = strategy_symbol.parameter_id and " + strategy.params + ".trading_id = strategy_symbol.symbol_id\
+        join symbol_alpaca on symbol_alpaca.id = strategy_symbol.symbol_id\
+        join trading on symbol_alpaca.trading_id = trading.id\
+        where strategy_symbol.strategy_id = " + str(strategy.id) + " and strategy_symbol.broker_id = "+str(broker.id)+filter+"\
+        GROUP BY strategy_symbol.parameter_id\
         ORDER BY symbol")
 
     saved_stocks = db.session.execute("SELECT * from " + strategy.params + "\
-        join stock_strategy on " + strategy.params + ".parameter_id = stock_strategy.parameter_id and " + strategy.params + ".trading_id = stock_strategy.stock_id\
-        join stock on stock.id = " + strategy.params + ".trading_id\
-        where " + strategy.params + ".trading = "+ str(trading.id)+"\
+        join strategy_symbol on " + strategy.params + ".parameter_id = strategy_symbol.parameter_id and " + strategy.params + ".trading_id = strategy_symbol.symbol_id\
+        join symbol_alpaca on symbol_alpaca.id = " + strategy.params + ".trading_id\
+        where strategy_symbol.broker_id = "+str(broker.id)+filter+"\
         ORDER BY id")
 
     list_applied_stocks = []
+    list_names_applied = []
     list_stocks_applied = []
     for stock in applied_stocks:
         list_applied_stocks.append(stock.parameter_id) # parameter ids of the stocks
         list_stocks_applied.append(stock) # 
 
+        if stock.trading_id not in list_names_applied:
+            list_names_applied.append(stock.trading_id)
+
     list_saved_stocks = []
     list_stocks_saved = []
     is_traded = {}
+    list_names_saved = []
+
     for stock in saved_stocks:
         list_saved_stocks.append(stock.parameter_id) # parameter ids of the stocks
         list_stocks_saved.append(stock) # 
@@ -453,21 +527,49 @@ def strategy(strategy_name, mode):
             is_traded[stock.parameter_id] = True
         else:
             is_traded[stock.parameter_id] = False
+        
+        if stock.trading_id not in list_names_saved:
+            list_names_saved.append(stock.trading_id)
 
     if mode == 'applied':
         stocks = list_stocks_applied
+        names = []
+        for name in list_names_applied:
+            print(name)
+            names.append(
+                db.session.query(
+                    Trading
+                ).filter(
+                    Trading.id == name
+                ).first()
+            )
+        print(names)
 
     if mode == 'saved':
         stocks = list_stocks_saved
+        names = []
+        for name in list_names_applied:
+            print(name)
+            names.append(
+                db.session.query(
+                    Trading
+                ).filter(
+                    Trading.id == name
+                ).first()
+            )
+        print(names)
+
+    trading_names = [name.name for name in names]
 
     return render_template(
         "strategy.html",
-        title = 'Stock',
-        broker = 'alpaca',
+        broker = broker,
+        trading = trading, 
         user = current_user,
         request = request,
-        trading = stocks,
+        symbols = stocks,
         strategy = strategy,
+        filters = trading_names,
         mode = mode,
         is_traded = is_traded
     )
@@ -476,14 +578,14 @@ def strategy(strategy_name, mode):
 @login_required
 def delete_traded_strategy():
 
-    stock_id = request.form.get('trading_id')
+    symbol_id = request.form.get('trading_id')
     strategy_name = request.form.get('strategy_name')
     strategy_id = request.form.get('strategy_id')
     parameter_id = request.form.get('parameter_id')
 
-    from .models import Stock_strategy
+    from .models import Strategy_symbol
 
-    stock = db.session.query(Stock_strategy).filter_by(strategy_id = strategy_id, parameter_id = parameter_id, stock_id = stock_id)
+    stock = db.session.query(Strategy_symbol).filter_by(strategy_id = strategy_id, parameter_id = parameter_id, symbol_id = symbol_id)
     stock.delete()
     db.session.commit()
 
@@ -493,7 +595,7 @@ def delete_traded_strategy():
 @login_required
 def apply_saved_strategies(strategy_name):
 
-    from .models import Stock_strategy
+    from .models import Strategy_symbol
     
     array = request.args.get('parameters_to_apply')
     strategy_id = request.args.get('strategy_id')
@@ -502,7 +604,7 @@ def apply_saved_strategies(strategy_name):
     array_parsed = json.loads(array)
     print(array_parsed)
 
-    saved_stocks = db.session.query(Stock_strategy).filter_by(strategy_id = strategy_id).all()
+    saved_stocks = db.session.query(Strategy_symbol).filter_by(strategy_id = strategy_id).all()
 
     print(f"Saved Stocks 1: {saved_stocks}")
 
@@ -512,14 +614,14 @@ def apply_saved_strategies(strategy_name):
 
     # look to insert
     for parsed in array_parsed:
-        stock_id = array_parsed[parsed]['trading_id']
+        symbol_id = array_parsed[parsed]['trading_id']
         parameter_id = parsed
         print(parameter_id)
 
         try:
             b=applied_parameters_on_strategy.index(int(parameter_id))
         except ValueError:
-            new_stock_strategy = Stock_strategy(stock_id=stock_id, strategy_id=strategy_id, parameter_id = parameter_id, is_traded = True)
+            new_stock_strategy = Strategy_symbol(symbol_id=symbol_id, strategy_id=strategy_id, parameter_id = parameter_id, is_traded = True)
             db.session.add(new_stock_strategy)
             db.session.commit()
 
@@ -529,7 +631,7 @@ def apply_saved_strategies(strategy_name):
         if str(saved.parameter_id) not in array_parsed:
             print(f"Hallo: ")
 
-            db.session.query(Stock_strategy).filter_by(strategy_id = saved.strategy_id, parameter_id = saved.parameter_id, stock_id = saved.stock_id).update({"is_traded": False})
+            db.session.query(Strategy_symbol).filter_by(strategy_id = saved.strategy_id, parameter_id = saved.parameter_id, symbol_id = saved.symbol_id).update({"is_traded": False})
             db.session.commit()
 
     return redirect(url_for('views_alpaca.strategy', strategy_name = strategy_name, mode = 'saved'))

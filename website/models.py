@@ -20,9 +20,13 @@ class Filter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False)
 
+class Broker(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text, nullable=False)
+
 class Market(db.Model):
     __tablename__ = 'market'
-    stocks = db.relationship("Stock", back_populates="market")
+    stocks = db.relationship("Symbol_alpaca", back_populates="market")
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, unique=True, nullable=False)
     exchange = db.Column(db.Text, unique=True, nullable=False)
@@ -83,10 +87,11 @@ class Param_stock_strategy_breakdown(db.Model):
 class Trading(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     trading = db.Column(db.Text, nullable=False, unique=True)
+    name = db.Column(db.Text, nullable=False, unique=True)
 
-class Stock(db.Model):
-    __tablename__ = 'stock'
-    stock_prices = db.relationship("Stock_price", back_populates="stock")
+class Symbol_alpaca(db.Model):
+    __tablename__ = 'symbol_alpaca'
+    symbol_prices = db.relationship("Symbol_alpaca_price", back_populates="symbol")
     id = db.Column(db.Integer, primary_key=True, nullable=True)
     trading_id = db.Column(db.Integer, nullable=True)
     symbol = db.Column(db.Text, nullable=False, unique=True)
@@ -94,6 +99,15 @@ class Stock(db.Model):
     market_id = db.Column(db.Integer, db.ForeignKey('market.id'))
     market = db.relationship('Market', back_populates="stocks")
     shortable = db.Column(db.Boolean, nullable=False)
+
+class Symbol_binance(db.Model):
+    __tablename__ = 'symbol_binance'
+    symbol_prices = db.relationship("Symbol_binance_price", back_populates="symbol")
+    id = db.Column(db.Integer, primary_key=True, nullable=True)
+    symbol = db.Column(db.Text, nullable=False, unique=True)
+    name = db.Column(db.Text, nullable=False)
+    trading_id = db.Column(db.Integer, nullable = False)
+
 
 class Symbol_XTB(db.Model):
     __tablename__ = 'symbol_XTB'
@@ -107,11 +121,12 @@ class Symbol_XTB(db.Model):
     currency = db.Column(db.Text, nullable=False)
     trailing_enabled = db.Column(db.Boolean, nullable=False)
 
-class Stock_price(db.Model):
-    __tablename__ = 'stock_price'
+
+class Symbol_alpaca_price(db.Model):
+    __tablename__ = 'symbol_alpaca_price'
     id = db.Column(db.Integer, primary_key=True)
-    stock_id = db.Column(db.Integer, db.ForeignKey('stock.id'))
-    stock = db.relationship('Stock', back_populates="stock_prices")
+    symbol_id = db.Column(db.Integer, db.ForeignKey('symbol_alpaca.id'))
+    symbol = db.relationship('Symbol_alpaca', back_populates="symbol_prices")
     date = db.Column(db.Text, nullable=False)
     open = db.Column(db.Text, nullable=False)
     high = db.Column(db.Text, nullable=False)
@@ -121,6 +136,23 @@ class Stock_price(db.Model):
     sma_20 = db.Column(db.Text)
     sma_50 = db.Column(db.Text)
     rsi_14 = db.Column(db.Text)
+
+
+class Symbol_binance_price(db.Model):
+    __tablename__ = 'symbol_binance_price'
+    id = db.Column(db.Integer, primary_key=True)
+    symbol_id = db.Column(db.Integer, db.ForeignKey('symbol_binance.id'))
+    symbol = db.relationship('Symbol_binance', back_populates="symbol_prices")
+    date = db.Column(db.Text, nullable=False)
+    open = db.Column(db.Text, nullable=False)
+    high = db.Column(db.Text, nullable=False)
+    low = db.Column(db.Text, nullable=False)
+    close = db.Column(db.Text, nullable=False)
+    volume = db.Column(db.Text, nullable=False)
+    sma_20 = db.Column(db.Text)
+    sma_50 = db.Column(db.Text)
+    rsi_14 = db.Column(db.Text)
+ 
 
 class Symbol_XTB_price(db.Model):
     __tablename__ = 'symbol_XTB_price'
@@ -147,39 +179,12 @@ class Stock_price_minute(db.Model):
     close = db.Column(db.Text, nullable=False)
     volume = db.Column(db.Text, nullable=False)
 
-class Stock_strategy(db.Model):
+class Strategy_symbol(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    stock_id = db.Column(db.Integer, nullable=False)
+    symbol_id = db.Column(db.Integer, nullable=False)
     strategy_id = db.Column(db.Integer, nullable=False)
     parameter_id = db.Column(db.Integer, nullable=False)
+    broker_id = db.Column(db.Integer, nullable=False)
+    trading_id = db.Column(db.Integer, nullable=False)
     is_traded = db.Column(db.Boolean, nullable=False)
 
-class Crypto(db.Model):
-    __tablename__ = 'crypto'
-    crypto_prices = db.relationship("Crypto_price", back_populates="crypto")
-    id = db.Column(db.Integer, primary_key=True, nullable=True)
-    symbol = db.Column(db.Text, nullable=False, unique=True)
-    name = db.Column(db.Text, nullable=False)
-
-class Crypto_price(db.Model):
-    __tablename__ = 'crypto_price'
-    id = db.Column(db.Integer, primary_key=True)
-    crypto_id = db.Column(db.Integer, db.ForeignKey('crypto.id'))
-    crypto = db.relationship('Crypto', back_populates="crypto_prices")
-    date = db.Column(db.Text, nullable=False)
-    open = db.Column(db.Text, nullable=False)
-    high = db.Column(db.Text, nullable=False)
-    low = db.Column(db.Text, nullable=False)
-    close = db.Column(db.Text, nullable=False)
-    volume = db.Column(db.Text, nullable=False)
-    sma_20 = db.Column(db.Text)
-    sma_50 = db.Column(db.Text)
-    rsi_14 = db.Column(db.Text)
- 
-class Crypto_strategy(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    crypto_id = db.Column(db.Integer, nullable=False)
-    strategy_id = db.Column(db.Integer, nullable=False)
-    parameter_id = db.Column(db.Integer, nullable=False)
-    is_traded = db.Column(db.Boolean, nullable=False)
-    
